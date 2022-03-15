@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <data>
+
+    <import type="app.grand.tafwak.presentation.base.utils.Constants" />
+
+    <import type="android.view.View" />
+
+    <variable
+      name="eventListener"
+      type="app.grand.tafwak.presentation.auth.sign_up.RegisterEventListener" />
+
+    <variable
+      name="request"
+      type="app.grand.tafwak.domain.auth.entity.request.RegisterRequest" />
+  </data>
+
+  <androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+      <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_phone"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen14"
+        android:layout_marginTop="@dimen/dimen40"
+        android:layout_marginEnd="@dimen/dimen14"
+        android:hint="@string/register_phone"
+        android:textAlignment="viewEnd"
+        android:textColorHint="@color/darkGray"
+        app:error="@{request.validation.phoneError.equals(Constants.EMPTY)?@string/empty_warning:``}"
+        app:errorEnabled="@{request.validation.phoneError==null?false:true}"
+        app:helperTextTextColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:startIconDrawable="@drawable/ic_call"
+        app:startIconTint="@color/colorPrimaryDark">
+
+        <androidx.appcompat.widget.AppCompatEditText
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:inputType="phone"
+          android:text="@={request.phone}"
+          android:textAppearance="@style/TextAppearance.AppCompat.Small"
+          android:textColor="@color/colorPrimaryDark"
+          android:textColorHint="@color/darkGray"
+          android:textDirection="ltr" />
+      </com.google.android.material.textfield.TextInputLayout>
+
+      <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_job"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen14"
+        android:layout_marginTop="@dimen/dimen14"
+        android:layout_marginEnd="@dimen/dimen14"
+        android:hint="@string/password"
+        android:textAlignment="viewEnd"
+        android:textColorHint="@color/darkGray"
+        app:error="@{request.validation.passwordError.equals(Constants.EMPTY)?@string/empty_warning:``}"
+        app:errorEnabled="@{request.validation.passwordError==null?false:true}"
+        app:helperTextTextColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_phone"
+        app:passwordToggleEnabled="true"
+        app:startIconDrawable="@drawable/ic_password"
+        app:startIconTint="@color/colorPrimaryDark">
+
+        <androidx.appcompat.widget.AppCompatEditText
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:inputType="textPassword"
+          android:text="@={request.password}"
+          android:textAppearance="@style/TextAppearance.AppCompat.Small"
+          android:textColor="@color/colorPrimaryDark"
+          android:textColorHint="@color/darkGray" />
+      </com.google.android.material.textfield.TextInputLayout>
+
+      <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_new_password"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen14"
+        android:layout_marginTop="@dimen/dimen14"
+        android:layout_marginEnd="@dimen/dimen14"
+        android:hint="@string/password_hint_confirm"
+        android:textColorHint="@color/darkGray"
+        app:error="@{request.validation.confirmError.equals(Constants.EMPTY)?@string/empty_warning:``}"
+        app:errorEnabled="@{request.validation.confirmError==null?false:true}"
+        app:helperTextTextColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_job"
+        app:passwordToggleEnabled="true"
+        app:startIconDrawable="@drawable/ic_password"
+        app:startIconTint="@color/colorPrimaryDark">
+
+        <androidx.appcompat.widget.AppCompatEditText
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:inputType="textPassword"
+          android:text="@={request.password_confirmation}"
+          android:textAppearance="@style/TextAppearance.AppCompat.Small"
+          android:textColor="@color/colorPrimaryDark"
+          android:textColorHint="@color/darkGray" />
+      </com.google.android.material.textfield.TextInputLayout>
+
+      <com.google.android.material.button.MaterialButton
+        android:id="@+id/appCompatButtonNext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen25"
+        android:layout_marginTop="@dimen/dimen20"
+        android:layout_marginEnd="@dimen/dimen25"
+        android:onClick="@{()-> eventListener.signUp()}"
+        android:padding="@dimen/dimen10"
+        android:text="@string/sign_up"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/colorAccentDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_new_password" />
+
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_or"
+        style="@style/TextRegularFont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen50"
+        android:text="@string/or"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/colorDarkGray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatButtonNext" />
+
+
+      <View
+        android:id="@+id/v1"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginEnd="@dimen/dimen14"
+        android:background="@color/lightBlack"
+        app:layout_constraintBottom_toBottomOf="@id/tv_or"
+        app:layout_constraintEnd_toStartOf="@id/tv_or"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_or" />
+
+      <View
+        android:id="@+id/v2"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="@dimen/dimen14"
+        android:background="@color/lightBlack"
+        app:layout_constraintBottom_toBottomOf="@id/tv_or"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_or"
+        app:layout_constraintTop_toTopOf="@+id/tv_or" />
+
+      <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ic_facebook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_facebook" />
+
+
+      <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ic_google"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_google" />
+
+      <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flow_social"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen14"
+        app:constraint_referenced_ids="ic_facebook,ic_google"
+        app:flow_horizontalAlign="center"
+        app:flow_horizontalStyle="packed"
+        app:flow_wrapMode="chain"
+        app:layout_constraintTop_toBottomOf="@id/tv_or" />
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/login_no_account"
+        style="@style/TextMediumFont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?selectableItemBackground"
+        android:onClick="@{()->eventListener.back()}"
+        android:text="@string/have_account"
+        android:textAlignment="viewEnd"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/darkGray" />
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/login_no_account_bold"
+        style="@style/TextBoldFont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?selectableItemBackground"
+        android:onClick="@{()->eventListener.back()}"
+        android:text="@string/log_in"
+        android:textAlignment="viewStart"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/colorPrimaryDark" />
+
+      <androidx.constraintlayout.helper.widget.Flow
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen4"
+        android:layout_marginTop="@dimen/dimen14"
+        android:layout_marginEnd="@dimen/dimen4"
+        android:layout_marginBottom="@dimen/dimen12"
+        app:constraint_referenced_ids="login_no_account,login_no_account_bold"
+        app:flow_horizontalGap="@dimen/dimen4"
+        app:flow_horizontalStyle="packed"
+        app:flow_verticalBias="0"
+        app:flow_wrapMode="chain"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flow_social" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </androidx.core.widget.NestedScrollView>
+</layout>

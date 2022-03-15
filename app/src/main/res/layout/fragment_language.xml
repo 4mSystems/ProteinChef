@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <data>
+
+    <variable
+      name="langEventListener"
+      type="app.grand.tafwak.presentation.language.LangEventListener" />
+
+    <variable
+      name="viewModel"
+      type="app.grand.tafwak.presentation.language.LanguageViewModel" />
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundGray">
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/tv_langTitle"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/dimen16"
+      android:layout_marginTop="@dimen/dimen25"
+      android:layout_marginEnd="@dimen/dimen16"
+      android:background="@drawable/corner_view_gray_border"
+      android:drawableEnd="@drawable/ic_arrow_up"
+      android:padding="@dimen/dimen16"
+      android:text="@string/choose_lang"
+      android:textAlignment="viewStart"
+      android:textAppearance="@style/TextAppearance.AppCompat.Title"
+      android:textColor="@color/black"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+      android:id="@+id/radio_group"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:background="@drawable/corner_white"
+      android:orientation="vertical"
+      app:layout_constraintEnd_toEndOf="@id/tv_langTitle"
+      app:layout_constraintStart_toStartOf="@id/tv_langTitle"
+      app:layout_constraintTop_toBottomOf="@id/tv_langTitle">
+
+      <RadioButton
+        android:id="@+id/ar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen16"
+        android:buttonTint="@color/colorPrimaryDark"
+        android:checked="@{viewModel.selectedLang.equals(`ar`)?true:false}"
+        android:padding="@dimen/dimen16"
+        android:text="@string/ar"
+        android:textAlignment="viewEnd"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+      <View
+        android:layout_width="wrap_content"
+        android:layout_height=".1dp"
+        android:layout_marginTop="@dimen/dimen10"
+        android:background="@color/gray" />
+
+      <RadioButton
+        android:id="@+id/en"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:buttonTint="@color/colorPrimaryDark"
+        android:checked="@{viewModel.selectedLang.equals(`en`)?true:false}"
+        android:padding="@dimen/dimen16"
+        android:text="@string/en"
+        android:textAlignment="viewEnd"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    </RadioGroup>
+
+    <com.google.android.material.button.MaterialButton
+      style="Widget.MaterialComponents.Button.OutlinedButton"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/dimen16"
+      android:onClick="@{()-> langEventListener.chooseLang()}"
+      android:padding="@dimen/dimen10"
+      android:text="@string/choose_lang_toolbar"
+      android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+      android:textColor="@color/white"
+      app:backgroundTint="@color/colorAccentDark"
+      app:layout_constraintBottom_toBottomOf="parent" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

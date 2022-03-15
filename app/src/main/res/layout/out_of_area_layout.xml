@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <data>
+
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/corner_white">
+
+    <com.airbnb.lottie.LottieAnimationView
+      android:id="@+id/empty_lottie"
+      android:layout_width="@dimen/dimen100"
+      android:layout_height="@dimen/dimen70"
+      android:layout_margin="@dimen/dimen10"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:lottie_autoPlay="true"
+      app:lottie_fileName="home_out_of_range.json"
+      app:lottie_loop="true" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/tv_out_area_title"
+      style="@style/TextMediumFont"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/dimen10"
+      android:layout_marginTop="@dimen/dimen4"
+      android:layout_marginEnd="@dimen/dimen10"
+      android:text="@string/out_area_title_msg"
+      android:textAppearance="@style/TextAppearance.AppCompat.Small"
+      android:textColor="@color/black"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@id/empty_lottie"
+      app:layout_constraintTop_toTopOf="@id/empty_lottie" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/tv_out_area_body"
+      style="@style/TextMediumFont"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/dimen10"
+      android:layout_marginEnd="@dimen/dimen10"
+      android:text="@string/out_area_body_msg"
+      android:textAppearance="@style/TextAppearance.AppCompat.Small"
+      android:textColor="@color/lightBlack"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@id/empty_lottie"
+      app:layout_constraintTop_toBottomOf="@id/tv_out_area_title" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+option java_package = "com.structure.base_mvvm";
+option java_multiple_files = true;
+message DefaultLocation{
+  int32 id = 1;
+  string title = 2;
+  string body = 3;
+
+
+}

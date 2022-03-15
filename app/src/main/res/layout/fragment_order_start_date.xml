@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <variable
+      name="eventListener"
+      type="app.grand.tafwak.presentation.order_start_date.OrderStartDateEventListener" />
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundGray">
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/tv_start"
+      style="@style/TextBoldFont"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/dimen16"
+      android:layout_marginTop="@dimen/dimen30"
+      android:layout_marginEnd="@dimen/dimen16"
+      android:text="@string/start_date"
+      android:textAppearance="@style/TextAppearance.AppCompat.Title"
+      android:textColor="@color/black"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <CalendarView
+      android:id="@+id/calendar"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_marginTop="@dimen/dimen16"
+      android:dateTextAppearance="@style/TextAppearance.AppCompat.Medium"
+      android:weekDayTextAppearance="@style/TextAppearance.AppCompat.Medium"
+      app:layout_constraintBottom_toTopOf="@id/add_location"
+      app:layout_constraintTop_toBottomOf="@+id/tv_start"
+      tools:listitem="@layout/item_package_category" />
+
+    <com.google.android.material.button.MaterialButton
+      android:id="@+id/add_location"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/dimen16"
+      android:onClick="@{()->eventListener.openMeals()}"
+      android:padding="@dimen/dimen10"
+      android:text="@string/next"
+      android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+      app:backgroundTint="@color/colorAccentDark"
+      app:layout_constraintBottom_toBottomOf="parent" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

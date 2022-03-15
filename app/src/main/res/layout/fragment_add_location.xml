@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <data>
+
+    <import type="app.grand.tafwak.presentation.base.utils.Constants" />
+
+    <import type="android.view.View" />
+
+    <variable
+      name="eventListener"
+      type="app.grand.tafwak.presentation.my_locations.listeners.AddLocationEventListener" />
+
+    <variable
+      name="request"
+      type="app.grand.tafwak.domain.my_locations.entity.request.AddLocationRequest" />
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      app:layout_constraintBottom_toTopOf="@id/appCompatButtonNext"
+      app:layout_constraintTop_toTopOf="parent">
+
+      <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+          android:id="@+id/input_title"
+          style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="@dimen/dimen14"
+          android:layout_marginTop="@dimen/dimen40"
+          android:layout_marginEnd="@dimen/dimen14"
+          android:hint="@string/location_name"
+          android:textAlignment="viewEnd"
+          android:textColorHint="@color/darkGray"
+          app:error="@{request.validation.titleError.equals(Constants.EMPTY)?@string/empty_warning:``}"
+          app:errorEnabled="@{request.validation.titleError==null?false:true}"
+          app:helperTextTextColor="@color/black"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent">
+
+          <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:text="@={request.title}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/darkGray"
+            android:textDirection="ltr" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+          android:id="@+id/input_building"
+          style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="@dimen/dimen14"
+          android:layout_marginTop="@dimen/dimen14"
+          android:layout_marginEnd="@dimen/dimen14"
+          android:hint="@string/building_number"
+          android:textAlignment="viewEnd"
+          android:textColorHint="@color/darkGray"
+          app:error="@{request.validation.buildingError.equals(Constants.EMPTY)?@string/empty_warning:``}"
+          app:errorEnabled="@{request.validation.buildingError==null?false:true}"
+          app:helperTextTextColor="@color/black"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/input_title">
+
+          <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:text="@={request.bulding_num}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/darkGray" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+          android:id="@+id/input_flat"
+          style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="@dimen/dimen14"
+          android:layout_marginTop="@dimen/dimen14"
+          android:layout_marginEnd="@dimen/dimen14"
+          android:hint="@string/flat_number"
+          android:textColorHint="@color/darkGray"
+          app:error="@{request.validation.flatError.equals(Constants.EMPTY)?@string/empty_warning:``}"
+          app:errorEnabled="@{request.validation.flatError==null?false:true}"
+          app:helperTextTextColor="@color/black"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/input_building">
+
+          <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:text="@={request.flat_num}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/darkGray" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+          android:id="@+id/input_note"
+          style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="@dimen/dimen14"
+          android:layout_marginTop="@dimen/dimen14"
+          android:layout_marginEnd="@dimen/dimen14"
+          android:hint="@string/location_note"
+          android:textColorHint="@color/darkGray"
+          app:error="@{request.validation.noteError.equals(Constants.EMPTY)?@string/empty_warning:``}"
+          app:errorEnabled="@{request.validation.noteError==null?false:true}"
+          app:helperTextTextColor="@color/black"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/input_flat">
+
+          <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:text="@={request.notes}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/darkGray" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+      </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.appcompat.widget.AppCompatButton
+      android:id="@+id/appCompatButtonNext"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:onClick="@{()-> eventListener.addLocation()}"
+      android:padding="@dimen/dimen10"
+      android:text="@string/next"
+      android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+      android:textColor="@color/white"
+      android:background="@color/colorAccentDark"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent" />
+
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

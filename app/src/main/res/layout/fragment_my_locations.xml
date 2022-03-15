@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <variable
+      name="eventListener"
+      type="app.grand.tafwak.presentation.my_locations.listeners.MyLocationsEventListener" />
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundGray">
+
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/rc_coupon"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_marginTop="@dimen/dimen16"
+      app:layout_constraintBottom_toTopOf="@id/add_location"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:listitem="@layout/item_location" />
+
+    <com.google.android.material.button.MaterialButton
+      android:id="@+id/add_location"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/dimen16"
+      android:onClick="@{()->eventListener.toAddLocation()}"
+      android:padding="@dimen/dimen10"
+      android:text="@string/add_location"
+      android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+      app:backgroundTint="@color/colorAccentDark"
+      app:layout_constraintBottom_toBottomOf="parent" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

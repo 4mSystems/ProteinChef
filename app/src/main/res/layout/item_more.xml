@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <variable
+      name="eventListener"
+      type="app.grand.tafwak.presentation.more.MoreEventListener" />
+
+    <variable
+      name="itemMore"
+      type="app.grand.tafwak.presentation.more.MoreItem" />
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/dimen16"
+    android:layout_marginTop="@dimen/dimen10"
+    android:layout_marginEnd="@dimen/dimen16"
+    android:background="@drawable/corner_white"
+    android:onClick="@{()-> eventListener.itemAction(itemMore.directions,itemMore.type)}">
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/tv_more_item"
+      style="@style/TextMediumFont"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/dimen8"
+      android:layout_marginTop="@dimen/dimen16"
+      android:layout_marginBottom="@dimen/dimen16"
+      android:text="@{itemMore.title}"
+      android:textAlignment="viewEnd"
+      android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+      android:textColor="@color/black"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:text="@string/contact_us" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+      android:id="@+id/btn_details"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="@dimen/dimen16"
+      android:contentDescription="@string/app_name"
+      android:src="@drawable/ic_left"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:tint="@color/colorPrimaryDark" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

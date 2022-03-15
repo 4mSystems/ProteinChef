@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <data>
+
+    <import type="app.grand.tafwak.presentation.base.utils.Constants" />
+
+    <import type="android.view.View" />
+
+    <variable
+      name="request"
+      type="app.grand.tafwak.domain.profile.entity.UpdateProfileRequest" />
+
+    <variable
+      name="eventListener"
+      type="app.grand.tafwak.presentation.profile.ProfileEventListener" />
+
+    <variable
+      name="userUiState"
+      type="app.grand.tafwak.presentation.profile.ui_state.UserUiState" />
+  </data>
+
+  <androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+      <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_phone"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen14"
+        android:layout_marginTop="@dimen/dimen40"
+        android:layout_marginEnd="@dimen/dimen14"
+        android:hint="@string/register_phone"
+        android:textAlignment="viewEnd"
+        android:textColorHint="@color/darkGray"
+        android:visibility="@{userUiState.showProfileData()}"
+        app:error="@{request.validation.phoneError.equals(Constants.EMPTY)?@string/empty_warning:``}"
+        app:errorEnabled="@{request.validation.phoneError==null?false:true}"
+        app:helperTextTextColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatEditText
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:inputType="phone"
+          android:text="@={request.phone}"
+          android:textAppearance="@style/TextAppearance.AppCompat.Small"
+          android:textColor="@color/colorPrimaryDark"
+          android:textColorHint="@color/darkGray"
+          android:textDirection="ltr" />
+      </com.google.android.material.textfield.TextInputLayout>
+
+      <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_name"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen14"
+        android:layout_marginTop="@dimen/dimen18"
+        android:layout_marginEnd="@dimen/dimen14"
+        android:hint="@string/register_name"
+        android:textColorHint="@color/darkGray"
+        app:error="@{request.validation.nameError.equals(Constants.EMPTY)?@string/empty_warning:``}"
+        app:errorEnabled="@{request.validation.nameError==null?false:true}"
+        app:helperTextTextColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_phone">
+
+        <com.google.android.material.textfield.TextInputEditText
+          android:id="@+id/auto"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:inputType="textAutoComplete|textAutoCorrect"
+          android:text="@={request.name}"
+          android:textAppearance="@style/TextAppearance.AppCompat.Small"
+          android:textColor="@color/colorPrimaryDark"
+          android:textColorHint="@color/darkGray" />
+      </com.google.android.material.textfield.TextInputLayout>
+
+      <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_age"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen14"
+        android:layout_marginTop="@dimen/dimen18"
+        android:layout_marginEnd="@dimen/dimen14"
+        android:hint="@string/age"
+        android:textColorHint="@color/darkGray"
+        app:error="@{request.validation.ageError.equals(Constants.EMPTY)?@string/empty_warning:``}"
+        app:errorEnabled="@{request.validation.ageError==null?false:true}"
+        app:helperTextTextColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_name">
+
+        <com.google.android.material.textfield.TextInputEditText
+          android:id="@+id/in_teacher_name"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:inputType="numberDecimal"
+          android:text="@={request.age}"
+          android:textAppearance="@style/TextAppearance.AppCompat.Small"
+          android:textColor="@color/colorPrimaryDark"
+          android:textColorHint="@color/darkGray" />
+      </com.google.android.material.textfield.TextInputLayout>
+
+      <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_gender"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen14"
+        android:layout_marginTop="@dimen/dimen14"
+        android:layout_marginEnd="@dimen/dimen14"
+        android:hint="@string/gender_type"
+        android:textAlignment="viewEnd"
+        android:textColorHint="@color/darkGray"
+        app:endIconDrawable="@drawable/ic_arrow_down"
+        app:endIconMode="dropdown_menu"
+        app:error="@{request.validation.genderError.equals(Constants.EMPTY)?@string/empty_warning:``}"
+        app:errorEnabled="@{request.validation.genderError==null?false:true}"
+        app:helperTextTextColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_age">
+
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+          android:id="@+id/in_gender"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:entries="@array/gender"
+          android:inputType="none"
+          android:labelFor="@id/in_gender"
+          android:textAppearance="@style/TextAppearance.AppCompat.Small"
+          android:textColor="@color/colorPrimaryDark"
+          android:textColorHint="@color/darkGray" />
+      </com.google.android.material.textfield.TextInputLayout>
+
+      <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_weight"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen14"
+        android:layout_marginTop="@dimen/dimen14"
+        android:layout_marginEnd="@dimen/dimen14"
+        android:hint="@string/weight"
+        android:textColorHint="@color/darkGray"
+        app:error="@{request.validation.weightError.equals(Constants.EMPTY)?@string/empty_warning:``}"
+        app:errorEnabled="@{request.validation.weightError==null?false:true}"
+        app:helperTextTextColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_gender">
+
+        <androidx.appcompat.widget.AppCompatEditText
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:inputType="numberDecimal"
+          android:text="@={request.weight}"
+          android:textAppearance="@style/TextAppearance.AppCompat.Small"
+          android:textColor="@color/colorPrimaryDark"
+          android:textColorHint="@color/darkGray" />
+      </com.google.android.material.textfield.TextInputLayout>
+
+      <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_height"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen14"
+        android:layout_marginTop="@dimen/dimen14"
+        android:layout_marginEnd="@dimen/dimen14"
+        android:hint="@string/height"
+        android:textColorHint="@color/darkGray"
+        app:error="@{request.validation.heightError.equals(Constants.EMPTY)?@string/empty_warning:``}"
+        app:errorEnabled="@{request.validation.heightError==null?false:true}"
+        app:helperTextTextColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_weight">
+
+        <androidx.appcompat.widget.AppCompatEditText
+          android:id="@+id/update_password"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:inputType="numberDecimal"
+          android:text="@={request.height}"
+          android:textAppearance="@style/TextAppearance.AppCompat.Small"
+          android:textColor="@color/colorPrimaryDark" />
+      </com.google.android.material.textfield.TextInputLayout>
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_change_password"
+        style="@style/TextBoldFont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen16"
+        android:onClick="@{()-> eventListener.changePassword()}"
+        android:text="@string/change_password"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorPrimaryDark"
+        android:visibility="@{userUiState.showProfileData()}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_height" />
+
+      <com.google.android.material.button.MaterialButton
+        android:id="@+id/appCompatButtonNext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen12"
+        android:layout_marginTop="@dimen/dimen20"
+        android:layout_marginEnd="@dimen/dimen12"
+        android:layout_marginBottom="@dimen/dimen20"
+        android:onClick="@{()-> eventListener.updateProfile()}"
+        android:padding="@dimen/dimen10"
+        android:text="@string/save"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/colorAccentDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_change_password" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </androidx.core.widget.NestedScrollView>
+</layout>

@@ -1,0 +1,129 @@
+<resources>
+  <string name="app_name_debug" translatable="false">بروتين شيف</string>
+  <string name="app_name" translatable="false">بروتين شيف </string>
+
+  <!-- General Strings -->
+  <string name="empty_warning">This field is required</string>
+  <string name="connection_error">Connection Error</string>
+  <string name="no_internet">No internet connection please try again later</string>
+  <string name="retry">Retry</string>
+  <string name="cancel">Cancel</string>
+  <string name="some_error">Some error occurred, try again later</string>
+
+  <!-- Home -->
+  <string name="home">Home</string>
+  <string name="account">Account</string>
+
+  <!-- Tutorial -->
+  <string name="dot" translatable="false">•</string>
+  <string name="next">Next</string>
+  <string name="previous_app">السابق</string>
+  <!-- Intro -->
+  <string name="log_in_sign_up">Log In / Sign Up</string>
+
+  <!-- Log In -->
+  <string name="log_in">Log In</string>
+  <string name="email">Email Address</string>
+  <string name="password">Password</string>
+  <string name="forgot_your_password">Forgot your password?</string>
+  <string name="not_have_account">Don\'t have an account?</string>
+  <string name="empty_email">Please enter your email address</string>
+  <string name="invalid_email">Please enter valid email address</string>
+  <string name="empty_password">Please enter your password</string>
+
+  <!-- Sign Up -->
+  <string name="sign_up">Sign Up</string>
+
+  <!-- Account -->
+  <string name="log_out">Log Out</string>
+  <string name="log_out_hint">Are you sure you want to log out?</string>
+  <string name="skip">Skip</string>
+  <string name="explore_app">Need to explore app features?</string>
+  <string name="continue_as_guest">Continue as Guest</string>
+  <!--  <string name="google_api_key">Continue as Guest</string>-->
+  <string name="send">Send</string>
+  <string name="contact_us">Contact us</string>
+  <string name="or">او عن طريق</string>
+  <string name="register_name">اكتب اسمك</string>
+  <string name="register_phone"> رقم الهاتف </string>
+  <string name="email_hint">أدخل البريد الإلكتروني</string>
+  <string name="password_hint_confirm">قم بتأكيد كلمة المرور</string>
+  <string name="agree_to">أوافق على</string>
+  <string name="have_account">لدي حساب</string>
+  <string name="privacy">سياسة الخصوصية</string>
+  <string name="terms_auth">شروط الاستخدام |</string>
+  <string name="confirm_header_text">تأكيد حسابك</string>
+  <string name="confirm_resend">إعادة ارسال</string>
+  <string name="confirm_header">أدخل كود التفعيل المرسل لك على بريدك الإلكتروني</string>
+  <!--  <string name="rememeber">تذكرت كلمة المرور</string>-->
+  <string name="change_title">كلمة مرور جديدة</string>
+  <string name="change_body">من فضللك قم بكتابة كلمة مرور جديدة مع التأكد من عدم علم اي شخص بها</string>
+  <string name="old_password">كلمة المرور القديمة</string>
+  <string name="confirm">تأكيد</string>
+  <string name="packages">معلمين مقترحين</string>
+  <string name="all">عرض الجميع</string>
+  <string name="offers">مجموعات مقترحة</string>
+  <string name="test">إختبر نفسك</string>
+  <string name="profile">بياناتي الشخصية</string>
+  <string name="my_groups">مجموعاتي</string>
+  <string name="lessons">الحصص التعويضية</string>
+  <string name="my_meals">المعلمين</string>
+  <string name="menu_more">الاختبارات</string>
+  <string name="terms">الشروط والاحكام</string>
+  <string name="suggestions">الشكاوي والاقتراحات</string>
+  <string name="about">عن التطبيق</string>
+  <string name="share_app">مشاركة التطبيق</string>
+  <string name="rate_app">تقيم التطبيق</string>
+  <string name="message">الرسالة</string>
+  <string name="notifications">Notifications</string>
+  <string name="change_password">تغير كلمة المرور</string>
+  <string name="change_country">تغير الدولة</string>
+  <string name="change_study">تغير بياناتي الدراسيه</string>
+  <string name="save">حفظ</string>
+  <string name="age">اكتب اسمك المستعار</string>
+  <string name="student">طالب</string>
+  <string name="teacher">معلم</string>
+  <string name="not_match_password">كلمتا المرور غير متطابقتان</string>
+  <string name="empty_terms">يرجى الموافقه على الشروط والاحكام</string>
+  <string name="empty_image">يرجى اختيار الصورة</string>
+  <string name="continue_register_title">هل تريد استكمال البيانات ؟</string>
+  <string name="yes">نعم</string>
+  <string name="continue_register_body">يمكنك استكمال انشاء حسابك عند اخر خطوة</string>
+  <string name="active">تفعيل الحساب</string>
+  <string name="social">مواقع التواصل الاجتماعي</string>
+  <string name="male_gender">ذكر</string>
+  <string name="female_gender">انثي</string>
+  <string name="gender_type">النوع</string>
+  <string name="open_app">بدأ التطبيق</string>
+  <string name="choose_lang">اختر اللغة المناسبة لك</string>
+  <string name="ar">اللغة العربية</string>
+  <string name="en">english</string>
+  <string name="choose_lang_toolbar">اختيار اللغة</string>
+  <string name="forgot_header">أدخل رقم هاتف تستطيع تلقي الرسائل عليه</string>
+  <string name="remember_password">تذكرت كلمة المرور</string>
+  <string name="weight">" أضف وزنك بالكيلو جرام"</string>
+  <string name="height">أضف الطول</string>
+    <string name="out_area_title_msg">نأسف لك لا نوصل في هذه المنطقه الان</string>
+  <string name="out_area_body_msg">نحن نعمل بكل جهد حتي نصل الي منطقتك في اقرب وقت .. انتظرنا قريباً</string>
+  <string name="my_locations">عناويني</string>
+  <string name="promo_codes">كوبونات الخصم المكتسبة</string>
+  <string name="support">الدعم الفني</string>
+  <string name="lang">اللغة</string>
+  <string name="no_coupon_avail">لايوجد كوبونات خصم حتى الان</string>
+  <string name="copied">"تم نسخ الكود بنجاح "</string>
+  <string name="no_locations_avail">لا يوجد عناوين حتى الان</string>
+  <string name="location_name">اسم العنوان :</string>
+  <string name="location_address">العنوان :</string>
+  <string name="add_location">أضافة عنوان</string>
+    <string name="building_number">رقم المبني</string>
+  <string name="flat_number">رقم الطابق</string>
+  <string name="location_note">علامة مميزه</string>
+    <string name="coin">رس</string>
+    <string name="menu_dialog_title">هذا البرنامج يشمل</string>
+  <string name="show_menu">عرض المنيو</string>
+    <string name="start_date">قم بأختيار معاد ابتداء الباقة</string>
+    <string-array name="gender">
+    <item>Male</item>
+    <item>Female</item>
+  </string-array>
+</resources>
