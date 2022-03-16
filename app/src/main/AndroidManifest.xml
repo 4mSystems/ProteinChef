@@ -50,9 +50,12 @@
     <!--      android:name="com.google.android.geo.API_KEY"-->
     <!--      android:value="@string/google_api_key" />-->
     <!-- End Google Services -->
-    <!--    tafawaqtafawaq@gmail.com-->
 
-    <!--    tafawaq123tafawaq-->
+    <!--    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  github key -->
+
+
+    <!--    protien.chef2022@gmail.com
+            Pprotien_chef2022-->
     <service
       android:name="app.te.protein_chef.core.MyFirebaseMessagingService"
       android:exported="false">
