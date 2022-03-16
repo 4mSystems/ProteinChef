@@ -22,6 +22,7 @@ class MealsDateUiState(private val date: String) : MealsUiState {
     item ?: return
     val binding = DataBindingUtil.bind<ItemDateMealsBinding>(item)
     binding?.itemUiState = this
+
   }
 
   override fun getId(): Int = 0
