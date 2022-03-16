@@ -5,11 +5,11 @@
 
   <data>
 
-    <import type="app.grand.tafwak.presentation.base.utils.Constants" />
+    <import type="app.te.protein_chef.presentation.base.utils.Constants" />
 
     <variable
       name="viewModel"
-      type="app.grand.tafwak.presentation.home.viewModels.HomeViewModel" />
+      type="app.te.protein_chef.presentation.home.viewModels.HomeViewModel" />
   </data>
 
   <androidx.core.widget.NestedScrollView

@@ -7,11 +7,11 @@
 
     <variable
       name="myLocationsEventListener"
-      type="app.grand.tafwak.presentation.my_locations.listeners.MyLocationsEventListener" />
+      type="app.te.protein_chef.presentation.my_locations.listeners.MyLocationsEventListener" />
 
     <variable
       name="uiState"
-      type="app.grand.tafwak.presentation.packages.ui_state.PackageCategoryUiItem" />
+      type="app.te.protein_chef.presentation.packages.ui_state.PackageCategoryUiItem" />
   </data>
 
 

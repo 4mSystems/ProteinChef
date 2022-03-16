@@ -6,7 +6,7 @@
 
   <fragment
     android:id="@+id/home_fragment"
-    android:name="app.grand.tafwak.presentation.home.HomeFragment"
+    android:name="app.te.protein_chef.presentation.home.HomeFragment"
     android:label="@string/home"
     tools:layout="@layout/fragment_home">
 
@@ -21,7 +21,7 @@
 
   <fragment
     android:id="@+id/accountFragment"
-    android:name="app.grand.tafwak.presentation.account.AccountFragment"
+    android:name="app.te.protein_chef.presentation.account.AccountFragment"
     android:label="@string/account">
 
     <action
@@ -50,7 +50,7 @@
   <include app:graph="@navigation/nav_profile" />
   <fragment
     android:id="@+id/moreFragment"
-    android:name="app.grand.tafwak.presentation.more.MoreFragment">
+    android:name="app.te.protein_chef.presentation.more.MoreFragment">
 
     <action
       android:id="@+id/action_moreFragment_to_aboutFragment"
@@ -90,12 +90,12 @@
   </fragment>
   <fragment
     android:id="@+id/aboutFragment"
-    android:name="app.grand.tafwak.presentation.about.AboutFragment"
+    android:name="app.te.protein_chef.presentation.about.AboutFragment"
     android:label="@string/about" />
 
   <fragment
     android:id="@+id/contact_fragment"
-    android:name="app.grand.tafwak.presentation.contactUs.ContactUsFragment"
+    android:name="app.te.protein_chef.presentation.contactUs.ContactUsFragment"
     android:label="@string/contact_us">
     <argument
       android:name="type"
@@ -105,23 +105,23 @@
 
   <fragment
     android:id="@+id/privacy_fragment"
-    android:name="app.grand.tafwak.presentation.privacy.PrivacyFragment"
+    android:name="app.te.protein_chef.presentation.privacy.PrivacyFragment"
     android:label="@string/privacy" />
   <fragment
     android:id="@+id/terms_fragment"
-    android:name="app.grand.tafwak.presentation.terms.TermsFragment"
+    android:name="app.te.protein_chef.presentation.terms.TermsFragment"
     android:label="@string/terms" />
   <fragment
     android:id="@+id/languageFragment2"
-    android:name="app.grand.tafwak.presentation.language.LanguageFragment"
+    android:name="app.te.protein_chef.presentation.language.LanguageFragment"
     android:label="@string/choose_lang_toolbar" />
   <fragment
     android:id="@+id/couponsFragment"
-    android:name="app.grand.tafwak.presentation.my_coupons.CouponsFragment"
+    android:name="app.te.protein_chef.presentation.my_coupons.CouponsFragment"
     android:label="@string/promo_codes" />
   <fragment
     android:id="@+id/myLocationsFragment"
-    android:name="app.grand.tafwak.presentation.my_locations.MyLocationsFragment"
+    android:name="app.te.protein_chef.presentation.my_locations.MyLocationsFragment"
     android:label="@string/my_locations">
     <action
       android:id="@+id/action_myLocationsFragment_to_addLocationFragment"
@@ -133,11 +133,11 @@
   </fragment>
   <fragment
     android:id="@+id/addLocationFragment"
-    android:name="app.grand.tafwak.presentation.my_locations.AddLocationFragment"
+    android:name="app.te.protein_chef.presentation.my_locations.AddLocationFragment"
     android:label="@string/add_location" />
   <fragment
     android:id="@+id/packageCategoriesFragment"
-    android:name="app.grand.tafwak.presentation.packages.PackageCategoriesFragment"
+    android:name="app.te.protein_chef.presentation.packages.PackageCategoriesFragment"
     android:label="{title}">
     <argument
       android:name="title"
@@ -151,7 +151,7 @@
   </fragment>
   <dialog
     android:id="@+id/menuDialog"
-    android:name="app.grand.tafwak.presentation.packages.MenuDialog"
+    android:name="app.te.protein_chef.presentation.packages.MenuDialog"
     android:label="MenuDialog">
     <argument
       android:name="category_id"
@@ -169,7 +169,7 @@
   </dialog>
   <fragment
     android:id="@+id/orderStartDateFragment"
-    android:name="app.grand.tafwak.presentation.order_start_date.OrderStartDateFragment"
+    android:name="app.te.protein_chef.presentation.order_start_date.OrderStartDateFragment"
     android:label="{title}">
     <argument
       android:name="category_id"
@@ -187,7 +187,7 @@
   </fragment>
   <fragment
     android:id="@+id/mealsFragment"
-    android:name="app.grand.tafwak.presentation.meals.MealsFragment"
+    android:name="app.te.protein_chef.presentation.meals.MealsFragment"
     android:label="MealsFragment">
     <argument
       android:name="package_id"

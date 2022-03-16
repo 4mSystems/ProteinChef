@@ -7,11 +7,11 @@
 
     <variable
       name="eventListener"
-      type="app.grand.tafwak.presentation.more.MoreEventListener" />
+      type="app.te.protein_chef.presentation.more.MoreEventListener" />
 
     <variable
       name="itemMore"
-      type="app.grand.tafwak.presentation.more.MoreItem" />
+      type="app.te.protein_chef.presentation.more.MoreItem" />
   </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout

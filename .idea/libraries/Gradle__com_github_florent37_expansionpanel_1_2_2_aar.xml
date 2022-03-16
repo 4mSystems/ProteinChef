@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.florent37:expansionpanel:1.2.2@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/a60f2ad38bf2031d3503c1875222a2bd/transformed/jetified-expansionpanel-1.2.2/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/a60f2ad38bf2031d3503c1875222a2bd/transformed/jetified-expansionpanel-1.2.2/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/a60f2ad38bf2031d3503c1875222a2bd/transformed/jetified-expansionpanel-1.2.2/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/17971bf30fccf6d08d520beb88ec2c16/transformed/jetified-expansionpanel-1.2.2/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/17971bf30fccf6d08d520beb88ec2c16/transformed/jetified-expansionpanel-1.2.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/17971bf30fccf6d08d520beb88ec2c16/transformed/jetified-expansionpanel-1.2.2/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

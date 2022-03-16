@@ -12,11 +12,11 @@
 
     <variable
       name="request"
-      type="app.grand.tafwak.domain.auth.entity.request.VerifyAccountRequest" />
+      type="app.te.protein_chef.domain.auth.entity.request.VerifyAccountRequest" />
 
     <variable
       name="eventListener"
-      type="app.grand.tafwak.presentation.auth.confirmCode.ConfirmCodeEventListener" />
+      type="app.te.protein_chef.presentation.auth.confirmCode.ConfirmCodeEventListener" />
   </data>
 
   <androidx.core.widget.NestedScrollView

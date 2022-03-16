@@ -7,7 +7,7 @@
 
     <variable
       name="eventListener"
-      type="app.grand.tafwak.presentation.order_start_date.OrderStartDateEventListener" />
+      type="app.te.protein_chef.presentation.order_start_date.OrderStartDateEventListener" />
   </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout
@@ -87,6 +87,16 @@
           app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
           app:layout_constraintTop_toBottomOf="@id/tv_start"
           tools:listitem="@layout/item_main_meal_category" />
+
+        <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/rc_meals"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_margin="@dimen/dimen16"
+          app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+          app:layout_constraintTop_toBottomOf="@id/rc_main_meals"
+          tools:listitem="@layout/item_data_meals" />
+
       </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 

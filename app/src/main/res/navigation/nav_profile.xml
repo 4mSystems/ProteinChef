@@ -6,7 +6,7 @@
 
   <fragment
     android:id="@+id/profileFragment2"
-    android:name="app.grand.tafwak.presentation.profile.ProfileFragment"
+    android:name="app.te.protein_chef.presentation.profile.ProfileFragment"
     android:label="@string/profile">
     <action
       android:id="@+id/actionProfileFragmentToUpdatePassword"
@@ -18,6 +18,6 @@
   </fragment>
   <fragment
     android:id="@+id/changePasswordFragment2"
-    android:name="app.grand.tafwak.presentation.profile.changePassword.ChangePasswordFragment"
+    android:name="app.te.protein_chef.presentation.profile.changePassword.ChangePasswordFragment"
     android:label="@string/change_password" />
 </navigation>

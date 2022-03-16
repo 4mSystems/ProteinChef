@@ -2,9 +2,10 @@
   <library name="Gradle: androidx.databinding:viewbinding:7.0.2@aar">
     <CLASSES>
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/051cffc9fffd33f043187c1bcb56bd54/transformed/jetified-viewbinding-7.0.2/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/0d916f4fcc8b5b242864f7050c18e779/transformed/jetified-viewbinding-7.0.2/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/0d916f4fcc8b5b242864f7050c18e779/transformed/jetified-viewbinding-7.0.2/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/0d916f4fcc8b5b242864f7050c18e779/transformed/jetified-viewbinding-7.0.2/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/f0981f9d828f1098bb3e904f0c005fe2/transformed/jetified-viewbinding-7.0.2/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/f0981f9d828f1098bb3e904f0c005fe2/transformed/jetified-viewbinding-7.0.2/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/f0981f9d828f1098bb3e904f0c005fe2/transformed/jetified-viewbinding-7.0.2/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

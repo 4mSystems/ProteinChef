@@ -5,12 +5,12 @@
 
   <data>
 
-    <import type="app.grand.tafwak.presentation.base.utils.Constants" />
+    <import type="app.te.protein_chef.presentation.base.utils.Constants" />
 
 
     <variable
       name="uiState"
-      type="app.grand.tafwak.presentation.account.ui_state.AccountUiState" />
+      type="app.te.protein_chef.presentation.account.ui_state.AccountUiState" />
   </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout

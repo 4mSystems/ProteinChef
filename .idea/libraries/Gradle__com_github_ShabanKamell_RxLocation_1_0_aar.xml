@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.ShabanKamell:RxLocation:1.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/adb33564311966351f4508ca11cf4471/transformed/jetified-RxLocation-1.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/adb33564311966351f4508ca11cf4471/transformed/jetified-RxLocation-1.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/adb33564311966351f4508ca11cf4471/transformed/jetified-RxLocation-1.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/25d91616a85b5a6d78a5b1b8cd3ad3e3/transformed/jetified-RxLocation-1.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/25d91616a85b5a6d78a5b1b8cd3ad3e3/transformed/jetified-RxLocation-1.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/25d91616a85b5a6d78a5b1b8cd3ad3e3/transformed/jetified-RxLocation-1.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.ShabanKamell/RxLocation/1.0/35579398737362beaf41189346d5f7d7d535cf61/RxLocation-1.0-javadoc.jar!/" />

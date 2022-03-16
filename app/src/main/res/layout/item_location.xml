@@ -6,11 +6,11 @@
 
     <variable
       name="myLocationsEventListener"
-      type="app.grand.tafwak.presentation.my_locations.listeners.MyLocationsEventListener" />
+      type="app.te.protein_chef.presentation.my_locations.listeners.MyLocationsEventListener" />
 
     <variable
       name="uiStateLocation"
-      type="app.grand.tafwak.presentation.my_locations.ui_state.MyLocationsDataUiState" />
+      type="app.te.protein_chef.presentation.my_locations.ui_state.MyLocationsDataUiState" />
   </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout

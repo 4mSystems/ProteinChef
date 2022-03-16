@@ -1,6 +1,6 @@
 object Config {
   object AppConfig {
-    const val appId = "app.grand.tafwak"
+    const val appId = "app.te.protein_chef"
     const val compileSdkVersion = 31
     const val minSdkVersion = 23
     const val versionCode = 1
@@ -41,6 +41,6 @@ object Config {
   object Environments {
     const val roomDb = "\"tafwk_db\""
     const val debugBaseUrl = "\"http://protenchef.golden-info.com/api/\""
-    const val releaseBaseUrl = "\"https://tafawaq.my-staff.net/api/\""
+    const val releaseBaseUrl = "\"http://protenchef.golden-info.com/api/\""
   }
 }

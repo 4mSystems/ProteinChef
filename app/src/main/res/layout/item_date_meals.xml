@@ -7,7 +7,7 @@
 
     <variable
       name="itemUiState"
-      type="app.grand.tafwak.presentation.meals.ui_state.MealsDateUiState" />
+      type="app.te.protein_chef.presentation.meals.ui_state.MealsDateUiState" />
   </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout

@@ -79,6 +79,9 @@ android {
       buildConfigField("String", "API_BASE_URL", Config.Environments.releaseBaseUrl)
       buildConfigField("String", "ROOM_DB", Config.Environments.roomDb)
     }
+    buildTypes.all {
+      proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+    }
   }
 
   compileOptions {
@@ -123,6 +126,7 @@ dependencies {
   implementation(Libraries.multidex)
   implementation(Libraries.permissions)
   implementation(Libraries.gson)
+//  implementation("com.google.crypto.tink:tink-android:HEAD-SNAPSHOT")
 
 // paging
   implementation(Libraries.paging_version)

@@ -7,7 +7,7 @@
 
     <variable
       name="uiState"
-      type="app.grand.tafwak.presentation.more.MoreUiState" />
+      type="app.te.protein_chef.presentation.more.MoreUiState" />
   </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout

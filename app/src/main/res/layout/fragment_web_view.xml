@@ -4,7 +4,7 @@
   <data>
     <variable
         name="viewModel"
-        type="app.grand.tafwak.presentation.shared.web_view.WebViewViewModel"
+        type="app.te.protein_chef.presentation.shared.web_view.WebViewViewModel"
         />
   </data>
 

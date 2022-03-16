@@ -4,21 +4,21 @@
 
   <data>
 
-    <import type="app.grand.tafwak.presentation.base.utils.Constants" />
+    <import type="app.te.protein_chef.presentation.base.utils.Constants" />
 
     <import type="android.view.View" />
 
     <variable
       name="request"
-      type="app.grand.tafwak.domain.profile.entity.UpdateProfileRequest" />
+      type="app.te.protein_chef.domain.profile.entity.UpdateProfileRequest" />
 
     <variable
       name="eventListener"
-      type="app.grand.tafwak.presentation.profile.ProfileEventListener" />
+      type="app.te.protein_chef.presentation.profile.ProfileEventListener" />
 
     <variable
       name="userUiState"
-      type="app.grand.tafwak.presentation.profile.ui_state.UserUiState" />
+      type="app.te.protein_chef.presentation.profile.ui_state.UserUiState" />
   </data>
 
   <androidx.core.widget.NestedScrollView

@@ -6,11 +6,11 @@
 
     <variable
       name="langEventListener"
-      type="app.grand.tafwak.presentation.language.LangEventListener" />
+      type="app.te.protein_chef.presentation.language.LangEventListener" />
 
     <variable
       name="viewModel"
-      type="app.grand.tafwak.presentation.language.LanguageViewModel" />
+      type="app.te.protein_chef.presentation.language.LanguageViewModel" />
   </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout

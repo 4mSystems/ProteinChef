@@ -7,11 +7,11 @@
 
     <variable
       name="coupnEventListener"
-      type="app.grand.tafwak.presentation.my_coupons.MyCouponsEventListener" />
+      type="app.te.protein_chef.presentation.my_coupons.MyCouponsEventListener" />
 
     <variable
       name="uiState"
-      type="app.grand.tafwak.presentation.my_coupons.ui_state.MyCouponDataUiState" />
+      type="app.te.protein_chef.presentation.my_coupons.ui_state.MyCouponDataUiState" />
   </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout

@@ -7,7 +7,7 @@
 
     <variable
       name="eventListener"
-      type="app.grand.tafwak.presentation.packages.ui_state.PackageCategoriesEventListener" />
+      type="app.te.protein_chef.presentation.packages.ui_state.PackageCategoriesEventListener" />
   </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout

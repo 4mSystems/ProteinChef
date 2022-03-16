@@ -4,17 +4,17 @@
 
   <data>
 
-    <import type="app.grand.tafwak.presentation.base.utils.Constants" />
+    <import type="app.te.protein_chef.presentation.base.utils.Constants" />
 
     <import type="android.view.View" />
 
     <variable
       name="eventListener"
-      type="app.grand.tafwak.presentation.my_locations.listeners.AddLocationEventListener" />
+      type="app.te.protein_chef.presentation.my_locations.listeners.AddLocationEventListener" />
 
     <variable
       name="request"
-      type="app.grand.tafwak.domain.my_locations.entity.request.AddLocationRequest" />
+      type="app.te.protein_chef.domain.my_locations.entity.request.AddLocationRequest" />
   </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout

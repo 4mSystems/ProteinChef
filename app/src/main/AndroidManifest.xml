@@ -8,7 +8,7 @@
   <uses-permission android:name="android.permission.INTERNET" />
 
   <application
-    android:name="app.grand.tafwak.core.MyApplication"
+    android:name="app.te.protein_chef.core.MyApplication"
     android:allowBackup="false"
     android:icon="${appIcon}"
     android:label="@string/app_name"
@@ -18,7 +18,8 @@
     android:roundIcon="${appRoundIcon}"
     android:supportsRtl="true"
     android:theme="@style/Theme.AppTheme"
-    tools:replace="android:allowBackup">
+    tools:replace="android:allowBackup"
+    tools:targetApi="n">
     <meta-data
       android:name="com.google.firebase.messaging.default_notification_icon"
       android:resource="@mipmap/ic_launcher_release" />
@@ -27,7 +28,7 @@
       android:resource="@color/colorPrimary" />
 
     <activity
-      android:name="app.grand.tafwak.presentation.auth.AuthActivity"
+      android:name="app.te.protein_chef.presentation.auth.AuthActivity"
       android:configChanges="orientation|screenSize"
       android:exported="true"
       android:screenOrientation="portrait"
@@ -39,7 +40,7 @@
     </activity>
 
     <activity
-      android:name="app.grand.tafwak.presentation.home.HomeActivity"
+      android:name="app.te.protein_chef.presentation.home.HomeActivity"
       android:configChanges="orientation|screenSize"
       android:screenOrientation="portrait"
       android:windowSoftInputMode="adjustResize|stateHidden" />
@@ -53,7 +54,7 @@
 
     <!--    tafawaq123tafawaq-->
     <service
-      android:name="app.grand.tafwak.core.MyFirebaseMessagingService"
+      android:name="app.te.protein_chef.core.MyFirebaseMessagingService"
       android:exported="false">
       <intent-filter>
         <action android:name="com.google.firebase.MESSAGING_EVENT" />

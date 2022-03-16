@@ -50,3 +50,16 @@
 
 ## Country Code Picker
 -keep class com.rilixtech.widget.countrycodepicker.* { *; }
+## Keep proto data store
+-keep class androidx.datastore.*.** {*;}
+-keepclassmembers class * extends com.google.protobuf.GeneratedMessageLite* {
+   <fields>;
+}
+ -keepclassmembers class androidx.datastore.preferences.PreferencesProto$PreferenceMap {
+     private androidx.datastore.preferences.protobuf.MapFieldLite preferences_;
+ }
+
+ -keepclassmembers class androidx.datastore.preferences.PreferencesProto$Value {
+      private java.lang.Object value_;
+      private int valueCase_;
+ }

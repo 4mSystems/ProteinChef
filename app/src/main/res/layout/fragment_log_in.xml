@@ -4,15 +4,15 @@
 
   <data>
 
-    <import type="app.grand.tafwak.presentation.base.utils.Constants" />
+    <import type="app.te.protein_chef.presentation.base.utils.Constants" />
 
     <variable
       name="eventListener"
-      type="app.grand.tafwak.presentation.auth.log_in.LoginEventListener" />
+      type="app.te.protein_chef.presentation.auth.log_in.LoginEventListener" />
 
     <variable
       name="request"
-      type="app.grand.tafwak.domain.auth.entity.request.LogInRequest" />
+      type="app.te.protein_chef.domain.auth.entity.request.LogInRequest" />
   </data>
 
   <androidx.core.widget.NestedScrollView

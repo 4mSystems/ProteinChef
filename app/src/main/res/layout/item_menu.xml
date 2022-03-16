@@ -7,7 +7,7 @@
 
     <variable
       name="uiState"
-      type="app.grand.tafwak.presentation.packages.ui_state.CategoryMenuUiItem" />
+      type="app.te.protein_chef.presentation.packages.ui_state.CategoryMenuUiItem" />
 
   </data>
 
