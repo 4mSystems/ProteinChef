@@ -6,15 +6,20 @@
   <data>
 
     <variable
+      name="eventListener"
+      type="app.te.protein_chef.presentation.meals.listeners.MealItemListener" />
+
+    <variable
       name="itemUiState"
       type="app.te.protein_chef.presentation.meals.ui_state.MealsDataUiState" />
   </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
+    android:layout_width="@dimen/dimen200"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/dimen10"
-    android:background="@drawable/corner_view_gray_border">
+    android:background="@drawable/corner_view_gray_border"
+    android:onClick="@{()-> eventListener.changeMealItemSelected(itemUiState.position)}">
 
     <androidx.appcompat.widget.AppCompatImageView
       android:id="@+id/ic_meal"
@@ -37,6 +42,7 @@
       android:textAlignment="viewStart"
       android:textAppearance="@style/TextAppearance.AppCompat.Medium"
       android:textColor="@color/black"
+      app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/ic_meal"
       tools:text="9 / 2 /2022 الاثنين" />
@@ -47,6 +53,7 @@
       android:layout_margin="@dimen/dimen10"
       android:buttonTint="@color/colorPrimaryDark"
       android:checked="@{itemUiState.mealSelected}"
+      android:clickable="false"
       android:minWidth="0dp"
       android:minHeight="0dp"
       app:layout_constraintBottom_toBottomOf="parent"

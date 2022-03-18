@@ -2,6 +2,7 @@ package app.te.protein_chef.presentation.base.extensions
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
@@ -27,6 +28,7 @@ import coil.load
 import coil.request.ImageRequest
 import coil.transform.CircleCropTransformation
 import coil.transform.RoundedCornersTransformation
+import com.google.android.material.card.MaterialCardView
 import com.google.android.material.snackbar.Snackbar
 import com.structure.base_mvvm.R
 import java.io.File
@@ -62,9 +64,9 @@ fun View.invisible() {
 fun TextView.fromHtml(text: String?) {
   if (text != null)
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-      setText(Html.fromHtml(text, Html.FROM_HTML_MODE_COMPACT));
+      setText(Html.fromHtml(text, Html.FROM_HTML_MODE_COMPACT))
     } else {
-      setText(Html.fromHtml(text, Html.FROM_HTML_MODE_LEGACY));
+      setText(Html.fromHtml(text, Html.FROM_HTML_MODE_LEGACY))
     }
 }
 
@@ -272,6 +274,23 @@ fun loadDrawable(imageView: ImageView, drawable: Drawable?) {
   imageView.setImageDrawable(drawable)
 }
 
+@BindingAdapter("app:changeStroke")
+fun MaterialCardView.changeStroke(stroke_color: Int) {
+  this.strokeColor = stroke_color
+  this.strokeWidth = 3
+  if (stroke_color == R.color.white)
+    setCardBackgroundColor(ColorStateList.valueOf(R.color.colorAccentDark))
+}
+
+@BindingAdapter("app:changeBackground")
+fun MaterialCardView.changeBackground(background_color: Int) {
+  this.setCardBackgroundColor(background_color)
+}
+
+@BindingAdapter("app:changeBackground")
+fun View.changeBackground(background_color: Int) {
+  this.setBackgroundResource(background_color)
+}
 
 @BindingAdapter("app:adapter", "app:span", "app:orientation")
 fun getItemsV2Binding(

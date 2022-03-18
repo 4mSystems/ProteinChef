@@ -3,9 +3,9 @@ package app.te.protein_chef.presentation.base.utils
 object Constants {
   const val REVIEWS = 7
   const val BACK = 8
-  const val TEACHERS: Int = 13
+  const val FORWARD: Int = 9
+  const val BACK_WORD: Int = 10
   const val NOT_MATCH_PASSWORD: Int = 20
-  const val EDUCATIONS: Int = 23
   const val Verify: String = "verify"
   const val FORGET: String = "reset"
   const val ABOUT_TYPE: String = "about"

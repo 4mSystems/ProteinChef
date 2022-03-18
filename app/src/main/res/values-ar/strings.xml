@@ -115,7 +115,7 @@
     <string name="coin">رس</string>
     <string name="menu_dialog_title">هذا البرنامج يشمل</string>
   <string name="show_menu">عرض المنيو</string>
-    <string name="start_date">قم بأختيار معاد ابتداء الباقة</string>
+    <string name="start_date">قم بأختيار ميعاد ابتداء الباقة</string>
     <string-array name="gender">
     <item>ذكر </item>
     <item>انثى</item>

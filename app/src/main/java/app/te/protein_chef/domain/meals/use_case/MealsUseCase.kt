@@ -39,14 +39,17 @@ class MealsUseCase @Inject constructor(
         emit(Resource.Success(items))
       } else {
         data.groupBy { mainMealType -> mainMealType.date }
-          .forEach {
+          .forEach { meals ->
             //AddDateItem
-            MealsDateUiState(it.key)
-              .let { mealsDateUiState -> items.add(mealsDateUiState) }
+            MealsDateUiState(meals.key)
+              .let { mealsDateUiState ->
+                mealsDateUiState.listMeals.addAll(meals.value.map { MealsDataUiState(it) })
+                items.add(mealsDateUiState)
+              }
             // AddData to list
-            items.addAll(it.value.map { MealsDataUiState(it) })
+//            items.addAll(meals.value.map { MealsDataUiState(meals) })
           }
-        Log.e("invoke", "invoke: "+items.toJsonString())
+        Log.e("invoke", "invoke: " + items.toJsonString())
         mainMealsUiState.mealsUiStateList = items
       }
       emit(Resource.Success(mainMealsUiState))

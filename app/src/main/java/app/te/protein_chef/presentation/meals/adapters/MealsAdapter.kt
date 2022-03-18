@@ -1,21 +1,19 @@
 package app.te.protein_chef.presentation.meals.adapters
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import app.te.protein_chef.presentation.base.utils.SingleLiveEvent
-import app.te.protein_chef.presentation.meals.listeners.MealsListener
+import app.te.protein_chef.presentation.meals.listeners.MealItemListener
 import app.te.protein_chef.presentation.meals.ui_state.MealsUiState
 import com.structure.base_mvvm.R
 
-class MealsAdapter(val mealsEventListener: MealsListener) :
+class MealsAdapter(val mealsEventListener: MealItemListener?) :
   RecyclerView.Adapter<MealsAdapter.ViewHolder>() {
-  val liveData = SingleLiveEvent<Int>()
+  var lastPosition = 0
   lateinit var context: Context
   private val differCallback = object : DiffUtil.ItemCallback<MealsUiState>() {
     override fun areItemsTheSame(oldItem: MealsUiState, newItem: MealsUiState): Boolean {
@@ -49,7 +47,7 @@ class MealsAdapter(val mealsEventListener: MealsListener) :
     RecyclerView.ViewHolder(itemView) {
 
     fun bindItem(item: MealsUiState?, position: Int) {
-      item?.bind(itemView, position, context, mealsEventListener)
+      item?.bind(itemView, position, context,mealsEventListener)
     }
   }
 

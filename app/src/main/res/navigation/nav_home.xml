@@ -188,7 +188,7 @@
   <fragment
     android:id="@+id/mealsFragment"
     android:name="app.te.protein_chef.presentation.meals.MealsFragment"
-    android:label="MealsFragment">
+    android:label="{title}">
     <argument
       android:name="package_id"
       app:argType="integer" />

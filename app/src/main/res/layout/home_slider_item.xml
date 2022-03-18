@@ -17,6 +17,7 @@
     android:layout_height="match_parent"
     android:layout_margin="@dimen/dimen8"
     app:cardCornerRadius="@dimen/dimen8"
+    app:cardUseCompatPadding="true"
     app:cardElevation="2dp">
 
     <androidx.appcompat.widget.AppCompatImageView
