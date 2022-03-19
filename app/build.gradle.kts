@@ -10,7 +10,7 @@ plugins {
   id(Config.Plugins.hilt)
   id(Config.Plugins.google_services)
   id(Config.Plugins.proto_buf)
-
+  id(Config.Plugins.google_secrets)
 }
 protobuf {
   protoc {
@@ -102,6 +102,9 @@ android {
     // Or, if you prefer, you can continue to check for errors in release builds,
     // but continue the build even when errors are found:
     isAbortOnError = false
+  }
+  buildFeatures {
+    viewBinding = true
   }
 }
 

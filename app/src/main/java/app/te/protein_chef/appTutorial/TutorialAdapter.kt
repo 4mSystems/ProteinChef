@@ -10,8 +10,8 @@ import app.te.protein_chef.appTutorial.TutorialAdapter.ImagesSliderViewHolder
 import coil.ImageLoader
 import coil.request.ImageRequest
 import app.te.protein_chef.domain.intro.entity.AppTutorial
-import com.structure.base_mvvm.R
-import com.structure.base_mvvm.databinding.ItemTutorialBinding
+import app.te.protein_chef.R
+import app.te.protein_chef.databinding.ItemTutorialBinding
 
 internal class TutorialAdapter(
   private var titleColor: Int,

@@ -9,8 +9,8 @@ import app.te.protein_chef.presentation.base.extensions.backToPreviousScreen
 import app.te.protein_chef.presentation.base.extensions.handleApiError
 import app.te.protein_chef.presentation.base.extensions.hideKeyboard
 import app.te.protein_chef.presentation.base.utils.showSuccessAlert
-import com.structure.base_mvvm.R
-import com.structure.base_mvvm.databinding.FragmentUpdatePasswordBinding
+import app.te.protein_chef.R
+import app.te.protein_chef.databinding.FragmentUpdatePasswordBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 

@@ -3,7 +3,7 @@ import androidx.annotation.Keep
 
 @Keep
 data class PackageTypesPrice(
-    val days_count: String,
+    val days_count: Int,
     val id: Int,
     val price: Double,
     val title: String

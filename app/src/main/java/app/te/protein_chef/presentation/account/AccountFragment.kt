@@ -8,8 +8,8 @@ import app.te.protein_chef.domain.utils.Resource
 import app.te.protein_chef.presentation.auth.AuthActivity
 import app.te.protein_chef.presentation.base.BaseFragment
 import app.te.protein_chef.presentation.base.extensions.*
-import com.structure.base_mvvm.R
-import com.structure.base_mvvm.databinding.FragmentAccountBinding
+import app.te.protein_chef.R
+import app.te.protein_chef.databinding.FragmentAccountBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 

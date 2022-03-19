@@ -2,9 +2,9 @@ package app.te.protein_chef.core.di.module
 
 import android.content.Context
 import android.util.Log
+import app.te.protein_chef.BuildConfig
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.structure.base_mvvm.BuildConfig
 import app.te.protein_chef.data.local.preferences.AppPreferences
 import com.readystatesoftware.chuck.ChuckInterceptor
 import dagger.Module

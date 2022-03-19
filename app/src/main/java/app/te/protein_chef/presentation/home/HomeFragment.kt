@@ -4,7 +4,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import app.te.protein_chef.domain.home.models.HomeMainData
 import app.te.protein_chef.domain.utils.Resource
-import com.structure.base_mvvm.R
+import app.te.protein_chef.R
 import app.te.protein_chef.presentation.base.BaseFragment
 import app.te.protein_chef.presentation.base.extensions.*
 import app.te.protein_chef.presentation.home.adapters.HomeSliderAdapter
@@ -12,7 +12,7 @@ import app.te.protein_chef.presentation.home.adapters.OffersAdapter
 import app.te.protein_chef.presentation.home.adapters.PackagesAdapter
 import app.te.protein_chef.presentation.home.eventListener.HomeEventListener
 import app.te.protein_chef.presentation.home.ui_state.HomeUiState
-import com.structure.base_mvvm.databinding.FragmentHomeBinding
+import app.te.protein_chef.databinding.FragmentHomeBinding
 import app.te.protein_chef.presentation.home.viewModels.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
@@ -30,7 +30,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeEventListener {
 
   override
   fun setBindingVariables() {
-
+    binding.eventListener = this
   }
 
   override
@@ -67,6 +67,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeEventListener {
     // setUpOfferAdapter
     offersAdapter.differ.submitList(homeUiState.setUpOffers())
     binding.rcOffers.setUpAdapter(offersAdapter, "1", "1")
+  }
+
+  override fun openMap() {
+    navigateSafe(HomeFragmentDirections.actionHomeFragmentToNavMap())
   }
 
 

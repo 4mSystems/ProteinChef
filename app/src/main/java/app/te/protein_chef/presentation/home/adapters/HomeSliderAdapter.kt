@@ -7,8 +7,8 @@ import androidx.databinding.DataBindingUtil
 import app.te.protein_chef.presentation.home.eventListener.HomeEventListener
 import com.smarteist.autoimageslider.SliderViewAdapter
 import app.te.protein_chef.presentation.home.ui_state.SliderUiItemState
-import com.structure.base_mvvm.R
-import com.structure.base_mvvm.databinding.HomeSliderItemBinding
+import app.te.protein_chef.R
+import app.te.protein_chef.databinding.HomeSliderItemBinding
 import org.jetbrains.annotations.NotNull
 
 class HomeSliderAdapter(val eventListener: HomeEventListener) :

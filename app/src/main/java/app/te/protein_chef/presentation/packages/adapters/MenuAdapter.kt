@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import app.te.protein_chef.presentation.packages.ui_state.CategoryMenuUiItem
-import com.structure.base_mvvm.R
-import com.structure.base_mvvm.databinding.ItemMenuBinding
+import app.te.protein_chef.R
+import app.te.protein_chef.databinding.ItemMenuBinding
 
 class MenuAdapter :
   RecyclerView.Adapter<MenuAdapter.ViewHolder>() {

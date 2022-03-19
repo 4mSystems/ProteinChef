@@ -6,14 +6,14 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import app.te.protein_chef.domain.my_locations.entity.MyLocationDto
 import app.te.protein_chef.domain.utils.Resource
-import com.structure.base_mvvm.R
+import app.te.protein_chef.R
 import app.te.protein_chef.presentation.base.BaseFragment
 import app.te.protein_chef.presentation.base.extensions.*
 import app.te.protein_chef.presentation.base.utils.Constants
 import app.te.protein_chef.presentation.base.utils.showSuccessAlert
 import app.te.protein_chef.presentation.my_locations.listeners.AddLocationEventListener
 import app.te.protein_chef.presentation.my_locations.viewModels.AddLocationViewModel
-import com.structure.base_mvvm.databinding.FragmentAddLocationBinding
+import app.te.protein_chef.databinding.FragmentAddLocationBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 

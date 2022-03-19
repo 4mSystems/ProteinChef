@@ -1,68 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:tools="http://schemas.android.com/tools"
-  package="com.structure.base_mvvm">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="app.te.protein_chef" >
 
-  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-  <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
-  <application
-    android:name="app.te.protein_chef.core.MyApplication"
-    android:allowBackup="false"
-    android:icon="${appIcon}"
-    android:label="@string/app_name"
-    android:largeHeap="true"
-    android:networkSecurityConfig="@xml/network_security_config"
-    android:requestLegacyExternalStorage="true"
-    android:roundIcon="${appRoundIcon}"
-    android:supportsRtl="true"
-    android:theme="@style/Theme.AppTheme"
-    tools:replace="android:allowBackup"
-    tools:targetApi="n">
-    <meta-data
-      android:name="com.google.firebase.messaging.default_notification_icon"
-      android:resource="@mipmap/ic_launcher_release" />
-    <meta-data
-      android:name="com.google.firebase.messaging.default_notification_color"
-      android:resource="@color/colorPrimary" />
-
-    <activity
-      android:name="app.te.protein_chef.presentation.auth.AuthActivity"
-      android:configChanges="orientation|screenSize"
-      android:exported="true"
-      android:screenOrientation="portrait"
-      android:windowSoftInputMode="adjustResize|stateHidden">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-        <category android:name="android.intent.category.LAUNCHER" />
-      </intent-filter>
-    </activity>
-
-    <activity
-      android:name="app.te.protein_chef.presentation.home.HomeActivity"
-      android:configChanges="orientation|screenSize"
-      android:screenOrientation="portrait"
-      android:windowSoftInputMode="adjustResize|stateHidden" />
-
-    <!-- Start Google Services -->
-    <!--    <meta-data-->
-    <!--      android:name="com.google.android.geo.API_KEY"-->
-    <!--      android:value="@string/google_api_key" />-->
-    <!-- End Google Services -->
-
-    <!--    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  github key -->
+    <application
+        android:name="app.te.protein_chef.core.MyApplication"
+        android:allowBackup="false"
+        android:icon="${appIcon}"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="${appRoundIcon}"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppTheme"
+        tools:replace="android:allowBackup"
+        tools:targetApi="n" >
 
 
-    <!--    protien.chef2022@gmail.com
-            Pprotien_chef2022-->
-    <service
-      android:name="app.te.protein_chef.core.MyFirebaseMessagingService"
-      android:exported="false">
-      <intent-filter>
-        <action android:name="com.google.firebase.MESSAGING_EVENT" />
-      </intent-filter>
-    </service>
-  </application>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDg6yB5Rz4YBsdl1TXqcLTcDNEuzqSK4Ck" />
+
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@mipmap/ic_launcher_release" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorPrimary" />
+
+        <activity
+            android:name="app.te.protein_chef.presentation.auth.AuthActivity"
+            android:configChanges="orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="app.te.protein_chef.presentation.home.HomeActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateHidden" /> <!-- Start Google Services -->
+        <!-- <meta-data -->
+        <!-- android:name="com.google.android.geo.API_KEY" -->
+        <!-- android:value="@string/google_api_key" /> -->
+        <!-- End Google Services -->
+        <!-- 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  github key -->
+        <!--
+    protien.chef2022@gmail.com
+            Pprotien_chef2022
+        -->
+        <service
+            android:name="app.te.protein_chef.core.MyFirebaseMessagingService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+    </application>
 
 </manifest>

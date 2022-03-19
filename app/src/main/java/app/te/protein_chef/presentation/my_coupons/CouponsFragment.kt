@@ -3,7 +3,7 @@ package app.te.protein_chef.presentation.my_coupons
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import app.te.protein_chef.domain.utils.Resource
-import com.structure.base_mvvm.R
+import app.te.protein_chef.R
 import app.te.protein_chef.presentation.base.BaseFragment
 import app.te.protein_chef.presentation.base.extensions.handleApiError
 import app.te.protein_chef.presentation.base.extensions.hideKeyboard
@@ -13,7 +13,7 @@ import app.te.protein_chef.presentation.base.utils.showSuccessAlert
 import app.te.protein_chef.presentation.my_coupons.adapter.MyCouponsAdapter
 import app.te.protein_chef.presentation.my_coupons.ui_state.MyCouponsUiState
 import app.te.protein_chef.presentation.my_coupons.viewModels.CouponsViewModel
-import com.structure.base_mvvm.databinding.FragmentMyCouponsBinding
+import app.te.protein_chef.databinding.FragmentMyCouponsBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 

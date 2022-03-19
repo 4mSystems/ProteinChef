@@ -4,10 +4,10 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import app.te.protein_chef.domain.utils.Resource
 import app.te.protein_chef.presentation.about.SettingsDataUiState
-import com.structure.base_mvvm.R
+import app.te.protein_chef.R
 import app.te.protein_chef.presentation.base.BaseFragment
 import app.te.protein_chef.presentation.base.extensions.*
-import com.structure.base_mvvm.databinding.FragmentTermsBinding
+import app.te.protein_chef.databinding.FragmentTermsBinding
 import app.te.protein_chef.presentation.terms.viewModels.TermsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect

@@ -12,7 +12,7 @@ import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.provider.Settings.Secure
 import android.widget.Toast
-import com.structure.base_mvvm.R
+import app.te.protein_chef.R
 import com.tapadoo.alerter.Alerter
 
 fun showMessage(context: Context, message: String?) {

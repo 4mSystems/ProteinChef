@@ -16,8 +16,8 @@ import app.te.protein_chef.presentation.packages.adapters.MenuAdapter
 import app.te.protein_chef.presentation.packages.ui_state.CategoryMenuUiItem
 import app.te.protein_chef.presentation.packages.viewModel.PackagesViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.structure.base_mvvm.R
-import com.structure.base_mvvm.databinding.MenuDialogBinding
+import app.te.protein_chef.R
+import app.te.protein_chef.databinding.MenuDialogBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 

@@ -5,8 +5,8 @@ import android.view.View
 import androidx.databinding.DataBindingUtil
 import app.te.protein_chef.domain.my_locations.entity.MyLocationDto
 import app.te.protein_chef.presentation.my_locations.listeners.MyLocationsEventListener
-import com.structure.base_mvvm.R
-import com.structure.base_mvvm.databinding.ItemLocationBinding
+import app.te.protein_chef.R
+import app.te.protein_chef.databinding.ItemLocationBinding
 
 class MyLocationsDataUiState(private val myLocationsDto: MyLocationDto) : MyLocationsUiState {
   var itemPosition: Int = 0

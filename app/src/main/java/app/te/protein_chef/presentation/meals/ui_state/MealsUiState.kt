@@ -9,6 +9,13 @@ import app.te.protein_chef.presentation.meals.listeners.MealsListener
 @Keep
 interface MealsUiState {
   fun getLayoutRes(): Int
-  fun bind(item: View?, position: Int, context: Context, mealsListener: MealItemListener?)
+  fun bind(
+    item: View?,
+    position: Int,
+    context: Context,
+    mealsListener: MealItemListener?,
+    mealsEventListener: MealsListener?
+  )
+
   fun getId(): Int
 }

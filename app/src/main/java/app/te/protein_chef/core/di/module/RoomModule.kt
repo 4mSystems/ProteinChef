@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import app.te.protein_chef.core.AppDatabase
 import app.te.protein_chef.data.home.data_source.local.HomeLocalRemoteDataSource
-import com.structure.base_mvvm.BuildConfig
+import app.te.protein_chef.BuildConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

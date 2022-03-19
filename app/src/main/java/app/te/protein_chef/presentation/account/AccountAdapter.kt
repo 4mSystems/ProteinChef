@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import app.te.protein_chef.presentation.account.ui_state.AccountItem
-import com.structure.base_mvvm.R
-import com.structure.base_mvvm.databinding.ItemAccountBinding
+import app.te.protein_chef.R
+import app.te.protein_chef.databinding.ItemAccountBinding
 
 class AccountAdapter(val accountEventListener: AccountEventListener) :
   RecyclerView.Adapter<AccountAdapter.ViewHolder>() {

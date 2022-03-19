@@ -30,7 +30,7 @@ import coil.transform.CircleCropTransformation
 import coil.transform.RoundedCornersTransformation
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.snackbar.Snackbar
-import com.structure.base_mvvm.R
+import app.te.protein_chef.R
 import java.io.File
 
 fun View.show() {
@@ -166,14 +166,6 @@ fun ImageView.loadImage(imageUrl: String?, progressBar: ProgressBar?, defaultIma
   } else {
     progressBar?.hide()
     Log.e("loadImage", "loadImage: $defaultImage")
-//    when (defaultImage) {
-//      null -> {
-//        Log.e("loadImage", "loadImage: " )
-//        setImageResource(R.drawable.bg_no_image)
-//      }
-//      is Int -> setImageResource(defaultImage)
-//      is Drawable -> setImageDrawable(defaultImage)
-//    }
     load(R.drawable.bg_no_image) {
       crossfade(true)
       transformations(

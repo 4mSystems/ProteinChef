@@ -19,7 +19,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import app.te.protein_chef.domain.intro.entity.AppTutorial
 import com.google.android.material.button.MaterialButton
-import com.structure.base_mvvm.R
+import app.te.protein_chef.R
 import kotlinx.coroutines.delay
 
 class AppTutorialHelper private constructor(builder: Builder) : LifecycleObserver {

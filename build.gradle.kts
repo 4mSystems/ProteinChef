@@ -11,11 +11,13 @@ buildscript {
     classpath(Config.Dependencies.hilt)
     classpath(Config.Dependencies.google_services)
     classpath(Config.Dependencies.proto_buf)
+    classpath(Config.Dependencies.google_secret)
   }
 }
 
 plugins {
   id(Config.Plugins.ktLint) version Versions.ktLint
+  id("org.jetbrains.kotlin.android") version "1.5.30" apply false
 }
 
 subprojects {

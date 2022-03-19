@@ -6,9 +6,9 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.structure.base_mvvm.R
+import app.te.protein_chef.R
 import app.te.protein_chef.presentation.base.BaseActivity
-import com.structure.base_mvvm.databinding.ActivityAuthBinding
+import app.te.protein_chef.databinding.ActivityAuthBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

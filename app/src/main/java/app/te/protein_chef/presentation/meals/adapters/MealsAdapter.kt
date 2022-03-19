@@ -9,9 +9,13 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import app.te.protein_chef.presentation.meals.listeners.MealItemListener
 import app.te.protein_chef.presentation.meals.ui_state.MealsUiState
-import com.structure.base_mvvm.R
+import app.te.protein_chef.R
+import app.te.protein_chef.presentation.meals.listeners.MealsListener
 
-class MealsAdapter(val mealsEventListener: MealItemListener?) :
+class MealsAdapter(
+  val mealsItemEventListener: MealItemListener?,
+  val mealsEventListener: MealsListener?
+) :
   RecyclerView.Adapter<MealsAdapter.ViewHolder>() {
   var lastPosition = 0
   lateinit var context: Context
@@ -47,7 +51,7 @@ class MealsAdapter(val mealsEventListener: MealItemListener?) :
     RecyclerView.ViewHolder(itemView) {
 
     fun bindItem(item: MealsUiState?, position: Int) {
-      item?.bind(itemView, position, context,mealsEventListener)
+      item?.bind(itemView, position, context, mealsItemEventListener,mealsEventListener)
     }
   }
 

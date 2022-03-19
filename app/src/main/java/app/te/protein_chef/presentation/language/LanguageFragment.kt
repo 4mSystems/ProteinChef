@@ -2,11 +2,11 @@ package app.te.protein_chef.presentation.language
 
 import androidx.fragment.app.viewModels
 import app.te.protein_chef.presentation.auth.AuthActivity
-import com.structure.base_mvvm.R
+import app.te.protein_chef.R
 import app.te.protein_chef.presentation.base.BaseFragment
 import app.te.protein_chef.presentation.base.extensions.navigateSafe
 import app.te.protein_chef.presentation.base.extensions.openActivityAndClearStack
-import com.structure.base_mvvm.databinding.FragmentLanguageBinding
+import app.te.protein_chef.databinding.FragmentLanguageBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

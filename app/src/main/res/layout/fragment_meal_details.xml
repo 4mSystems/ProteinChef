@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <variable
+      name="detailsUiState"
+      type="app.te.protein_chef.presentation.meal_details.ui_state.MealDetailsUiState" />
+  </data>
+
+
+  <androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+
+      <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ic_meal_image"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen200"
+        android:layout_margin="@dimen/dimen16"
+        android:src="@drawable/logo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:loadImage="@{detailsUiState.mealImage}" />
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_meal_type"
+        style="@style/TextBoldFont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen16"
+        android:layout_marginTop="@dimen/dimen12"
+        android:layout_marginEnd="@dimen/dimen16"
+        android:text="@{detailsUiState.mealType}"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/darkGray"
+        app:layout_constraintTop_toBottomOf="@+id/ic_meal_image"
+        tools:text="وجبات شهية" />
+
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_meal_title"
+        style="@style/TextBoldFont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen16"
+        android:layout_marginTop="@dimen/dimen12"
+        android:layout_marginEnd="@dimen/dimen16"
+        android:text="@{detailsUiState.mealTitle}"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/tv_meal_type"
+        tools:text="فتة شاورما سوري مع الرز والعيش المحمص الطازج" />
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_meal_body"
+        style="@style/TextBoldFont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen16"
+        android:layout_marginTop="@dimen/dimen12"
+        android:layout_marginEnd="@dimen/dimen16"
+        android:layout_marginBottom="@dimen/dimen12"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/black"
+        app:fromHtml="@{detailsUiState.mealBody}"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_meal_title"
+        tools:text="فتة شاورما سوري مع الرز والعيش المحمص الطازج" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </androidx.core.widget.NestedScrollView>
+
+</layout>

@@ -1,10 +1,10 @@
 package app.te.protein_chef.presentation.more
 
 import androidx.navigation.NavDirections
-import com.structure.base_mvvm.R
+import app.te.protein_chef.R
 import app.te.protein_chef.presentation.base.BaseFragment
 import app.te.protein_chef.presentation.base.extensions.navigateSafe
-import com.structure.base_mvvm.databinding.FragmentMoreBinding
+import app.te.protein_chef.databinding.FragmentMoreBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

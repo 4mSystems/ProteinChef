@@ -1,9 +1,10 @@
 package app.te.protein_chef.presentation.meals
 
+import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import app.te.protein_chef.domain.utils.Resource
-import com.structure.base_mvvm.R
+import app.te.protein_chef.R
 import app.te.protein_chef.presentation.base.BaseFragment
 import app.te.protein_chef.presentation.base.extensions.*
 import app.te.protein_chef.presentation.meals.adapters.MainMealsCategoriesAdapter
@@ -12,9 +13,12 @@ import app.te.protein_chef.presentation.meals.listeners.MealsListener
 import app.te.protein_chef.presentation.meals.ui_state.MainMealsUiState
 import app.te.protein_chef.presentation.meals.ui_state.MealsUiState
 import app.te.protein_chef.presentation.meals.viewModels.MealsViewModel
-import com.structure.base_mvvm.databinding.FragmentMealsBinding
+import app.te.protein_chef.databinding.FragmentMealsBinding
+import app.te.protein_chef.domain.make_order.entity.SelectedMeals
+import app.te.protein_chef.presentation.meals.ui_state.MealsDateUiState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
+import kotlin.math.log
 
 @Suppress("UNCHECKED_CAST")
 @AndroidEntryPoint
@@ -22,11 +26,12 @@ class MealsFragment : BaseFragment<FragmentMealsBinding>(),
   MealsListener {
   private val viewModel: MealsViewModel by viewModels()
   private val adapter = MainMealsCategoriesAdapter(this)
-  private val mealsAdapter = MealsAdapter(null)
+  private val mealsAdapter = MealsAdapter(null, this)
   private val listOfMeals = mutableListOf<MutableList<MealsUiState>>()
 
   override
   fun getLayoutId() = R.layout.fragment_meals
+
   override fun setBindingVariables() {
     binding.eventListener = this
     getMeals(null)
@@ -65,6 +70,9 @@ class MealsFragment : BaseFragment<FragmentMealsBinding>(),
   }
 
   private fun bindUi(mainMealsUiState: MainMealsUiState) {
+    // update package data
+    binding.packageUiState = mainMealsUiState.mealTypeUiState
+
     // update main category adapter
     if (adapter.differ.currentList.size == 0) {
       adapter.differ.submitList(mainMealsUiState.categoryMenuUiItemList)
@@ -82,6 +90,7 @@ class MealsFragment : BaseFragment<FragmentMealsBinding>(),
 
   override fun changeCategoryType(type: Int) {
     if (adapter.currentPosition > adapter.differ.currentList.size - 1) {
+      continueOrdering(0, "")
     } else {
       adapter.changeSelected(type)
       if (listOfMeals.size < adapter.currentPosition) {
@@ -90,6 +99,34 @@ class MealsFragment : BaseFragment<FragmentMealsBinding>(),
         updateMealsAdapter(listOfMeals[adapter.lastPosition])
       }
     }
+  }
+
+  override fun openItemDetails(meal_id: Int, meal_name: String) {
+    navigateSafe(
+      MealsFragmentDirections.actionMealsFragmentToMealDetailsFragment(
+        meal_id,
+        meal_name,
+        MealsFragmentArgs.fromSavedStateHandle(viewModel.savedStateHandle).title
+      )
+    )
+  }
+
+  override fun continueOrdering(meal_id: Int, meal_name: String) {
+    viewModel.makeOrderRequest.selected_meal.clear() // clear any meal before adding
+    val dateList = mealsAdapter.differ.currentList as List<MealsDateUiState>
+    dateList.map { mealsDateUiState ->
+      mealsDateUiState.listMeals.map { mealsData ->
+        viewModel.makeOrderRequest.selected_meal.add(
+          SelectedMeals(
+            meal_id = mealsData.getId(),
+            date = mealsDateUiState.getDate(),
+            meal_type_id = mealsDateUiState.typeId
+          )
+        )
+
+      }
+    }
+    navigateSafe(MealsFragmentDirections.actionMealsFragmentToAdditionsDialog(viewModel.makeOrderRequest))
   }
 
 }

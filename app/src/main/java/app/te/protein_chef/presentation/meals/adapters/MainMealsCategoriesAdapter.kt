@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import app.te.protein_chef.presentation.base.utils.Constants
 import app.te.protein_chef.presentation.meals.listeners.MealsListener
 import app.te.protein_chef.presentation.packages.ui_state.CategoryMenuUiItem
-import com.structure.base_mvvm.R
-import com.structure.base_mvvm.databinding.ItemMainMealCategoryBinding
+import app.te.protein_chef.R
+import app.te.protein_chef.databinding.ItemMainMealCategoryBinding
 
 class MainMealsCategoriesAdapter(val mealsListener: MealsListener) :
   RecyclerView.Adapter<MainMealsCategoriesAdapter.ViewHolder>() {

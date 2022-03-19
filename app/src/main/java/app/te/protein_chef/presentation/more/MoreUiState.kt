@@ -1,7 +1,7 @@
 package app.te.protein_chef.presentation.more
 
 import android.content.Context
-import com.structure.base_mvvm.R
+import app.te.protein_chef.R
 
 class MoreUiState {
   lateinit var moreAdapter: MoreAdapter

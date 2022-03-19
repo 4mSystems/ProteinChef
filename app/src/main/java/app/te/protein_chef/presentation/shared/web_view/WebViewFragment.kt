@@ -7,9 +7,9 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.structure.base_mvvm.R
+import app.te.protein_chef.R
 import app.te.protein_chef.presentation.base.BaseFragment
-import com.structure.base_mvvm.databinding.FragmentWebViewBinding
+import app.te.protein_chef.databinding.FragmentWebViewBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

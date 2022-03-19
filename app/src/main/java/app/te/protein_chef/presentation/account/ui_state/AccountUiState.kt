@@ -3,7 +3,7 @@ package app.te.protein_chef.presentation.account.ui_state
 import android.content.Context
 import app.te.protein_chef.presentation.account.AccountAdapter
 import app.te.protein_chef.presentation.account.AccountFragmentDirections
-import com.structure.base_mvvm.R
+import app.te.protein_chef.R
 
 class AccountUiState {
   lateinit var accountAdapter: AccountAdapter

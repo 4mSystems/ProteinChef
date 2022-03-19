@@ -51,13 +51,14 @@ object Versions {
   const val hiltVersion = "2.40.5"
 
   // Map
-  const val map = "17.0.1"
+  const val map = "18.0.2"
   const val playServicesLocation = "18.0.0"
   const val rxLocation = "1.0"
 
   //Fire base
   const val firebase = "22.0.0"
   const val google_services = "4.3.10"
+  const val google_secret = "2.0.0"
 
   //ted bottom picker
   const val ted_bottom_picker = "2.0.1"

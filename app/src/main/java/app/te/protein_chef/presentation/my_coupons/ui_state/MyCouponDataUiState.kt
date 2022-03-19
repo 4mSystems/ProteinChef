@@ -5,8 +5,8 @@ import android.view.View
 import androidx.databinding.DataBindingUtil
 import app.te.protein_chef.domain.my_coupons.entity.MyCouponsDto
 import app.te.protein_chef.presentation.my_coupons.MyCouponsEventListener
-import com.structure.base_mvvm.R
-import com.structure.base_mvvm.databinding.ItemMyCouponBinding
+import app.te.protein_chef.R
+import app.te.protein_chef.databinding.ItemMyCouponBinding
 
 class MyCouponDataUiState(private val myCouponsDto: MyCouponsDto) : MyCouponsUiState {
   override fun getLayoutRes(): Int = R.layout.item_my_coupon

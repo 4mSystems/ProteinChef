@@ -122,8 +122,18 @@
     <string name="menu_dialog_title">هذا البرنامج يشمل</string>
   <string name="show_menu">عرض المنيو</string>
     <string name="start_date">قم بأختيار معاد ابتداء الباقة</string>
-    <string-array name="gender">
+    <string name="not_all_permission_accepted">يرجى قبول التصريحات</string>
+  <string name="location_is_off">Location off</string>
+  <string name="location_off_body_message">please open your location</string>
+  <string-array name="gender">
     <item>Male</item>
     <item>Female</item>
   </string-array>
+    <string name="title_activity_maps">MapsActivity</string>
+  <string name="your_location">العنوان الحالى</string>
+  <string name="detect_location">تحديد موقعي</string>
+  <string name="additions_dialog_title">ضيف سناكس علي الباقة ؟</string>
+  <string name="additions_dialog_body">ضيف سناكس لسلة الطلب لتجعل نظامك الغذائي متكامل</string>
+  <string name="continue_order">لا استمرار</string>
+  <string name="add_additions">إضافة سناكس</string>
 </resources>

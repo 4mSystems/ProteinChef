@@ -16,8 +16,10 @@ object Config {
       "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.androidNavigation}"
     const val hilt = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hiltVersion}"
     const val google_services = "com.google.gms:google-services:${Versions.google_services}"
+    const val google_secret = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin:secrets-gradle-plugin:${Versions.google_secret}"
     const val proto_buf =
       "com.google.protobuf:protobuf-gradle-plugin:${Versions.classPath_protobuf}"
+
   }
 
   object Plugins {
@@ -31,6 +33,7 @@ object Config {
     const val ktLint = "org.jlleitschuh.gradle.ktlint"
     const val google_services = "com.google.gms.google-services"
     const val proto_buf = "com.google.protobuf"
+    const val google_secrets = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin"
   }
 
   object Modules {

@@ -17,6 +17,13 @@
       app:exitAnim="@anim/anim_slide_out_left"
       app:popEnterAnim="@anim/anim_slide_in_left"
       app:popExitAnim="@anim/anim_slide_out_right" />
+    <action
+      android:id="@+id/action_home_fragment_to_nav_map"
+      app:destination="@id/nav_map"
+      app:enterAnim="@anim/anim_slide_in_right"
+      app:exitAnim="@anim/anim_slide_out_left"
+      app:popEnterAnim="@anim/anim_slide_in_left"
+      app:popExitAnim="@anim/anim_slide_out_right" />
   </fragment>
 
   <fragment
@@ -198,7 +205,57 @@
     <argument
       android:name="selected_date"
       app:argType="string" />
+    <action
+      android:id="@+id/action_mealsFragment_to_mealDetailsFragment"
+      app:destination="@id/mealDetailsFragment"
+      app:enterAnim="@anim/anim_slide_in_right"
+      app:exitAnim="@anim/anim_slide_out_left"
+      app:popEnterAnim="@anim/anim_slide_in_left"
+      app:popExitAnim="@anim/anim_slide_out_right" />
+    <action
+      android:id="@+id/action_mealsFragment_to_additionsDialog"
+      app:destination="@id/additionsDialog" />
 
   </fragment>
+  <include app:graph="@navigation/nav_map" />
+  <fragment
+    android:id="@+id/mealDetailsFragment"
+    android:name="app.te.protein_chef.presentation.meal_details.MealDetailsFragment"
+    android:label="{meal_type}">
+    <argument
+      android:name="meal_id"
+      app:argType="integer" />
 
+    <argument
+      android:name="meal_type"
+      app:argType="string" />
+    <argument
+      android:name="title"
+      app:argType="string" />
+
+  </fragment>
+  <dialog
+    android:id="@+id/additionsDialog"
+    android:name="app.te.protein_chef.presentation.additions_meals.AdditionsDialog"
+    android:label="AdditionsDialog">
+
+    <argument
+      android:name="order_request"
+      app:argType="app.te.protein_chef.domain.make_order.entity.MakeOrderRequest" />
+    <action
+      android:id="@+id/action_additionsDialog_to_additionsMealsFragment"
+      app:destination="@id/additionsMealsFragment"
+      app:enterAnim="@anim/anim_slide_in_right"
+      app:exitAnim="@anim/anim_slide_out_left"
+      app:popEnterAnim="@anim/anim_slide_in_left"
+      app:popExitAnim="@anim/anim_slide_out_right" />
+  </dialog>
+  <fragment
+    android:id="@+id/additionsMealsFragment"
+    android:name="app.te.protein_chef.presentation.additions_meals.AdditionsMealsFragment"
+    android:label="AdditionsMealsFragment">
+    <argument
+      android:name="order_request"
+      app:argType="app.te.protein_chef.domain.make_order.entity.MakeOrderRequest" />
+  </fragment>
 </navigation>

@@ -2,7 +2,7 @@ package app.te.protein_chef.presentation.packages.ui_state
 
 import android.content.Context
 import androidx.annotation.Keep
-import com.structure.base_mvvm.R
+import app.te.protein_chef.R
 
 @Keep
 data class CategoryMenuUiItem(

@@ -185,4 +185,5 @@ class UseCaseModule {
     logOutUseCase: LogOutUseCase,
     sendFirebaseTokenUseCase: SendFirebaseTokenUseCase
   ): AccountUseCases = AccountUseCases(logOutUseCase, sendFirebaseTokenUseCase)
+
 }

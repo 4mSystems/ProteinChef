@@ -12,7 +12,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import app.te.protein_chef.domain.utils.FailureStatus
 import app.te.protein_chef.domain.utils.Resource.Failure
-import com.structure.base_mvvm.R
+import app.te.protein_chef.R
 import app.te.protein_chef.presentation.auth.AuthActivity
 import app.te.protein_chef.presentation.base.utils.*
 

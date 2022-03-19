@@ -6,7 +6,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import app.te.protein_chef.domain.my_locations.entity.MyLocationDto
 import app.te.protein_chef.domain.utils.Resource
-import com.structure.base_mvvm.R
+import app.te.protein_chef.R
 import app.te.protein_chef.presentation.base.BaseFragment
 import app.te.protein_chef.presentation.base.extensions.handleApiError
 import app.te.protein_chef.presentation.base.extensions.hideKeyboard
@@ -19,7 +19,7 @@ import app.te.protein_chef.presentation.my_locations.listeners.MyLocationsEventL
 import app.te.protein_chef.presentation.my_locations.ui_state.MyLocationsDataUiState
 import app.te.protein_chef.presentation.my_locations.ui_state.MyLocationsUiState
 import app.te.protein_chef.presentation.my_locations.viewModels.MyLocationsViewModel
-import com.structure.base_mvvm.databinding.FragmentMyLocationsBinding
+import app.te.protein_chef.databinding.FragmentMyLocationsBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 

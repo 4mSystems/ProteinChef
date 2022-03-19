@@ -24,6 +24,7 @@ class PackageCategoriesUseCase @Inject constructor(
           PackageCategoryUiItem(
             id = packageType.id,
             title = packageType.title,
+            packageDays = packageType.days_count,
             price = packageType.price
           )
         )

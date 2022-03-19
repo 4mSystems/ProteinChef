@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import app.te.protein_chef.presentation.my_locations.listeners.MyLocationsEventListener
 import app.te.protein_chef.presentation.my_locations.ui_state.MyLocationsUiState
-import com.structure.base_mvvm.R
+import app.te.protein_chef.R
 
 class MyLocationsAdapter(val myLocationsEventListener: MyLocationsEventListener) :
   RecyclerView.Adapter<MyLocationsAdapter.ViewHolder>() {

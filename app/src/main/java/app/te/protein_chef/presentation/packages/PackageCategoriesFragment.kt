@@ -3,7 +3,7 @@ package app.te.protein_chef.presentation.packages
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import app.te.protein_chef.domain.utils.Resource
-import com.structure.base_mvvm.R
+import app.te.protein_chef.R
 import app.te.protein_chef.presentation.base.BaseFragment
 import app.te.protein_chef.presentation.base.extensions.handleApiError
 import app.te.protein_chef.presentation.base.extensions.hideKeyboard
@@ -13,7 +13,7 @@ import app.te.protein_chef.presentation.packages.adapters.PackageCategoriesAdapt
 import app.te.protein_chef.presentation.packages.ui_state.PackageCategoriesEventListener
 import app.te.protein_chef.presentation.packages.ui_state.PackageCategoryUiItem
 import app.te.protein_chef.presentation.packages.viewModel.PackagesViewModel
-import com.structure.base_mvvm.databinding.FragmentPackageCategoriesBinding
+import app.te.protein_chef.databinding.FragmentPackageCategoriesBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 

@@ -7,6 +7,10 @@
 
     <variable
       name="eventListener"
+      type="app.te.protein_chef.presentation.meals.listeners.MealsListener" />
+
+    <variable
+      name="mealsItemListener"
       type="app.te.protein_chef.presentation.meals.listeners.MealItemListener" />
 
     <variable
@@ -18,15 +22,15 @@
     android:layout_width="@dimen/dimen200"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/dimen10"
-    android:background="@drawable/corner_view_gray_border"
-    android:onClick="@{()-> eventListener.changeMealItemSelected(itemUiState.position)}">
+    android:background="@drawable/corner_view_gray_border">
 
     <androidx.appcompat.widget.AppCompatImageView
       android:id="@+id/ic_meal"
       android:layout_width="@dimen/dimen100"
       android:layout_height="@dimen/dimen100"
       android:layout_marginTop="@dimen/dimen10"
-      android:src="@drawable/ic_launcher_foreground"
+      android:onClick="@{()-> eventListener.openItemDetails(itemUiState.id,itemUiState.mealTitle)}"
+      android:src="@drawable/logo"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
@@ -53,9 +57,9 @@
       android:layout_margin="@dimen/dimen10"
       android:buttonTint="@color/colorPrimaryDark"
       android:checked="@{itemUiState.mealSelected}"
-      android:clickable="false"
       android:minWidth="0dp"
       android:minHeight="0dp"
+      android:onClick="@{()-> mealsItemListener.changeMealItemSelected(itemUiState.position)}"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"

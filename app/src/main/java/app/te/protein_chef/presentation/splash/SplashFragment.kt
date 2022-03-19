@@ -1,12 +1,12 @@
 package app.te.protein_chef.presentation.splash
 
 import androidx.fragment.app.viewModels
-import com.structure.base_mvvm.R
+import app.te.protein_chef.R
 import app.te.protein_chef.presentation.base.BaseFragment
 import app.te.protein_chef.presentation.base.extensions.navigateSafe
 import app.te.protein_chef.presentation.base.extensions.openActivityAndClearStack
 import app.te.protein_chef.presentation.home.HomeActivity
-import com.structure.base_mvvm.databinding.FragmentSplashBinding
+import app.te.protein_chef.databinding.FragmentSplashBinding
 import com.zeugmasolutions.localehelper.LocaleHelper
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*

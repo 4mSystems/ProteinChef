@@ -7,8 +7,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.structure.base_mvvm.R
-import com.structure.base_mvvm.databinding.ItemMoreBinding
+import app.te.protein_chef.R
+import app.te.protein_chef.databinding.ItemMoreBinding
 
 class MoreAdapter(val moreEventListener: MoreEventListener) :
   RecyclerView.Adapter<MoreAdapter.ViewHolder>() {

@@ -14,5 +14,6 @@ object Constants {
   const val EMPTY: String = "EMPTY"
   const val BUNDLE: String = "BUNDLE"
   const val NEW_LOCATION: String = "NEW_LOCATION"
+  const val ADDITIONS_MEALS_TYPE: String = "sub"
 
 }

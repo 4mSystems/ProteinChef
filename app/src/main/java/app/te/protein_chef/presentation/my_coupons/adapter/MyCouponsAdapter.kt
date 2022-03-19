@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import app.te.protein_chef.presentation.my_coupons.MyCouponsEventListener
 import app.te.protein_chef.presentation.my_coupons.ui_state.MyCouponsUiState
-import com.structure.base_mvvm.R
+import app.te.protein_chef.R
 
 class MyCouponsAdapter(val myCouponsEventListener: MyCouponsEventListener) :
   RecyclerView.Adapter<MyCouponsAdapter.ViewHolder>() {

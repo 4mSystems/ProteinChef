@@ -1,12 +1,12 @@
 package app.te.protein_chef.presentation.order_start_date
 
 import androidx.fragment.app.viewModels
-import com.structure.base_mvvm.R
+import app.te.protein_chef.R
 import app.te.protein_chef.presentation.base.BaseFragment
 import app.te.protein_chef.presentation.base.extensions.navigateSafe
 import app.te.protein_chef.presentation.base.utils.getSelectedDate
 import app.te.protein_chef.presentation.packages.viewModel.PackagesViewModel
-import com.structure.base_mvvm.databinding.FragmentOrderStartDateBinding
+import app.te.protein_chef.databinding.FragmentOrderStartDateBinding
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 

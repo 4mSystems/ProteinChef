@@ -12,8 +12,8 @@ import app.te.protein_chef.presentation.base.extensions.openActivityAndClearStac
 import app.te.protein_chef.presentation.base.utils.showSuccessAlert
 import app.te.protein_chef.presentation.home.HomeActivity
 import app.te.protein_chef.presentation.profile.viewModels.ProfileViewModel
-import com.structure.base_mvvm.R
-import com.structure.base_mvvm.databinding.FragmentProfileBinding
+import app.te.protein_chef.R
+import app.te.protein_chef.databinding.FragmentProfileBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect

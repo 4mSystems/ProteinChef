@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import app.te.protein_chef.presentation.home.eventListener.HomeEventListener
 import app.te.protein_chef.presentation.home.ui_state.PackagesUiItemState
-import com.structure.base_mvvm.R
-import com.structure.base_mvvm.databinding.ItemPackageBinding
+import app.te.protein_chef.R
+import app.te.protein_chef.databinding.ItemPackageBinding
 
 class PackagesAdapter(val homeEventListener: HomeEventListener) :
   RecyclerView.Adapter<PackagesAdapter.ViewHolder>() {

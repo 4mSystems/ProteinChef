@@ -6,8 +6,9 @@ import androidx.annotation.Keep
 import androidx.databinding.DataBindingUtil
 import app.te.protein_chef.domain.meals.entity.MainMealType
 import app.te.protein_chef.presentation.meals.listeners.MealItemListener
-import com.structure.base_mvvm.R
-import com.structure.base_mvvm.databinding.ItemDataMealsBinding
+import app.te.protein_chef.R
+import app.te.protein_chef.databinding.ItemDataMealsBinding
+import app.te.protein_chef.presentation.meals.listeners.MealsListener
 
 @Keep
 class MealsDataUiState(val mealType: MainMealType) : MealsUiState {
@@ -16,16 +17,18 @@ class MealsDataUiState(val mealType: MainMealType) : MealsUiState {
   override fun bind(
     item: View?,
     position: Int,
-    context: Context, mealsListener: MealItemListener?
+    context: Context, mealsListener: MealItemListener?,
+    mealsEventListener: MealsListener?
   ) {
     item ?: return
     val binding = DataBindingUtil.bind<ItemDataMealsBinding>(item)
     binding?.itemUiState = this
-    binding?.eventListener = mealsListener
+    binding?.mealsItemListener = mealsListener
+    binding?.eventListener = mealsEventListener
     this.position = position
   }
 
-  override fun getId(): Int = mealType.id
+  override fun getId(): Int = mealType.meal_id
   fun getMealImage(): String = mealType.image
   fun getMealTitle(): String = mealType.title
   fun getMealSelected(): Boolean = mealType.selected == 1
