@@ -28,6 +28,7 @@ class MealsFragment : BaseFragment<FragmentMealsBinding>(),
   private val adapter = MainMealsCategoriesAdapter(this)
   private val mealsAdapter = MealsAdapter(null, this)
   private val listOfMeals = mutableListOf<MutableList<MealsUiState>>()
+  private val listSelectedOfMeals = mutableListOf<MutableList<MealsDateUiState>>()
 
   override
   fun getLayoutId() = R.layout.fragment_meals
@@ -90,12 +91,15 @@ class MealsFragment : BaseFragment<FragmentMealsBinding>(),
 
   override fun changeCategoryType(type: Int) {
     if (adapter.currentPosition > adapter.differ.currentList.size - 1) {
+      listSelectedOfMeals.add(mealsAdapter.differ.currentList as MutableList<MealsDateUiState>)
       continueOrdering(0, "")
     } else {
       adapter.changeSelected(type)
       if (listOfMeals.size < adapter.currentPosition) {
+        listSelectedOfMeals.add(mealsAdapter.differ.currentList as MutableList<MealsDateUiState>)
         getMeals(adapter.lastSelected)
       } else {
+        listSelectedOfMeals[adapter.lastPosition] = listOfMeals[adapter.lastPosition] as MutableList<MealsDateUiState>
         updateMealsAdapter(listOfMeals[adapter.lastPosition])
       }
     }
@@ -113,20 +117,30 @@ class MealsFragment : BaseFragment<FragmentMealsBinding>(),
 
   override fun continueOrdering(meal_id: Int, meal_name: String) {
     viewModel.makeOrderRequest.selected_meal.clear() // clear any meal before adding
-    val dateList = mealsAdapter.differ.currentList as List<MealsDateUiState>
-    dateList.map { mealsDateUiState ->
-      mealsDateUiState.listMeals.map { mealsData ->
-        viewModel.makeOrderRequest.selected_meal.add(
-          SelectedMeals(
-            meal_id = mealsData.getId(),
-            date = mealsDateUiState.getDate(),
-            meal_type_id = mealsDateUiState.typeId
-          )
-        )
-
+    Log.e(
+      "continueOrdering",
+      "continueOrdering: Before" + listSelectedOfMeals.size
+    )
+    listSelectedOfMeals.forEach { mealsDateUiState ->
+      Log.e(
+        "continueOrdering",
+        "continueOrdering: " + mealsDateUiState.size
+      )
+      mealsDateUiState.forEach { mealsData ->
+        mealsData.listMeals.forEach { mealsDataUiState ->
+          if (mealsDataUiState.getMealSelected())
+            viewModel.makeOrderRequest.selected_meal.add(
+              SelectedMeals(
+                meal_id = mealsData.getId(),
+                date = mealsData.getDate(),
+                meal_type_id = mealsData.typeId
+              )
+            )
+        }
       }
     }
-    navigateSafe(MealsFragmentDirections.actionMealsFragmentToAdditionsDialog(viewModel.makeOrderRequest))
+    Log.e("continueOrdering", "continueOrdering: " + viewModel.makeOrderRequest.selected_meal.size)
+//    navigateSafe(MealsFragmentDirections.actionMealsFragmentToAdditionsDialog(viewModel.makeOrderRequest))
   }
 
 }

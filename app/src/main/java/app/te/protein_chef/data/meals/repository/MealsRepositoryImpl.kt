@@ -17,7 +17,7 @@ class MealsRepositoryImpl @Inject constructor(private val remoteDataSource: Meal
     meal_type_id: Int?,
     meal_type: String?
   ): Resource<BaseResponse<MealsMainData>> =
-    remoteDataSource.getMeals(package_type_price_id, selected_date, meal_type_id)
+    remoteDataSource.getMeals(package_type_price_id, selected_date, meal_type_id, meal_type)
 
   override suspend fun getMealDetails(
     meal_id: Int

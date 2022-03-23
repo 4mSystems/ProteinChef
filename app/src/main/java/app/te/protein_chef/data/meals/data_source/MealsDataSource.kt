@@ -10,7 +10,7 @@ class MealsDataSource @Inject constructor(private val apiService: MealsServices)
     package_type_price_id: Int,
     selected_date: String,
     meal_type_id: Int?,
-    meal_type: String? = null
+    meal_type: String?
   ) = safeApiCall {
     apiService.getMeals(package_type_price_id, selected_date, meal_type_id,meal_type)
   }

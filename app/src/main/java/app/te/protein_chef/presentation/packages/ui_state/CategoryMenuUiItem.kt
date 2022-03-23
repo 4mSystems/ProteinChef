@@ -7,6 +7,8 @@ import app.te.protein_chef.R
 @Keep
 data class CategoryMenuUiItem(
   var id: Int = 0,
+  var meal_type_id: Int = 0,
+  var price: Double = 0.0,
   var title: String = "",
   var image: String = "",
   var selected: Int = 0

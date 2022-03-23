@@ -125,6 +125,9 @@
   <string name="additions_dialog_body">ضيف سناكس لسلة الطلب لتجعل نظامك الغذائي متكامل</string>
   <string name="continue_order">لا استمرار</string>
   <string name="add_additions">إضافة سناكس</string>
+    <string name="snaks">الاضافات</string>
+  <string name="policy_prozen">من فضلك قم بقراءة الشروط والاحكام وسياسة الإلغاء والتجميد قبل التقدم في حجز الطلب</string>
+  <string name="approve">الموافقة علي الشروط والاحكام</string>
   <string-array name="gender">
     <item>ذكر </item>
     <item>انثى</item>

@@ -1,7 +1,6 @@
 package app.te.protein_chef.presentation.additions_meals
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,7 +30,6 @@ class AdditionsDialog : BottomSheetDialogFragment(), AdditionalEventListener {
 
   override fun openAdditional() {
     dismiss()
-    Log.e("openAdditional", "openAdditional: " + additionsDialogArgs.orderRequest.toString())
     navigateSafe(
       AdditionsDialogDirections.actionAdditionsDialogToAdditionsMealsFragment(
         additionsDialogArgs.orderRequest

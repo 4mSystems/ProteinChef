@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <data>
+
+    <variable
+      name="uiState"
+      type="app.te.protein_chef.presentation.about.SettingsDataUiState" />
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_marginBottom="@dimen/dimen10"
+      app:layout_constraintBottom_toTopOf="@+id/next"
+      app:layout_constraintTop_toTopOf="parent">
+
+      <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+          android:id="@+id/ic_about"
+          style="@style/TextMediumFont"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_margin="@dimen/dimen16"
+          android:text="@string/policy_prozen"
+          android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+          android:textColor="@color/black_op"
+          app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+          style="@style/TextMediumFont"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_margin="@dimen/dimen25"
+          android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+          android:textColor="@color/black"
+          app:fromHtml="@{uiState.body}"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/ic_about" />
+      </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.appcompat.widget.AppCompatButton
+      android:id="@+id/next"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/colorAccentDark"
+      android:text="@string/approve"
+      android:textAppearance="@style/TextAppearance.AppCompat.Small"
+      android:textColor="@color/white"
+      app:layout_constraintBottom_toBottomOf="parent" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

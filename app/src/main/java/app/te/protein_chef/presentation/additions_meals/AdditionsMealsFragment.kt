@@ -1,24 +1,29 @@
 package app.te.protein_chef.presentation.additions_meals
 
+import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.navArgs
 import app.te.protein_chef.domain.utils.Resource
 import app.te.protein_chef.R
+import app.te.protein_chef.databinding.FragmentMealAdditionsBinding
+import app.te.protein_chef.domain.make_order.entity.OrderAdditions
+import app.te.protein_chef.domain.make_order.entity.SelectedMeals
 import app.te.protein_chef.presentation.base.BaseFragment
 import app.te.protein_chef.presentation.base.extensions.*
 import app.te.protein_chef.presentation.meals.adapters.MainMealsCategoriesAdapter
 import app.te.protein_chef.presentation.meals.adapters.MealsAdapter
 import app.te.protein_chef.presentation.meals.listeners.MealsListener
 import app.te.protein_chef.presentation.meals.ui_state.MainMealsUiState
+import app.te.protein_chef.presentation.meals.ui_state.MealsDateUiState
 import app.te.protein_chef.presentation.meals.ui_state.MealsUiState
 import app.te.protein_chef.presentation.meals.viewModels.MealsViewModel
-import app.te.protein_chef.databinding.FragmentMealsBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 
 @Suppress("UNCHECKED_CAST")
 @AndroidEntryPoint
-class AdditionsMealsFragment : BaseFragment<FragmentMealsBinding>(),
+class AdditionsMealsFragment : BaseFragment<FragmentMealAdditionsBinding>(),
   MealsListener {
   private val viewModel: MealsViewModel by viewModels()
   private val adapter = MainMealsCategoriesAdapter(this)
@@ -26,19 +31,23 @@ class AdditionsMealsFragment : BaseFragment<FragmentMealsBinding>(),
   private val listOfMeals = mutableListOf<MutableList<MealsUiState>>()
 
   override
-  fun getLayoutId() = R.layout.fragment_meals
+  fun getLayoutId() = R.layout.fragment_meal_additions
 
   override fun setBindingVariables() {
     binding.eventListener = this
+    viewModel.makeOrderRequest =
+      AdditionsMealsFragmentArgs.fromSavedStateHandle(viewModel.savedStateHandle).orderRequest
+    Log.e("setBindingVariables", "setBindingVariables: "+viewModel.makeOrderRequest.selected_meal.size)
     getMeals(null)
   }
 
   private fun getMeals(mealTypeId: Int?) {
-//    viewModel.getMenuMeals(
-//      MealsFragmentArgs.fromSavedStateHandle(viewModel.savedStateHandle).packageId,
-//      MealsFragmentArgs.fromSavedStateHandle(viewModel.savedStateHandle).selectedDate,
-//      mealTypeId
-//    )
+    viewModel.getMenuMeals(
+      viewModel.makeOrderRequest.package_type_id,
+      viewModel.makeOrderRequest.selected_date,
+      mealTypeId,
+      "sub"
+    )
   }
 
   override fun setupObservers() {
@@ -66,8 +75,6 @@ class AdditionsMealsFragment : BaseFragment<FragmentMealsBinding>(),
   }
 
   private fun bindUi(mainMealsUiState: MainMealsUiState) {
-    // update package data
-    binding.packageUiState = mainMealsUiState.mealTypeUiState
 
     // update main category adapter
     if (adapter.differ.currentList.size == 0) {
@@ -97,18 +104,37 @@ class AdditionsMealsFragment : BaseFragment<FragmentMealsBinding>(),
     }
   }
 
-  override fun openItemDetails(meal_id: Int, meal_name: String) {
-//    navigateSafe(
-//      MealsFragmentDirections.actionMealsFragmentToMealDetailsFragment(
-//        meal_id,
-//        meal_name,
-//        MealsFragmentArgs.fromSavedStateHandle(viewModel.savedStateHandle).title
-//      )
-//    )
-  }
+  override fun openItemDetails(meal_id: Int, meal_name: String) {}
 
   override fun continueOrdering(meal_id: Int, meal_name: String) {
-//    navigateSafe(MealsFragmentDirections.actionMealsFragmentToAdditionsDialog())
+    val dateList = mealsAdapter.differ.currentList as List<MealsDateUiState>
+    Log.e("continueOrdering", "continueOrdering: "+dateList.size)
+    dateList.map { mealsDateUiState ->
+      mealsDateUiState.listMeals.map { mealsData ->
+        viewModel.makeOrderRequest.selected_meal.add(
+          SelectedMeals(
+            meal_id = mealsData.getId(),
+            date = mealsDateUiState.getDate(),
+            meal_type_id = mealsDateUiState.typeId
+          )
+        )
+
+      }
+    }
+    adapter.differ.currentList.map { menuType ->
+      viewModel.makeOrderRequest.order_additions.add(
+        OrderAdditions(
+          price = menuType.price,
+          meal_type_id = menuType.meal_type_id
+        )
+      )
+    }
+    Log.e("continueOrdering", "continueOrdering: " + viewModel.makeOrderRequest.selected_meal.size)
+    navigateSafe(
+      AdditionsMealsFragmentDirections.actionAdditionsMealsFragmentToPrivacyOrderFragment(
+        viewModel.makeOrderRequest
+      )
+    )
   }
 
 }

@@ -24,7 +24,7 @@ class MealsUseCase @Inject constructor(
     package_type_price_id: Int,
     selected_date: String,
     meal_type_id: Int?,
-    meal_type: String? = null
+    meal_type: String?
   ) = flow {
 
     emit(Resource.Loading)
@@ -62,8 +62,10 @@ class MealsUseCase @Inject constructor(
       items.add(
         CategoryMenuUiItem(
           id = menu.id,
+          meal_type_id = menu.meal_type_id,
           title = menu.title,
-          image = menu.image
+          image = menu.image,
+          price = menu.price
         )
       )
     }

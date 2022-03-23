@@ -81,7 +81,7 @@ class MainMealsCategoriesAdapter(val mealsListener: MealsListener) :
       lastPosition -= 1
       currentPosition -= 1
     }
-    lastSelected = differ.currentList[lastPosition].id
+    lastSelected = differ.currentList[lastPosition].meal_type_id
     notifyItemChanged(lastPosition)
   }
 

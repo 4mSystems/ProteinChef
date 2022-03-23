@@ -9,7 +9,7 @@ object Constants {
   const val Verify: String = "verify"
   const val FORGET: String = "reset"
   const val ABOUT_TYPE: String = "about"
-  const val PRIVACY_TYPE: String = "privacy"
+  const val PRIVACY_TYPE: String = "frozen"
   const val TERMS_TYPE: String = "terms"
   const val EMPTY: String = "EMPTY"
   const val BUNDLE: String = "BUNDLE"

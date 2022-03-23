@@ -253,7 +253,25 @@
   <fragment
     android:id="@+id/additionsMealsFragment"
     android:name="app.te.protein_chef.presentation.additions_meals.AdditionsMealsFragment"
-    android:label="AdditionsMealsFragment">
+    android:label="@string/snaks">
+    <argument
+      android:name="order_request"
+      app:argType="app.te.protein_chef.domain.make_order.entity.MakeOrderRequest" />
+    <action
+      android:id="@+id/action_additionsMealsFragment_to_privacyOrderFragment"
+      app:destination="@id/privacyOrderFragment"
+      app:enterAnim="@anim/anim_slide_in_right"
+      app:exitAnim="@anim/anim_slide_out_left"
+      app:popEnterAnim="@anim/anim_slide_in_left"
+      app:popExitAnim="@anim/anim_slide_out_right"
+      app:popUpTo="@id/mealsFragment"
+      app:popUpToSaveState="true" />
+
+  </fragment>
+  <fragment
+    android:id="@+id/privacyOrderFragment"
+    android:name="app.te.protein_chef.presentation.privacy.PrivacyOrderFragment"
+    android:label="PrivacyOrderFragment">
     <argument
       android:name="order_request"
       app:argType="app.te.protein_chef.domain.make_order.entity.MakeOrderRequest" />

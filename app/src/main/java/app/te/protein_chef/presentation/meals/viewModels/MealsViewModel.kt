@@ -16,16 +16,17 @@ class MealsViewModel @Inject constructor(
   private val mealsUseCase: MealsUseCase,
   val savedStateHandle: SavedStateHandle
 ) : BaseViewModel() {
-  val makeOrderRequest = MakeOrderRequest()
+  var makeOrderRequest = MakeOrderRequest()
   private val _menuResponse =
     MutableStateFlow<Resource<Any>>(Resource.Default)
   val menuResponse = _menuResponse
 
-  fun getMenuMeals(package_id: Int, selected_date: String, mealTypeId: Int?) {
+  fun getMenuMeals(package_id: Int, selected_date: String, mealTypeId: Int?,
+                   meal_type: String? = null) {
     makeOrderRequest.package_type_id = package_id
     makeOrderRequest.selected_date = selected_date
     viewModelScope.launch {
-      mealsUseCase.invoke(package_id, selected_date, mealTypeId)
+      mealsUseCase.invoke(package_id, selected_date, mealTypeId,meal_type)
         .collect { result ->
           _menuResponse.value = result
         }
