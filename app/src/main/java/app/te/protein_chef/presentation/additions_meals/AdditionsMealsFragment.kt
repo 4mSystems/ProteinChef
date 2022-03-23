@@ -11,6 +11,7 @@ import app.te.protein_chef.domain.make_order.entity.OrderAdditions
 import app.te.protein_chef.domain.make_order.entity.SelectedMeals
 import app.te.protein_chef.presentation.base.BaseFragment
 import app.te.protein_chef.presentation.base.extensions.*
+import app.te.protein_chef.presentation.base.utils.Constants
 import app.te.protein_chef.presentation.meals.adapters.MainMealsCategoriesAdapter
 import app.te.protein_chef.presentation.meals.adapters.MealsAdapter
 import app.te.protein_chef.presentation.meals.listeners.MealsListener
@@ -29,6 +30,7 @@ class AdditionsMealsFragment : BaseFragment<FragmentMealAdditionsBinding>(),
   private val adapter = MainMealsCategoriesAdapter(this)
   private val mealsAdapter = MealsAdapter(null, this)
   private val listOfMeals = mutableListOf<MutableList<MealsUiState>>()
+  private val listSelectedOfMeals = mutableListOf<MutableList<MealsDateUiState>>()
 
   override
   fun getLayoutId() = R.layout.fragment_meal_additions
@@ -37,7 +39,6 @@ class AdditionsMealsFragment : BaseFragment<FragmentMealAdditionsBinding>(),
     binding.eventListener = this
     viewModel.makeOrderRequest =
       AdditionsMealsFragmentArgs.fromSavedStateHandle(viewModel.savedStateHandle).orderRequest
-    Log.e("setBindingVariables", "setBindingVariables: "+viewModel.makeOrderRequest.selected_meal.size)
     getMeals(null)
   }
 
@@ -75,14 +76,18 @@ class AdditionsMealsFragment : BaseFragment<FragmentMealAdditionsBinding>(),
   }
 
   private fun bindUi(mainMealsUiState: MainMealsUiState) {
-
     // update main category adapter
     if (adapter.differ.currentList.size == 0) {
       adapter.differ.submitList(mainMealsUiState.categoryMenuUiItemList)
       binding.rcMainMeals.setUpAdapter(adapter, "1", "2")
+      mainMealsUiState.categoryMenuUiItemList.forEachIndexed { index, categoryMenuUiItem ->
+        listSelectedOfMeals.add(index, mutableListOf())
+      }
     }
     //  update Meals
     listOfMeals.add(mainMealsUiState.mealsUiStateList)
+    listSelectedOfMeals[adapter.lastPosition] =
+      listOfMeals[adapter.lastPosition] as MutableList<MealsDateUiState>
     updateMealsAdapter(mainMealsUiState.mealsUiStateList)
   }
 
@@ -92,13 +97,17 @@ class AdditionsMealsFragment : BaseFragment<FragmentMealAdditionsBinding>(),
   }
 
   override fun changeCategoryType(type: Int) {
-    if (adapter.currentPosition > adapter.differ.currentList.size - 1) {
+    if (adapter.currentPosition > adapter.differ.currentList.size - 1 && type == Constants.FORWARD) {
+      listSelectedOfMeals[adapter.lastPosition] =
+        mealsAdapter.differ.currentList as MutableList<MealsDateUiState>
       continueOrdering(0, "")
     } else {
       adapter.changeSelected(type)
       if (listOfMeals.size < adapter.currentPosition) {
         getMeals(adapter.lastSelected)
       } else {
+        listSelectedOfMeals[adapter.lastPosition] =
+          listOfMeals[adapter.lastPosition] as MutableList<MealsDateUiState>
         updateMealsAdapter(listOfMeals[adapter.lastPosition])
       }
     }
@@ -107,18 +116,18 @@ class AdditionsMealsFragment : BaseFragment<FragmentMealAdditionsBinding>(),
   override fun openItemDetails(meal_id: Int, meal_name: String) {}
 
   override fun continueOrdering(meal_id: Int, meal_name: String) {
-    val dateList = mealsAdapter.differ.currentList as List<MealsDateUiState>
-    Log.e("continueOrdering", "continueOrdering: "+dateList.size)
-    dateList.map { mealsDateUiState ->
-      mealsDateUiState.listMeals.map { mealsData ->
-        viewModel.makeOrderRequest.selected_meal.add(
-          SelectedMeals(
-            meal_id = mealsData.getId(),
-            date = mealsDateUiState.getDate(),
-            meal_type_id = mealsDateUiState.typeId
-          )
-        )
-
+    listSelectedOfMeals.forEach { mealsDateUiState ->
+      mealsDateUiState.forEach { mealsData ->
+        mealsData.listMeals.forEach { mealsDataUiState ->
+          if (mealsDataUiState.getMealSelected())
+            viewModel.makeOrderRequest.selected_meal.add(
+              SelectedMeals(
+                meal_id = mealsDataUiState.getId(),
+                date = mealsData.getDate(),
+                meal_type_id = mealsData.typeId
+              )
+            )
+        }
       }
     }
     adapter.differ.currentList.map { menuType ->

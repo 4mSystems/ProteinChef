@@ -271,7 +271,7 @@
   <fragment
     android:id="@+id/privacyOrderFragment"
     android:name="app.te.protein_chef.presentation.privacy.PrivacyOrderFragment"
-    android:label="PrivacyOrderFragment">
+    android:label="@string/terms">
     <argument
       android:name="order_request"
       app:argType="app.te.protein_chef.domain.make_order.entity.MakeOrderRequest" />

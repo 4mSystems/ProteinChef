@@ -11,7 +11,8 @@
 
   <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/backgroundGray">
 
     <androidx.core.widget.NestedScrollView
       android:layout_width="match_parent"
@@ -30,6 +31,8 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_margin="@dimen/dimen16"
+          android:background="@drawable/corner_white"
+          android:padding="@dimen/dimen10"
           android:text="@string/policy_prozen"
           android:textAppearance="@style/TextAppearance.AppCompat.Medium"
           android:textColor="@color/black_op"

@@ -1,6 +1,5 @@
 package app.te.protein_chef.presentation.meals
 
-import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import app.te.protein_chef.domain.utils.Resource
@@ -15,10 +14,10 @@ import app.te.protein_chef.presentation.meals.ui_state.MealsUiState
 import app.te.protein_chef.presentation.meals.viewModels.MealsViewModel
 import app.te.protein_chef.databinding.FragmentMealsBinding
 import app.te.protein_chef.domain.make_order.entity.SelectedMeals
+import app.te.protein_chef.presentation.base.utils.Constants
 import app.te.protein_chef.presentation.meals.ui_state.MealsDateUiState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
-import kotlin.math.log
 
 @Suppress("UNCHECKED_CAST")
 @AndroidEntryPoint
@@ -78,9 +77,14 @@ class MealsFragment : BaseFragment<FragmentMealsBinding>(),
     if (adapter.differ.currentList.size == 0) {
       adapter.differ.submitList(mainMealsUiState.categoryMenuUiItemList)
       binding.rcMainMeals.setUpAdapter(adapter, "1", "2")
+      mainMealsUiState.categoryMenuUiItemList.forEachIndexed { index, categoryMenuUiItem ->
+        listSelectedOfMeals.add(index, mutableListOf())
+      }
     }
     //  update Meals
     listOfMeals.add(mainMealsUiState.mealsUiStateList)
+    listSelectedOfMeals[adapter.lastPosition] =
+      listOfMeals[adapter.lastPosition] as MutableList<MealsDateUiState>
     updateMealsAdapter(mainMealsUiState.mealsUiStateList)
   }
 
@@ -90,16 +94,17 @@ class MealsFragment : BaseFragment<FragmentMealsBinding>(),
   }
 
   override fun changeCategoryType(type: Int) {
-    if (adapter.currentPosition > adapter.differ.currentList.size - 1) {
-      listSelectedOfMeals.add(mealsAdapter.differ.currentList as MutableList<MealsDateUiState>)
+    if (adapter.currentPosition > adapter.differ.currentList.size - 1 && type == Constants.FORWARD) {
+      listSelectedOfMeals[adapter.lastPosition] =
+        mealsAdapter.differ.currentList as MutableList<MealsDateUiState>
       continueOrdering(0, "")
     } else {
       adapter.changeSelected(type)
       if (listOfMeals.size < adapter.currentPosition) {
-        listSelectedOfMeals.add(mealsAdapter.differ.currentList as MutableList<MealsDateUiState>)
         getMeals(adapter.lastSelected)
       } else {
-        listSelectedOfMeals[adapter.lastPosition] = listOfMeals[adapter.lastPosition] as MutableList<MealsDateUiState>
+        listSelectedOfMeals[adapter.lastPosition] =
+          listOfMeals[adapter.lastPosition] as MutableList<MealsDateUiState>
         updateMealsAdapter(listOfMeals[adapter.lastPosition])
       }
     }
@@ -117,21 +122,13 @@ class MealsFragment : BaseFragment<FragmentMealsBinding>(),
 
   override fun continueOrdering(meal_id: Int, meal_name: String) {
     viewModel.makeOrderRequest.selected_meal.clear() // clear any meal before adding
-    Log.e(
-      "continueOrdering",
-      "continueOrdering: Before" + listSelectedOfMeals.size
-    )
     listSelectedOfMeals.forEach { mealsDateUiState ->
-      Log.e(
-        "continueOrdering",
-        "continueOrdering: " + mealsDateUiState.size
-      )
       mealsDateUiState.forEach { mealsData ->
         mealsData.listMeals.forEach { mealsDataUiState ->
           if (mealsDataUiState.getMealSelected())
             viewModel.makeOrderRequest.selected_meal.add(
               SelectedMeals(
-                meal_id = mealsData.getId(),
+                meal_id = mealsDataUiState.getId(),
                 date = mealsData.getDate(),
                 meal_type_id = mealsData.typeId
               )
@@ -139,8 +136,7 @@ class MealsFragment : BaseFragment<FragmentMealsBinding>(),
         }
       }
     }
-    Log.e("continueOrdering", "continueOrdering: " + viewModel.makeOrderRequest.selected_meal.size)
-//    navigateSafe(MealsFragmentDirections.actionMealsFragmentToAdditionsDialog(viewModel.makeOrderRequest))
+    navigateSafe(MealsFragmentDirections.actionMealsFragmentToAdditionsDialog(viewModel.makeOrderRequest))
   }
 
 }
