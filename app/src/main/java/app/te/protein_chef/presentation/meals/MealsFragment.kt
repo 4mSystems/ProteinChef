@@ -70,16 +70,18 @@ class MealsFragment : BaseFragment<FragmentMealsBinding>(),
   }
 
   private fun bindUi(mainMealsUiState: MainMealsUiState) {
-    // update package data
-    binding.packageUiState = mainMealsUiState.mealTypeUiState
 
     // update main category adapter
     if (adapter.differ.currentList.size == 0) {
       adapter.differ.submitList(mainMealsUiState.categoryMenuUiItemList)
       binding.rcMainMeals.setUpAdapter(adapter, "1", "2")
-      mainMealsUiState.categoryMenuUiItemList.forEachIndexed { index, categoryMenuUiItem ->
+      mainMealsUiState.categoryMenuUiItemList.forEachIndexed { index, _ ->
         listSelectedOfMeals.add(index, mutableListOf())
       }
+      // update package data
+      binding.packageUiState = mainMealsUiState.mealTypeUiState
+      viewModel.makeOrderRequest.meals_total =
+        mainMealsUiState.mealTypeUiState.price // for total price
     }
     //  update Meals
     listOfMeals.add(mainMealsUiState.mealsUiStateList)
@@ -122,10 +124,11 @@ class MealsFragment : BaseFragment<FragmentMealsBinding>(),
 
   override fun continueOrdering(meal_id: Int, meal_name: String) {
     viewModel.makeOrderRequest.selected_meal.clear() // clear any meal before adding
+    viewModel.makeOrderRequest.meals_additional_total = 0.0 // clear any meals additions Total
     listSelectedOfMeals.forEach { mealsDateUiState ->
       mealsDateUiState.forEach { mealsData ->
         mealsData.listMeals.forEach { mealsDataUiState ->
-          if (mealsDataUiState.getMealSelected())
+          if (mealsDataUiState.getMealSelected()) {
             viewModel.makeOrderRequest.selected_meal.add(
               SelectedMeals(
                 meal_id = mealsDataUiState.getId(),
@@ -133,6 +136,7 @@ class MealsFragment : BaseFragment<FragmentMealsBinding>(),
                 meal_type_id = mealsData.typeId
               )
             )
+          }
         }
       }
     }

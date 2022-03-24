@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <data>
+
+    <variable
+      name="eventListener"
+      type="app.te.protein_chef.presentation.make_order.listener.DetectLocationEventListener" />
+
+    <variable
+      name="itemUiState"
+      type="app.te.protein_chef.presentation.make_order.ui_state.DetectDeliveryItemUiState" />
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundGray">
+
+    <androidx.core.widget.NestedScrollView
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_marginBottom="@dimen/dimen10"
+      app:layout_constraintBottom_toTopOf="@id/next"
+      app:layout_constraintTop_toTopOf="parent">
+
+      <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+          android:id="@+id/package_data"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_margin="@dimen/dimen16"
+          android:background="@drawable/corner_white"
+          app:layout_constraintTop_toTopOf="parent">
+
+          <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/market_lottie"
+            android:layout_width="@dimen/dimen100"
+            android:layout_height="@dimen/dimen70"
+            android:layout_margin="@dimen/dimen10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="pickup_from_market.json"
+            app:lottie_loop="true" />
+
+          <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_from_market"
+            style="@style/TextMediumFont"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen8"
+            android:layout_marginEnd="@dimen/dimen4"
+            android:text="@string/from_market"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/colorAccentDark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_price"
+            app:layout_constraintStart_toEndOf="@+id/market_lottie"
+            app:layout_constraintTop_toTopOf="parent" />
+
+          <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimen8"
+            android:onCheckedChanged="@{(switch, checked) -> itemUiState.onCheckedChanged(checked)}"
+            android:textAlignment="viewStart"
+            android:checked="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/colorPrimaryDark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+          android:id="@+id/tv_delivery_location"
+          style="@style/TextBoldFont"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_margin="@dimen/dimen16"
+          android:text="@string/delivery_location"
+          android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+          android:textColor="@color/black"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/package_data" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+          android:id="@+id/tv_delivery_location_another"
+          style="@style/TextBoldFont"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginEnd="@dimen/dimen16"
+          android:onClick="@{()-> eventListener.addNewLocation()}"
+          android:text="@string/choose_location"
+          android:textAppearance="@style/TextAppearance.AppCompat.Small"
+          android:textColor="@color/black"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toTopOf="@id/tv_delivery_location" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+          android:id="@+id/selected_location"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_margin="@dimen/dimen16"
+          android:background="@drawable/corner_white"
+          android:visibility="@{itemUiState.checkDefaultLocation()}"
+          app:layout_constraintTop_toBottomOf="@id/tv_delivery_location">
+
+          <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_location_name"
+            style="@style/TextBoldFont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen16"
+            android:text="@string/location_name"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/colorAccentDark"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+          <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_location_name_value"
+            style="@style/TextMediumFont"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen16"
+            android:text="@{itemUiState.defaultLocation.title}"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@+id/flow"
+            app:layout_constraintStart_toEndOf="@id/tv_location_name"
+            app:layout_constraintTop_toTopOf="parent" />
+
+          <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_location_address"
+            style="@style/TextBoldFont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen16"
+            android:text="@string/location_address"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/colorAccentDark"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_location_name_value" />
+
+          <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_location_address_value"
+            style="@style/TextMediumFont"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen16"
+            android:text="@{itemUiState.defaultLocation.body}"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/flow"
+            app:layout_constraintStart_toEndOf="@id/tv_location_address"
+            app:layout_constraintTop_toBottomOf="@+id/tv_location_name_value" />
+
+          <RadioButton
+            android:id="@+id/btn_default"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/colorPrimaryDark"
+            android:checked="@{itemUiState.checkDelivery}"
+            android:clickable="false"
+            android:minWidth="0dp" />
+
+
+          <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/flow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen10"
+            app:constraint_referenced_ids="btn_default"
+            app:flow_horizontalStyle="spread_inside"
+            app:flow_maxElementsWrap="1"
+            app:flow_verticalGap="@dimen/dimen4"
+            app:flow_verticalStyle="spread"
+            app:flow_wrapMode="chain"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <include
+          android:id="@+id/item_empty_location"
+          layout="@layout/item_empty_location"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_margin="@dimen/dimen16"
+          android:visibility="@{itemUiState.checkEmptyLocation()}"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/selected_location" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+          android:id="@+id/tv_delivery_period"
+          style="@style/TextBoldFont"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="@dimen/dimen16"
+          android:layout_marginTop="@dimen/dimen25"
+          android:layout_marginEnd="@dimen/dimen16"
+          android:text="@string/delivery_period"
+          android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+          android:textColor="@color/black"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/item_empty_location" />
+
+      </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.button.MaterialButton
+      android:id="@+id/next"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/colorAccentDark"
+      android:padding="@dimen/dimen10"
+      android:text="@string/choose_payment"
+      android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+      android:textColor="@color/white"
+      app:backgroundTint="@null"
+      android:onClick="@{()->eventListener.submitOrder()}"
+      app:icon="@drawable/ic_arrow"
+      app:iconGravity="textStart"
+      app:layout_constraintBottom_toBottomOf="parent" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

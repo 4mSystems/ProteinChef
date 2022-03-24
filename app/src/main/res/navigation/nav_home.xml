@@ -275,5 +275,43 @@
     <argument
       android:name="order_request"
       app:argType="app.te.protein_chef.domain.make_order.entity.MakeOrderRequest" />
+    <action
+      android:id="@+id/action_privacyOrderFragment_to_detectDeliveryFragment"
+      app:destination="@id/detectDeliveryFragment"
+      app:enterAnim="@anim/anim_slide_in_right"
+      app:exitAnim="@anim/anim_slide_out_left"
+      app:popEnterAnim="@anim/anim_slide_in_left"
+      app:popExitAnim="@anim/anim_slide_out_right" />
   </fragment>
+  <fragment
+    android:id="@+id/detectDeliveryFragment"
+    android:name="app.te.protein_chef.presentation.make_order.DetectDeliveryFragment"
+    android:label="@string/order_location">
+    <argument
+      android:name="order_request"
+      app:argType="app.te.protein_chef.domain.make_order.entity.MakeOrderRequest" />
+    <action
+      android:id="@+id/action_accountFragment_to_myLocationsFragment"
+      app:destination="@id/myLocationsFragment"
+      app:enterAnim="@anim/anim_slide_in_right"
+      app:exitAnim="@anim/anim_slide_out_left"
+      app:popEnterAnim="@anim/anim_slide_in_left"
+      app:popExitAnim="@anim/anim_slide_out_right" />
+    <action
+      android:id="@+id/action_detectDeliveryFragment_to_submitOrderFragment"
+      app:destination="@id/submitOrderFragment"
+      app:enterAnim="@anim/anim_slide_in_right"
+      app:exitAnim="@anim/anim_slide_out_left"
+      app:popEnterAnim="@anim/anim_slide_in_left"
+      app:popExitAnim="@anim/anim_slide_out_right" />
+  </fragment>
+  <fragment
+    android:id="@+id/submitOrderFragment"
+    android:name="app.te.protein_chef.presentation.make_order.SubmitOrderFragment"
+    android:label="@string/confirm_order">
+    <argument
+      android:name="order_request"
+      app:argType="app.te.protein_chef.domain.make_order.entity.MakeOrderRequest" />
+  </fragment>
+
 </navigation>

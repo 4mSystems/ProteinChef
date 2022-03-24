@@ -1,9 +1,7 @@
 package app.te.protein_chef.presentation.additions_meals
 
-import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.navArgs
 import app.te.protein_chef.domain.utils.Resource
 import app.te.protein_chef.R
 import app.te.protein_chef.databinding.FragmentMealAdditionsBinding
@@ -119,7 +117,7 @@ class AdditionsMealsFragment : BaseFragment<FragmentMealAdditionsBinding>(),
     listSelectedOfMeals.forEach { mealsDateUiState ->
       mealsDateUiState.forEach { mealsData ->
         mealsData.listMeals.forEach { mealsDataUiState ->
-          if (mealsDataUiState.getMealSelected())
+          if (mealsDataUiState.getMealSelected()) {
             viewModel.makeOrderRequest.selected_meal.add(
               SelectedMeals(
                 meal_id = mealsDataUiState.getId(),
@@ -127,18 +125,22 @@ class AdditionsMealsFragment : BaseFragment<FragmentMealAdditionsBinding>(),
                 meal_type_id = mealsData.typeId
               )
             )
+          }
         }
       }
     }
+    viewModel.makeOrderRequest.meals_additional_total = 0.0 // clear before adding
     adapter.differ.currentList.map { menuType ->
-      viewModel.makeOrderRequest.order_additions.add(
-        OrderAdditions(
-          price = menuType.price,
-          meal_type_id = menuType.meal_type_id
+      if (menuType.selected == 1) {
+        viewModel.makeOrderRequest.meals_additional_total += menuType.price
+        viewModel.makeOrderRequest.order_additions.add(
+          OrderAdditions(
+            price = menuType.price,
+            meal_type_id = menuType.meal_type_id
+          )
         )
-      )
+      }
     }
-    Log.e("continueOrdering", "continueOrdering: " + viewModel.makeOrderRequest.selected_meal.size)
     navigateSafe(
       AdditionsMealsFragmentDirections.actionAdditionsMealsFragmentToPrivacyOrderFragment(
         viewModel.makeOrderRequest

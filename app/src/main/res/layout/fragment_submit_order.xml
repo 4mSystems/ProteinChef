@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <variable
+      name="uiState"
+      type="app.te.protein_chef.presentation.make_order.ui_state.SubmitOrderUiState" />
+
+    <variable
+      name="eventListener"
+      type="app.te.protein_chef.presentation.make_order.listener.SubmitOrderEventListener" />
+  </data>
+
+
+  <androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundGray">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_payment"
+        style="@style/TextBoldFont"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen16"
+        android:layout_marginTop="@dimen/dimen24"
+        android:layout_marginEnd="@dimen/dimen16"
+        android:background="@drawable/corner_white"
+        android:drawableEnd="@drawable/ic_arrow_down"
+        android:drawableTint="@color/colorPrimaryDark"
+        android:padding="@dimen/dimen10"
+        android:text="@string/choose_payment"
+        android:textAlignment="viewStart"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorAccentDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_have_promo"
+        style="@style/TextBoldFont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen24"
+        android:text="@string/have_promo"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorAccentDark"
+        app:layout_constraintStart_toStartOf="@id/tv_payment"
+        app:layout_constraintTop_toBottomOf="@id/tv_payment" />
+
+      <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_promo"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen16"
+        android:layout_marginTop="@dimen/dimen18"
+        android:layout_marginEnd="@dimen/dimen8"
+        android:hint="@string/add_promo"
+        android:textColorHint="@color/black"
+        app:helperTextTextColor="@color/black"
+        app:hintTextAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintEnd_toStartOf="@id/btn_confirm_promo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_have_promo">
+
+        <androidx.appcompat.widget.AppCompatEditText
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:inputType="text"
+          android:textAppearance="@style/TextAppearance.AppCompat.Small"
+          android:textColor="@color/colorPrimaryDark"
+          android:textColorHint="@color/black" />
+      </com.google.android.material.textfield.TextInputLayout>
+
+      <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_confirm_promo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dimen14"
+        android:text="@string/apply"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/colorAccentDark"
+        app:layout_constraintBottom_toBottomOf="@+id/input_promo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/input_promo" />
+
+      <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/price_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen16"
+        android:layout_marginEnd="@dimen/dimen16"
+        android:layout_marginTop="@dimen/dimen24"
+        android:background="@drawable/corner_white"
+        app:layout_constraintTop_toBottomOf="@id/input_promo">
+
+        <androidx.appcompat.widget.AppCompatTextView
+          android:id="@+id/tv_meals_cost"
+          style="@style/TextBoldFont"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_margin="@dimen/dimen16"
+          android:text="@string/meals_cost"
+          android:textAlignment="viewStart"
+          android:textAppearance="@style/TextAppearance.AppCompat.Small"
+          android:textColor="@color/black"
+          app:layout_constraintEnd_toStartOf="@+id/tv_meals_cost_value"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+          android:id="@+id/tv_meals_cost_value"
+          style="@style/TextMediumFont"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_margin="@dimen/dimen16"
+          android:text="@{uiState.getMealsCost(context)}"
+          android:textAppearance="@style/TextAppearance.AppCompat.Small"
+          android:textColor="@color/black"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          tools:text="200 ريال سعودي" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+          android:id="@+id/tv_delivery_cost"
+          style="@style/TextBoldFont"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_margin="@dimen/dimen16"
+          android:text="@string/delivery_cost"
+          android:textAlignment="viewStart"
+          android:textAppearance="@style/TextAppearance.AppCompat.Small"
+          android:textColor="@color/black"
+          app:layout_constraintEnd_toStartOf="@+id/tv_delivery_cost_value"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/tv_meals_cost" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+          android:id="@+id/tv_delivery_cost_value"
+          style="@style/TextMediumFont"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_margin="@dimen/dimen16"
+          android:text="@string/meals_cost"
+          android:textAppearance="@style/TextAppearance.AppCompat.Small"
+          android:textColor="@color/black"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/tv_meals_cost"
+          tools:text="200 ريال سعودي" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+          android:id="@+id/tv_additions_cost"
+          style="@style/TextBoldFont"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_margin="@dimen/dimen16"
+          android:text="@string/additions_cost"
+          android:textAlignment="viewStart"
+          android:textAppearance="@style/TextAppearance.AppCompat.Small"
+          android:textColor="@color/black"
+          app:layout_constraintEnd_toStartOf="@+id/tv_additions_cost_value"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/tv_delivery_cost" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+          android:id="@+id/tv_additions_cost_value"
+          style="@style/TextMediumFont"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_margin="@dimen/dimen16"
+          android:text="@{uiState.getMealsAdditionalCost(context)}"
+          android:textAppearance="@style/TextAppearance.AppCompat.Small"
+          android:textColor="@color/black"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/tv_delivery_cost"
+          tools:text="200 ريال سعودي" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+          android:id="@+id/tv_promo_cost"
+          style="@style/TextBoldFont"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_margin="@dimen/dimen16"
+          android:text="@string/promo_cost"
+          android:textAlignment="viewStart"
+          android:textAppearance="@style/TextAppearance.AppCompat.Small"
+          android:textColor="@color/black"
+          app:layout_constraintEnd_toStartOf="@+id/tv_promo_cost_value"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/tv_additions_cost" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+          android:id="@+id/tv_promo_cost_value"
+          style="@style/TextMediumFont"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_margin="@dimen/dimen16"
+          android:text="@{uiState.getDiscountPrice(context)}"
+          android:textAppearance="@style/TextAppearance.AppCompat.Small"
+          android:textColor="@color/black"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/tv_additions_cost"
+          tools:text="200 ريال سعودي" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+          android:id="@+id/tv_total_cost"
+          style="@style/TextBoldFont"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_margin="@dimen/dimen16"
+          android:text="@string/total_cost"
+          android:textAlignment="viewStart"
+          android:textAppearance="@style/TextAppearance.AppCompat.Small"
+          android:textColor="@color/colorPrimaryDark"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toStartOf="@+id/tv_total_cost_value"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/tv_promo_cost" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+          android:id="@+id/tv_total_cost_value"
+          style="@style/TextMediumFont"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_margin="@dimen/dimen16"
+          android:text="@string/meals_cost"
+          android:textAppearance="@style/TextAppearance.AppCompat.Small"
+          android:textColor="@color/colorPrimaryDark"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/tv_promo_cost"
+          tools:text="200 ريال سعودي" />
+
+
+      </androidx.constraintlayout.widget.ConstraintLayout>
+
+      <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen16"
+        android:layout_marginTop="@dimen/dimen70"
+        android:layout_marginEnd="@dimen/dimen16"
+        android:layout_marginBottom="@dimen/dimen16"
+        android:padding="@dimen/dimen16"
+        android:text="@string/confirm_order"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/colorAccentDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/price_container" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </androidx.core.widget.NestedScrollView>
+
+
+</layout>
