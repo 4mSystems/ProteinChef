@@ -13,6 +13,8 @@ import app.te.protein_chef.data.home.repository.HomeRepositoryImpl
 import app.te.protein_chef.data.intro.data_source.IntroRemoteDataSource
 import app.te.protein_chef.data.intro.repository.IntroRepositoryImpl
 import app.te.protein_chef.data.local.preferences.AppPreferences
+import app.te.protein_chef.data.make_order.data_source.MakeOrderDataSource
+import app.te.protein_chef.data.make_order.repository.MakeOrderRepositoryImpl
 import app.te.protein_chef.data.meals.data_source.MealsDataSource
 import app.te.protein_chef.data.meals.repository.MealsRepositoryImpl
 import app.te.protein_chef.data.my_coupons.data_source.MyCouponsDataSource
@@ -31,6 +33,7 @@ import app.te.protein_chef.domain.general.repository.GeneralRepository
 import app.te.protein_chef.domain.home.repository.HomeRepository
 import app.te.protein_chef.domain.home.repository.local.HomeLocalRepository
 import app.te.protein_chef.domain.intro.repository.IntroRepository
+import app.te.protein_chef.domain.make_order.repository.MakeOrderRepository
 import app.te.protein_chef.domain.meals.repository.MealsRepository
 import app.te.protein_chef.domain.my_coupons.repository.MyCouponsRepository
 import app.te.protein_chef.domain.my_locations.repository.MyLocationsRepository
@@ -123,6 +126,12 @@ class RepositoryModule {
   fun provideMealsRepository(
     remoteDataSource: MealsDataSource
   ): MealsRepository = MealsRepositoryImpl(remoteDataSource)
+
+ @Provides
+  @Singleton
+  fun provideMakeOrderRepository(
+    remoteDataSource: MakeOrderDataSource
+  ): MakeOrderRepository = MakeOrderRepositoryImpl(remoteDataSource)
 
 
 }

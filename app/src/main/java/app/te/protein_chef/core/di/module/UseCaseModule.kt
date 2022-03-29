@@ -19,6 +19,8 @@ import app.te.protein_chef.domain.home.repository.HomeRepository
 import app.te.protein_chef.domain.home.use_case.HomeUseCase
 import app.te.protein_chef.domain.intro.repository.IntroRepository
 import app.te.protein_chef.domain.intro.use_case.IntroUseCase
+import app.te.protein_chef.domain.make_order.repository.MakeOrderRepository
+import app.te.protein_chef.domain.make_order.use_case.ApplyCouponUseCase
 import app.te.protein_chef.domain.meals.repository.MealsRepository
 import app.te.protein_chef.domain.meals.use_case.MealsUseCase
 import app.te.protein_chef.domain.my_coupons.repository.MyCouponsRepository
@@ -119,6 +121,12 @@ class UseCaseModule {
   fun provideMealsUseCase(
     mealsRepository: MealsRepository
   ): MealsUseCase = MealsUseCase(mealsRepository)
+
+  @Provides
+  @Singleton
+  fun provideApplyCouponUseCase(
+    makeOrderRepository: MakeOrderRepository
+  ): ApplyCouponUseCase = ApplyCouponUseCase(makeOrderRepository)
 
 
   //public use cases

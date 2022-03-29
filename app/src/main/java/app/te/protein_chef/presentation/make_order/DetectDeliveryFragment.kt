@@ -40,9 +40,14 @@ class DetectDeliveryFragment : BaseFragment<FragmentDetectDeliveryBinding>(),
   }
 
   override fun submitOrder() {
+    val request = args.orderRequest
+    if (detectDeliveryItemUiState.checkDelivery.get()) {
+      request.deliveryFees = 70.0
+      request.location_id = detectDeliveryItemUiState.defaultLocation.id
+    }
     navigateSafe(
       DetectDeliveryFragmentDirections.actionDetectDeliveryFragmentToSubmitOrderFragment(
-        args.orderRequest
+        request
       )
     )
   }

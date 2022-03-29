@@ -5,6 +5,7 @@ import app.te.protein_chef.data.auth.data_source.remote.AuthServices
 import app.te.protein_chef.data.general.data_source.remote.GeneralServices
 import app.te.protein_chef.data.home.data_source.remote.HomeServices
 import app.te.protein_chef.data.intro.data_source.IntroServices
+import app.te.protein_chef.data.make_order.data_source.MakeOrderServices
 import app.te.protein_chef.data.meals.data_source.MealsServices
 import app.te.protein_chef.data.my_coupons.data_source.MyCouponsServices
 import app.te.protein_chef.data.my_locations.data_source.MyLocationsServices
@@ -77,6 +78,11 @@ object NetworkServicesModule {
   @Singleton
   fun provideMealsServices(retrofit: Retrofit): MealsServices =
     retrofit.create(MealsServices::class.java)
+
+  @Provides
+  @Singleton
+  fun provideMakeOrderServices(retrofit: Retrofit): MakeOrderServices =
+    retrofit.create(MakeOrderServices::class.java)
 
 
 }

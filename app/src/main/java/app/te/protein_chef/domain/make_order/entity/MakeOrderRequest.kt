@@ -13,6 +13,10 @@ data class MakeOrderRequest(
   var package_type_id: Int = 0,
   var coupon_code: String? = null,
   var discount_price: String? = null,
+  @Transient
+  var total_price: Double = 0.0,
+  @Transient
+  var deliveryFees: Double = 0.0,
   var meals_total: Double = 0.0,
   var meals_additional_total: Double = 0.0,
 ) : Parcelable

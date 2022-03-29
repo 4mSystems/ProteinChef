@@ -9,9 +9,7 @@
       name="uiState"
       type="app.te.protein_chef.presentation.make_order.ui_state.SubmitOrderUiState" />
 
-    <variable
-      name="eventListener"
-      type="app.te.protein_chef.presentation.make_order.listener.SubmitOrderEventListener" />
+
   </data>
 
 
@@ -66,6 +64,8 @@
         android:layout_marginEnd="@dimen/dimen8"
         android:hint="@string/add_promo"
         android:textColorHint="@color/black"
+        app:error="@{uiState.applyCouponRequest.couponError}"
+        app:errorEnabled="@{uiState.applyCouponRequest.couponError==null?false:true}"
         app:helperTextTextColor="@color/black"
         app:hintTextAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintEnd_toStartOf="@id/btn_confirm_promo"
@@ -76,6 +76,7 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:inputType="text"
+          android:text="@={uiState.applyCouponRequest.coupon_code}"
           android:textAppearance="@style/TextAppearance.AppCompat.Small"
           android:textColor="@color/colorPrimaryDark"
           android:textColorHint="@color/black" />
@@ -86,6 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/dimen14"
+        android:onClick="@{()-> uiState.applyCoupon(context)}"
         android:text="@string/apply"
         android:textColor="@color/white"
         app:backgroundTint="@color/colorAccentDark"
@@ -98,8 +100,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dimen16"
-        android:layout_marginEnd="@dimen/dimen16"
         android:layout_marginTop="@dimen/dimen24"
+        android:layout_marginEnd="@dimen/dimen16"
         android:background="@drawable/corner_white"
         app:layout_constraintTop_toBottomOf="@id/input_promo">
 
@@ -150,7 +152,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_margin="@dimen/dimen16"
-          android:text="@string/meals_cost"
+          android:text="@{uiState.getDeliverFees(context)}"
           android:textAppearance="@style/TextAppearance.AppCompat.Small"
           android:textColor="@color/black"
           app:layout_constraintEnd_toEndOf="parent"
@@ -232,7 +234,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_margin="@dimen/dimen16"
-          android:text="@string/meals_cost"
+          android:text="@{uiState.getTotalCost(context)}"
           android:textAppearance="@style/TextAppearance.AppCompat.Small"
           android:textColor="@color/colorPrimaryDark"
           app:layout_constraintEnd_toEndOf="parent"
@@ -249,6 +251,7 @@
         android:layout_marginTop="@dimen/dimen70"
         android:layout_marginEnd="@dimen/dimen16"
         android:layout_marginBottom="@dimen/dimen16"
+        android:onClick="@{()->uiState.makeOrder()}"
         android:padding="@dimen/dimen16"
         android:text="@string/confirm_order"
         android:textAllCaps="false"

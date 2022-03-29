@@ -105,7 +105,7 @@ open class BaseRemoteDataSource @Inject constructor() {
               )
 
               return Resource.Failure(
-                FailureStatus.TOKEN_EXPIRED,
+                FailureStatus.API_FAIL,
                 throwable.code(),
                 errorResponse.detail
               )

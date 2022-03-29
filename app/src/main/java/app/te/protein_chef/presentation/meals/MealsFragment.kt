@@ -132,7 +132,7 @@ class MealsFragment : BaseFragment<FragmentMealsBinding>(),
             viewModel.makeOrderRequest.selected_meal.add(
               SelectedMeals(
                 meal_id = mealsDataUiState.getId(),
-                date = mealsData.getDate(),
+                date = mealsData.requestDate(),
                 meal_type_id = mealsData.typeId
               )
             )

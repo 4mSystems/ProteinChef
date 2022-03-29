@@ -121,7 +121,7 @@ class AdditionsMealsFragment : BaseFragment<FragmentMealAdditionsBinding>(),
             viewModel.makeOrderRequest.selected_meal.add(
               SelectedMeals(
                 meal_id = mealsDataUiState.getId(),
-                date = mealsData.getDate(),
+                date = mealsData.requestDate(),
                 meal_type_id = mealsData.typeId
               )
             )
@@ -130,8 +130,7 @@ class AdditionsMealsFragment : BaseFragment<FragmentMealAdditionsBinding>(),
       }
     }
     viewModel.makeOrderRequest.meals_additional_total = 0.0 // clear before adding
-    adapter.differ.currentList.map { menuType ->
-      if (menuType.selected == 1) {
+    adapter.differ.currentList.forEach { menuType ->
         viewModel.makeOrderRequest.meals_additional_total += menuType.price
         viewModel.makeOrderRequest.order_additions.add(
           OrderAdditions(
@@ -139,7 +138,7 @@ class AdditionsMealsFragment : BaseFragment<FragmentMealAdditionsBinding>(),
             meal_type_id = menuType.meal_type_id
           )
         )
-      }
+
     }
     navigateSafe(
       AdditionsMealsFragmentDirections.actionAdditionsMealsFragmentToPrivacyOrderFragment(

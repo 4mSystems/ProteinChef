@@ -312,6 +312,13 @@
     <argument
       android:name="order_request"
       app:argType="app.te.protein_chef.domain.make_order.entity.MakeOrderRequest" />
+    <action
+      android:id="@+id/action_submitOrderFragment_to_orderSuccessCreationDialog"
+      app:destination="@id/orderSuccessCreationDialog" />
   </fragment>
+  <dialog
+    android:id="@+id/orderSuccessCreationDialog"
+    android:name="app.te.protein_chef.presentation.make_order.OrderSuccessCreationDialog"
+    android:label="OrderSuccessCreationDialog" />
 
 </navigation>

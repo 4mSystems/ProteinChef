@@ -34,7 +34,7 @@ class MealsDateUiState(private val date: String, val typeId: Int) : MealsUiState
   override fun getId(): Int = 0
 
   fun getDate(): String = date.plus(" - ").plus(dayName(date))
-
+  fun requestDate(): String = date
   override fun changeMealItemSelected(position: Int) {
     if (position == 0 && (mealsAdapter.differ.currentList[position] as MealsDataUiState).getMealSelected()) {
 
