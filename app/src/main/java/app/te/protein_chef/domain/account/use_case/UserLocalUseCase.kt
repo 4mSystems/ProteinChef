@@ -9,8 +9,11 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class UserLocalUseCase @Inject constructor(private val accountRepository: AccountRepository) {
+
   suspend operator fun invoke(user: UserResponse) = accountRepository.saveUserToLocal(user)
+
   suspend operator fun invoke(): Flow<User> = accountRepository.getUserToLocal()
+
   suspend fun saveUserToken(value: String) =
     accountRepository.saveUserToken(value)
 
@@ -20,5 +23,17 @@ class UserLocalUseCase @Inject constructor(private val accountRepository: Accoun
   suspend fun getDefaultLocation(): Flow<DefaultLocation> = accountRepository.getDefaultLocation()
 
   suspend fun logOut() = accountRepository.clearPreferences()
+
+  suspend fun saveShippingValue(value: String) =
+    accountRepository.saveShippingValue(value)
+
+  suspend fun getShippingValue() =
+    accountRepository.getShippingValue()
+
+  suspend fun saveWorkingHours(value: String) =
+    accountRepository.saveWorkingHours(value)
+
+  suspend fun getWorkingHours() =
+    accountRepository.getWorkingHours()
 
 }

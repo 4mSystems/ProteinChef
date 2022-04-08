@@ -31,7 +31,7 @@ class MealsDateUiState(private val date: String, val typeId: Int) : MealsUiState
   }
 
 
-  override fun getId(): Int = 0
+  override fun getId(): Int = typeId
 
   fun getDate(): String = date.plus(" - ").plus(dayName(date))
   fun requestDate(): String = date

@@ -1,5 +1,6 @@
 package app.te.protein_chef.presentation.make_order
 
+import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
@@ -24,6 +25,7 @@ class DetectDeliveryFragment : BaseFragment<FragmentDetectDeliveryBinding>(),
   fun getLayoutId() = R.layout.fragment_detect_delivery
   override fun setBindingVariables() {
     binding.eventListener = this
+    viewModel.orderSettings()
   }
 
   override fun setupObservers() {
@@ -33,6 +35,19 @@ class DetectDeliveryFragment : BaseFragment<FragmentDetectDeliveryBinding>(),
         binding.itemUiState = detectDeliveryItemUiState
       }
     }
+    lifecycleScope.launchWhenResumed {
+      viewModel.getWorkingHours().collect {
+        Log.e("setupObservers", "setupObservers: "+it)
+        binding.tvDeliveryPeriod.text = it
+      }
+    }
+
+    lifecycleScope.launchWhenResumed {
+      viewModel.getShippingValue().collect {
+        detectDeliveryItemUiState.shippingValue = it.takeIf { it.isNotEmpty() }?.toDouble() ?: 0.0
+      }
+    }
+
   }
 
   override fun addNewLocation() {
@@ -42,7 +57,7 @@ class DetectDeliveryFragment : BaseFragment<FragmentDetectDeliveryBinding>(),
   override fun submitOrder() {
     val request = args.orderRequest
     if (detectDeliveryItemUiState.checkDelivery.get()) {
-      request.deliveryFees = 70.0
+      request.deliveryFees = detectDeliveryItemUiState.shippingValue
       request.location_id = detectDeliveryItemUiState.defaultLocation.id
     }
     navigateSafe(

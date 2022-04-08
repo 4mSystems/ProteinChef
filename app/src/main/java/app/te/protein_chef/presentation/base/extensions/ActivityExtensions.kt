@@ -1,7 +1,9 @@
 package app.te.protein_chef.presentation.base.extensions
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
+import android.view.WindowManager
 
 fun <A : Activity> Activity.openActivityAndClearStack(activity: Class<A>) {
   Intent(this, activity).apply {
@@ -14,5 +16,17 @@ fun <A : Activity> Activity.openActivityAndClearStack(activity: Class<A>) {
 fun <A : Activity> Activity.openActivity(activity: Class<A>) {
   Intent(this, activity).apply {
     startActivity(this)
+  }
+
+}
+
+fun Context.adjustFontScale() {
+  if (resources.configuration.fontScale > 1.1f) {
+    resources.configuration.fontScale = 1f
+    val metrics = resources.displayMetrics
+    val wm = getSystemService(Context.WINDOW_SERVICE) as WindowManager
+    wm.defaultDisplay.getMetrics(metrics)
+    metrics.scaledDensity = resources.configuration.fontScale * metrics.density
+    resources.updateConfiguration(resources.configuration, metrics)
   }
 }

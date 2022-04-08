@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto">
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
 
   <data>
 
@@ -11,6 +12,8 @@
     <variable
       name="itemUiState"
       type="app.te.protein_chef.presentation.make_order.ui_state.DetectDeliveryItemUiState" />
+
+
   </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout
@@ -69,9 +72,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/dimen8"
+            android:checked="true"
             android:onCheckedChanged="@{(switch, checked) -> itemUiState.onCheckedChanged(checked)}"
             android:textAlignment="viewStart"
-            android:checked="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="@color/colorPrimaryDark"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -216,12 +219,12 @@
           android:layout_marginStart="@dimen/dimen16"
           android:layout_marginTop="@dimen/dimen25"
           android:layout_marginEnd="@dimen/dimen16"
-          android:text="@string/delivery_period"
           android:textAppearance="@style/TextAppearance.AppCompat.Medium"
           android:textColor="@color/black"
           app:layout_constraintEnd_toEndOf="parent"
           app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toBottomOf="@id/item_empty_location" />
+          app:layout_constraintTop_toBottomOf="@id/item_empty_location"
+          tools:text="@string/delivery_period" />
 
       </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
@@ -231,12 +234,12 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:background="@color/colorAccentDark"
+      android:onClick="@{()->eventListener.submitOrder()}"
       android:padding="@dimen/dimen10"
       android:text="@string/choose_payment"
       android:textAppearance="@style/TextAppearance.AppCompat.Medium"
       android:textColor="@color/white"
       app:backgroundTint="@null"
-      android:onClick="@{()->eventListener.submitOrder()}"
       app:icon="@drawable/ic_arrow"
       app:iconGravity="textStart"
       app:layout_constraintBottom_toBottomOf="parent" />

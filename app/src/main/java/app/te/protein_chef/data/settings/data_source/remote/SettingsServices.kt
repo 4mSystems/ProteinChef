@@ -2,6 +2,7 @@ package app.te.protein_chef.data.settings.data_source.remote
 
 import app.te.protein_chef.domain.settings.models.ContactUsRequest
 import app.te.protein_chef.domain.settings.models.SettingsData
+import app.te.protein_chef.domain.settings.models.order_settings.OrderSettings
 import app.te.protein_chef.domain.utils.BaseResponse
 import retrofit2.http.*
 
@@ -19,6 +20,9 @@ interface SettingsServices {
 
   @POST("v1/contact_app")
   suspend fun contactApp(@Body contactUsRequest: ContactUsRequest): BaseResponse<*>
+
+  @GET("V1/app/custom_settings")
+  suspend fun orderSettings(): BaseResponse<OrderSettings>
 
 
 }

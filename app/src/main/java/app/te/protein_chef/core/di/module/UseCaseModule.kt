@@ -27,11 +27,15 @@ import app.te.protein_chef.domain.my_coupons.repository.MyCouponsRepository
 import app.te.protein_chef.domain.my_coupons.use_case.MyCouponsUseCase
 import app.te.protein_chef.domain.my_locations.repository.MyLocationsRepository
 import app.te.protein_chef.domain.my_locations.use_case.MyLocationsUseCase
+import app.te.protein_chef.domain.my_orders.repository.MyOrdersRepository
+import app.te.protein_chef.domain.my_orders.use_case.CurrentOrdersUseCase
+import app.te.protein_chef.domain.my_orders.use_case.PreviousOrdersUseCase
 import app.te.protein_chef.domain.packages_categories.repository.PackageCategoriesRepository
 import app.te.protein_chef.domain.packages_categories.use_case.PackageCategoriesUseCase
 import app.te.protein_chef.domain.profile.repository.ProfileRepository
 import app.te.protein_chef.domain.profile.use_case.ProfileUseCase
 import app.te.protein_chef.domain.settings.repository.SettingsRepository
+import app.te.protein_chef.domain.settings.use_case.OrderMainSettingsUseCase
 import app.te.protein_chef.domain.settings.use_case.SettingsUseCase
 import dagger.Module
 import dagger.Provides
@@ -127,6 +131,25 @@ class UseCaseModule {
   fun provideApplyCouponUseCase(
     makeOrderRepository: MakeOrderRepository
   ): ApplyCouponUseCase = ApplyCouponUseCase(makeOrderRepository)
+
+  @Provides
+  @Singleton
+  fun provideCurrentOrdersUseCase(
+    myOrdersRepository: MyOrdersRepository
+  ): CurrentOrdersUseCase = CurrentOrdersUseCase(myOrdersRepository)
+
+  @Provides
+  @Singleton
+  fun providePreviousOrdersUseCase(
+    myOrdersRepository: MyOrdersRepository
+  ): PreviousOrdersUseCase = PreviousOrdersUseCase(myOrdersRepository)
+
+  @Provides
+  @Singleton
+  fun provideOrderMainSettingsUseCase(
+    settingsRepository: SettingsRepository,
+    userLocalUseCase: UserLocalUseCase
+  ): OrderMainSettingsUseCase = OrderMainSettingsUseCase(settingsRepository, userLocalUseCase)
 
 
   //public use cases

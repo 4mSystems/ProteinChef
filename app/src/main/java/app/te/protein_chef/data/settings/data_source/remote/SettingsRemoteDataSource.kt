@@ -18,4 +18,8 @@ class SettingsRemoteDataSource @Inject constructor(private val apiService: Setti
     apiService.contactApp(contactUsRequest)
   }
 
+  suspend fun orderCustomSettings() = safeApiCall {
+    apiService.orderSettings()
+  }
+
 }

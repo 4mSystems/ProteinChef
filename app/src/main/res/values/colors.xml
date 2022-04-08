@@ -16,6 +16,7 @@
   <color name="blue_dark">#038092</color>
   <color name="red">#e20404</color>
   <color name="green">#4CAF50</color>
-  <color name="backgroundGray">#FBFBFB</color>
+  <color name="tabGray">#616161</color>
+  <color name="backgroundGray">#f7f7f7</color>
 
 </resources>

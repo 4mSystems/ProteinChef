@@ -21,6 +21,17 @@ class AppPreferences @Inject constructor(private val context: Context) {
   private val STORE_NAME_FIRST_TIME = "app_data_store_first_time"
   private val USER_DATA_STORE_FILE_NAME = "user_store.pb"
   private val DEFAULTLOCATIONFILE = "location_store.pb"
+
+  private val FIREBASE_TOKEN = stringPreferencesKey("FIREBASE_TOKEN")
+  private val USER_TOKEN = stringPreferencesKey("USER_TOKEN")
+  private val COUNTRY_ID = stringPreferencesKey("COUNTRY_ID")
+  private val FIRST_TIME = booleanPreferencesKey("FIRST_TIME")
+  private val IS_LOGGED_IN = booleanPreferencesKey("isLoggedIn")
+  private val LANG = stringPreferencesKey("LANG")
+  private val SHIPPING_VALUE = stringPreferencesKey("SHIPPING_VALUE")
+  private val WORKING_HOURS = stringPreferencesKey("WORKING_HOURS")
+
+
   private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = STORE_NAME)
   private val Context.dataStoreFirstTime: DataStore<Preferences> by preferencesDataStore(name = STORE_NAME_FIRST_TIME)
   private val Context.userDataStore: DataStore<User> by dataStore(
@@ -114,14 +125,24 @@ class AppPreferences @Inject constructor(private val context: Context) {
   }
 
   fun getUser(): Flow<User> = context.userDataStore.data
+  suspend fun saveShippingValue(shippingValue: String) {
+    context.dataStore.edit {
+      it[SHIPPING_VALUE] = shippingValue
+    }
+  }
 
-  companion object {
-    val FIREBASE_TOKEN = stringPreferencesKey("FIREBASE_TOKEN")
-    val USER_TOKEN = stringPreferencesKey("USER_TOKEN")
-    val COUNTRY_ID = stringPreferencesKey("COUNTRY_ID")
-    val FIRST_TIME = booleanPreferencesKey("FIRST_TIME")
-    val IS_LOGGED_IN = booleanPreferencesKey("isLoggedIn")
-    val LANG = stringPreferencesKey("LANG")
+  fun getShippingValue() = context.dataStore.data.map {
+    it[SHIPPING_VALUE] ?: ""
+  }
+
+  suspend fun workingHours(shippingValue: String) {
+    context.dataStore.edit {
+      it[WORKING_HOURS] = shippingValue
+    }
+  }
+
+  fun getWorkingHours() = context.dataStore.data.map {
+    it[WORKING_HOURS] ?: ""
   }
 
 

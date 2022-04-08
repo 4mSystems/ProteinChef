@@ -23,7 +23,7 @@ import kotlinx.coroutines.flow.collect
 @AndroidEntryPoint
 class MealsFragment : BaseFragment<FragmentMealsBinding>(),
   MealsListener {
-  private val viewModel: MealsViewModel by viewModels()
+  val viewModel: MealsViewModel by viewModels()
   private val adapter = MainMealsCategoriesAdapter(this)
   private val mealsAdapter = MealsAdapter(null, this)
   private val listOfMeals = mutableListOf<MutableList<MealsUiState>>()
@@ -55,7 +55,7 @@ class MealsFragment : BaseFragment<FragmentMealsBinding>(),
           }
           is Resource.Success -> {
             hideLoading()
-            val mainMealsUiState: MainMealsUiState = it.value as MainMealsUiState
+            val mainMealsUiState = it.value as MainMealsUiState
             bindUi(mainMealsUiState)
 
           }
@@ -95,6 +95,26 @@ class MealsFragment : BaseFragment<FragmentMealsBinding>(),
     binding.rcMeals.setUpAdapter(mealsAdapter, "1", "1")
   }
 
+  private fun collectMealsData() {
+    viewModel.makeOrderRequest.selected_meal.clear() // clear any meal before adding
+    viewModel.makeOrderRequest.meals_additional_total = 0.0 // clear any meals additions Total
+    listSelectedOfMeals.forEach { mealsDateUiState ->
+      mealsDateUiState.forEach { mealsData ->
+        mealsData.listMeals.forEach { mealsDataUiState ->
+          if (mealsDataUiState.getMealSelected()) {
+            viewModel.makeOrderRequest.selected_meal.add(
+              SelectedMeals(
+                meal_id = mealsDataUiState.getId(),
+                date = mealsData.requestDate(),
+                meal_type_id = mealsData.getId()
+              )
+            )
+          }
+        }
+      }
+    }
+  }
+
   override fun changeCategoryType(type: Int) {
     if (adapter.currentPosition > adapter.differ.currentList.size - 1 && type == Constants.FORWARD) {
       listSelectedOfMeals[adapter.lastPosition] =
@@ -123,24 +143,10 @@ class MealsFragment : BaseFragment<FragmentMealsBinding>(),
   }
 
   override fun continueOrdering(meal_id: Int, meal_name: String) {
-    viewModel.makeOrderRequest.selected_meal.clear() // clear any meal before adding
-    viewModel.makeOrderRequest.meals_additional_total = 0.0 // clear any meals additions Total
-    listSelectedOfMeals.forEach { mealsDateUiState ->
-      mealsDateUiState.forEach { mealsData ->
-        mealsData.listMeals.forEach { mealsDataUiState ->
-          if (mealsDataUiState.getMealSelected()) {
-            viewModel.makeOrderRequest.selected_meal.add(
-              SelectedMeals(
-                meal_id = mealsDataUiState.getId(),
-                date = mealsData.requestDate(),
-                meal_type_id = mealsData.typeId
-              )
-            )
-          }
-        }
-      }
-    }
-    navigateSafe(MealsFragmentDirections.actionMealsFragmentToAdditionsDialog(viewModel.makeOrderRequest))
+    collectMealsData()
+    if (binding.haveSnacks.text == "true")
+      navigateSafe(MealsFragmentDirections.actionMealsFragmentToAdditionsDialog(viewModel.makeOrderRequest))
+    else
+      navigateSafe(MealsFragmentDirections.actionMealsFragmentToPrivacyOrderFragment(viewModel.makeOrderRequest))
   }
-
 }

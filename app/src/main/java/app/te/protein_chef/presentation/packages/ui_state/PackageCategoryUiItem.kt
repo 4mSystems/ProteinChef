@@ -9,6 +9,7 @@ data class PackageCategoryUiItem(
   var price: Double = 0.0,
   var packageDays: Int = 0,
   var isSelected: Boolean = false,
+  var haveSnacks: Boolean = false,
 ) {
   fun getPrice(context: Context): String {
     return price.toString().plus(" ").plus(context.getString(R.string.coin))

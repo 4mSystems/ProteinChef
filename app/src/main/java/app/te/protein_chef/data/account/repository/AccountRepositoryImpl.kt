@@ -78,6 +78,22 @@ class AccountRepositoryImpl @Inject constructor(
     return appPreferences.getLang()
   }
 
+  override suspend fun saveShippingValue(value: String) {
+    appPreferences.saveShippingValue(value)
+  }
+
+  override suspend fun getShippingValue(): Flow<String> {
+    return appPreferences.getShippingValue()
+  }
+
+  override suspend fun saveWorkingHours(value: String) {
+    appPreferences.workingHours(value)
+  }
+
+  override suspend fun getWorkingHours(): Flow<String> {
+    return appPreferences.getWorkingHours()
+  }
+
   override
   suspend fun clearPreferences() = appPreferences.clearPreferences()
 }

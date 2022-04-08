@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <variable
+      name="eventListener"
+      type="app.te.protein_chef.presentation.my_orders.listeners.MyOrdersListener" />
+
+    <variable
+      name="uiState"
+      type="app.te.protein_chef.presentation.my_orders.ui_state.MyOrderDataUiState" />
+  </data>
+
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/dimen16"
+    android:layout_marginTop="@dimen/dimen10"
+    android:layout_marginEnd="@dimen/dimen16"
+    android:background="@drawable/corner_white">
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/tv_order_number"
+      style="@style/TextMediumFont"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/dimen8"
+      android:layout_marginTop="@dimen/dimen16"
+      android:layout_marginBottom="@dimen/dimen16"
+      android:text="@{String.format(@string/order_number,uiState.orderNumber)}"
+      android:textAlignment="viewStart"
+      android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+      android:textColor="@color/black"
+      app:layout_constraintEnd_toStartOf="@id/guideline"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:text="رقم الطلب : #1231465" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/tv_order_type"
+      style="@style/TextMediumFont"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/dimen8"
+      android:layout_marginTop="@dimen/dimen4"
+      android:layout_marginEnd="@dimen/dimen8"
+      android:layout_marginBottom="@dimen/dimen16"
+      android:text="@{String.format(@string/order_package_type,uiState.orderPackageType)}"
+      android:textAlignment="viewStart"
+      android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+      android:textColor="@color/black"
+      app:layout_constraintEnd_toStartOf="@id/guideline"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/tv_order_number"
+      tools:text="نوع الباقة : 20 يوم ( أحد - خميس )" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/tv_order_details"
+      style="@style/TextMediumFont"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/dimen8"
+      android:layout_marginTop="@dimen/dimen16"
+      android:layout_marginBottom="@dimen/dimen16"
+      android:text="@string/order_show_details"
+      android:textAlignment="viewStart"
+      android:textAppearance="@style/TextAppearance.AppCompat.Small"
+      android:textColor="@color/colorPrimaryDark"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@id/guideline"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/tv_order_type"
+      tools:text="@string/order_show_details" />
+
+    <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/guideline"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      app:layout_constraintGuide_percent=".70" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+      android:id="@+id/meal_progress"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:animateLayoutChanges="true"
+      android:progress="@{uiState.orderProgress()}"
+      app:indeterminateAnimationType="disjoint"
+      app:indicatorColor="@color/colorPrimaryDark"
+      app:indicatorSize="@dimen/dimen70"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toEndOf="@id/guideline"
+      app:layout_constraintTop_toTopOf="parent"
+      app:trackColor="@color/colorGray"
+      tools:progress="65" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:layout_width="@dimen/dimen40"
+      android:layout_height="@dimen/dimen40"
+      android:layout_marginStart="@dimen/dimen12"
+      android:layout_marginEnd="@dimen/dimen12"
+      android:background="@drawable/circle_number"
+      android:gravity="center"
+      android:text="@{uiState.orderOrderCount}"
+      android:textAppearance="@style/TextAppearance.AppCompat.Small"
+      android:textColor="@color/black"
+      app:layout_constraintBottom_toBottomOf="@id/meal_progress"
+      app:layout_constraintEnd_toEndOf="@id/meal_progress"
+      app:layout_constraintStart_toStartOf="@id/meal_progress"
+      app:layout_constraintTop_toTopOf="@id/meal_progress"
+      tools:text="3/20" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

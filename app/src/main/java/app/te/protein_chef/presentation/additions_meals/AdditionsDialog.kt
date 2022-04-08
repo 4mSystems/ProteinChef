@@ -37,8 +37,13 @@ class AdditionsDialog : BottomSheetDialogFragment(), AdditionalEventListener {
     )
   }
 
-  override fun openLocations() {
-
+  override fun openPrivacy() {
+    dismiss()
+    navigateSafe(
+      AdditionsDialogDirections.actionAdditionsDialogToPrivacyOrderFragment(
+        additionsDialogArgs.orderRequest
+      )
+    )
   }
 
 }

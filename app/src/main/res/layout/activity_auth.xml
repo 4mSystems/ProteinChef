@@ -12,6 +12,7 @@
       android:layout_height="wrap_content"
       android:background="@color/colorAccentDark"
       app:layout_constraintTop_toTopOf="parent"
+      app:titleTextAppearance="@style/TextAppearance.AppCompat.Small"
       app:titleCentered="true"
       app:titleTextColor="@color/white" />
 

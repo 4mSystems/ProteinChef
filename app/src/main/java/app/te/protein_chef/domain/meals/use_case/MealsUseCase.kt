@@ -36,14 +36,18 @@ class MealsUseCase @Inject constructor(
       val data = result.value.data.meals
       // Main Meals
       mainMealsUiState.categoryMenuUiItemList = getMainMeals(result.value.data.main_meal_types)
-      mainMealsUiState.mealTypeUiState = getPackageDetails(result.value.data.package_price_Data)
+      if (meal_type_id == null)
+        mainMealsUiState.mealTypeUiState = getPackageDetails(result.value.data.package_price_Data)
       if (data.isNullOrEmpty()) {
         emit(Resource.Success(items))
       } else {
         data.groupBy { mainMealType -> mainMealType.date }
           .forEach { meals ->
             //AddDateItem
-            MealsDateUiState(meals.key, mainMealsUiState.mealTypeUiState.id)
+            MealsDateUiState(
+              meals.key,
+              meal_type_id ?: mainMealsUiState.categoryMenuUiItemList[0].meal_type_id
+            )
               .let { mealsDateUiState ->
                 mealsDateUiState.listMeals.addAll(meals.value.map { MealsDataUiState(it) })
                 items.add(mealsDateUiState)
@@ -77,7 +81,8 @@ class MealsUseCase @Inject constructor(
       id = package_details.id,
       title = package_details.title,
       packageDays = package_details.days_count,
-      price = package_details.price
+      price = package_details.price,
+      haveSnacks = package_details.have_snacks
     )
   }
 }

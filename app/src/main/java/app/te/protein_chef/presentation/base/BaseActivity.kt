@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.LiveData
 import androidx.navigation.NavController
+import app.te.protein_chef.presentation.base.extensions.adjustFontScale
 import com.zeugmasolutions.localehelper.LocaleHelper
 import com.zeugmasolutions.localehelper.LocaleHelperActivityDelegate
 import com.zeugmasolutions.localehelper.LocaleHelperActivityDelegateImpl
@@ -45,6 +46,7 @@ abstract class BaseActivity<VB : ViewDataBinding> : AppCompatActivity() {
   override
   fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
+    adjustFontScale()
     initViewBinding()
     setContentView(binding.root)
 
@@ -52,7 +54,6 @@ abstract class BaseActivity<VB : ViewDataBinding> : AppCompatActivity() {
       setUpBottomNavigation()
       setUpNavigationDrawer()
     }
-
     setUpViews()
   }
 

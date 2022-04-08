@@ -143,8 +143,14 @@
   <string name="promo_cost">قيمة الخصم</string>
   <string name="total_cost">أجمالي السعر</string>
   <string name="confirm_order">تاكيد الدفع والحجز</string>
-    <string name="order_confirmed">تم تاكيد الحجز بنجاح سيتم تفعيل الباقة خلال 48 ساعه القادمة</string>
+  <string name="order_confirmed">تم تاكيد الحجز بنجاح سيتم تفعيل الباقة خلال 48 ساعه القادمة</string>
   <string name="continue_shopping">استمرار التصفح</string>
+  <string name="current_orders">الوجبات الحالية</string>
+  <string name="previous_orders">الوجبات السابقة</string>
+  <string name="order_number">رقم الطلب : %1$s</string>
+  <string name="order_package_type">نوع الباقة : %1$s</string>
+  <string name="order_show_details"><u> عرض التفاصيل </u></string>
+  <string name="no_order_avail">لا يوجد طلبات حتى الان</string>
   <string-array name="gender">
     <item>ذكر </item>
     <item>انثى</item>

@@ -8,7 +8,7 @@ import com.structure.base_mvvm.DefaultLocation
 class DetectDeliveryItemUiState {
   var defaultLocation: DefaultLocation = DefaultLocation.getDefaultInstance()
   val checkDelivery = ObservableBoolean()
-
+  var shippingValue = 0.0
   fun checkDefaultLocation(): Int =
     if (defaultLocation.title.isNotEmpty()) View.VISIBLE else View.GONE
 
@@ -17,6 +17,6 @@ class DetectDeliveryItemUiState {
 
   fun onCheckedChanged(checked: Boolean) {
     checkDelivery.set(!checked)
-    Log.e("onCheckedChanged", "onCheckedChanged: "+checkDelivery.get())
+    Log.e("onCheckedChanged", "onCheckedChanged: " + checkDelivery.get())
   }
 }

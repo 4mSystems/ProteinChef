@@ -3,6 +3,7 @@ package app.te.protein_chef.data.settings.repository
 import app.te.protein_chef.data.settings.data_source.remote.SettingsRemoteDataSource
 import app.te.protein_chef.domain.settings.models.ContactUsRequest
 import app.te.protein_chef.domain.settings.models.SettingsData
+import app.te.protein_chef.domain.settings.models.order_settings.OrderSettings
 import app.te.protein_chef.domain.settings.repository.SettingsRepository
 import app.te.protein_chef.domain.utils.BaseResponse
 import app.te.protein_chef.domain.utils.Resource
@@ -21,4 +22,7 @@ class SettingsRepositoryImpl @Inject constructor(private val remoteDataSource: S
 
   override suspend fun contactApp(contactUsRequest: ContactUsRequest): Resource<BaseResponse<*>> =
     remoteDataSource.contactApp(contactUsRequest)
+
+  override suspend fun orderCustomSettings(): Resource<BaseResponse<OrderSettings>> =
+    remoteDataSource.orderCustomSettings()
 }
