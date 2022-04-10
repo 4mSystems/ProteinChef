@@ -20,11 +20,6 @@ class MyCurrentOrdersViewModel @Inject constructor(
     MutableStateFlow<PagingData<MyOrdersUiState>>(PagingData.empty())
   val currentOrdersResponse = _currentOrdersResponse
 
-//  init {
-//    Log.e("currentOrders", ":")
-//    currentOrders(viewModelScope)
-//  }
-
   fun currentOrders(coroutineScope: CoroutineScope) {
     viewModelScope.launch {
       currentOrdersUseCase.invoke(coroutineScope)

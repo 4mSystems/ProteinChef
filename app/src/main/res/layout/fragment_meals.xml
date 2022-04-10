@@ -82,24 +82,21 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        <androidx.recyclerview.widget.RecyclerView
-          android:id="@+id/rc_main_meals"
+        <include
+          android:id="@+id/main_meals"
+          layout="@layout/layout_meal_categories"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_margin="@dimen/dimen16"
-          android:orientation="horizontal"
-          app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-          app:layout_constraintTop_toBottomOf="@id/package_data"
-          tools:listitem="@layout/item_main_meal_category" />
+          app:layout_constraintTop_toBottomOf="@id/package_data" />
 
-        <androidx.recyclerview.widget.RecyclerView
-          android:id="@+id/rc_meals"
+        <include
+          android:id="@+id/layout_meals"
+          layout="@layout/layout_meals"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_margin="@dimen/dimen16"
-          app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-          app:layout_constraintTop_toBottomOf="@id/rc_main_meals"
-          tools:listitem="@layout/item_data_meals" />
+          app:layout_constraintTop_toBottomOf="@id/main_meals" />
 
       </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

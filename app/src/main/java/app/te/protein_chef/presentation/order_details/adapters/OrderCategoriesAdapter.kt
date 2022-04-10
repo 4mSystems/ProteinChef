@@ -1,4 +1,4 @@
-package app.te.protein_chef.presentation.meals.adapters
+package app.te.protein_chef.presentation.order_details.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,17 +8,14 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import app.te.protein_chef.presentation.base.utils.Constants
-import app.te.protein_chef.presentation.meals.listeners.MealsListener
 import app.te.protein_chef.presentation.packages.ui_state.CategoryMenuUiItem
 import app.te.protein_chef.R
 import app.te.protein_chef.databinding.ItemMainMealCategoryBinding
+import app.te.protein_chef.presentation.order_details.listeners.OrderDetailsListeners
 
-class MainMealsCategoriesAdapter(val mealsListener: MealsListener) :
-  RecyclerView.Adapter<MainMealsCategoriesAdapter.ViewHolder>() {
-  var lastSelected = -1
+class OrderCategoriesAdapter(private val orderDetailsListeners: OrderDetailsListeners) :
+  RecyclerView.Adapter<OrderCategoriesAdapter.ViewHolder>() {
   var lastPosition = 0
-  var currentPosition = 1
   lateinit var context: Context
   private val differCallback = object : DiffUtil.ItemCallback<CategoryMenuUiItem>() {
     override fun areItemsTheSame(
@@ -46,13 +43,15 @@ class MainMealsCategoriesAdapter(val mealsListener: MealsListener) :
   override fun onBindViewHolder(holder: ViewHolder, position: Int) {
     val data = differ.currentList[position]
     holder.itemLayoutBinding.card.setOnClickListener {
-      if (position < lastPosition)
-        mealsListener.changeCategoryType(Constants.BACK_WORD)
-      else
-        mealsListener.changeCategoryType(Constants.FORWARD)
+      notifyItemChanged(lastPosition)
+      lastPosition = position
+      orderDetailsListeners.changeCategoryType(data.id)
+      notifyItemChanged(lastPosition)
     }
     if (lastPosition == position)
       data.selected = 1
+    else
+      data.selected = 0
     holder.setModel(data)
   }
 
@@ -68,21 +67,6 @@ class MainMealsCategoriesAdapter(val mealsListener: MealsListener) :
   override fun onViewDetachedFromWindow(holder: ViewHolder) {
     super.onViewDetachedFromWindow(holder)
     holder.unBind()
-  }
-
-  fun changeSelected(type: Int) {
-    notifyItemChanged(lastPosition)
-    if (type == Constants.FORWARD) {
-      differ.currentList[lastPosition].selected = 2
-      currentPosition += 1
-      lastPosition += 1
-    } else {
-      differ.currentList[lastPosition].selected = 0
-      lastPosition -= 1
-      currentPosition -= 1
-    }
-    lastSelected = differ.currentList[lastPosition].meal_type_id
-    notifyItemChanged(lastPosition)
   }
 
   inner class ViewHolder(itemView: View) :

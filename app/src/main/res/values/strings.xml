@@ -161,4 +161,15 @@
   <string name="order_package_type"> نوع الباقة : %1$s</string>
   <string name="order_show_details">عرض التفاصيل</string>
   <string name="no_order_avail">لا يوجد طلبات حتى الان</string>
+    <string name="remain_days">عدد الأيام المتبقيه في الباقة</string>
+  <string name="package_type">نوع الباقة</string>
+  <string name="today_meals">الوجبات المحجوزه يوميا</string>
+    <string name="delivery_way">طريقة الاستلام</string>
+  <string name="delivery_time">وقت التوصيل</string>
+  <string name="selected_payment">طريقة الدفع المختارة</string>
+  <string name="invoice_details">تفاصيل التكلفة</string>
+  <string name="freeze">تجميد الباقة</string>
+  <string name="cancel_package">الغاء الاشتراك</string>
+  <string name="day">أيام</string>
+    <string name="order_details">تفاصيل الطلب</string>
 </resources>

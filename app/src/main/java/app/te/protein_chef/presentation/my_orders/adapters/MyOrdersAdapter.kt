@@ -35,7 +35,7 @@ class MyOrdersAdapter(val myOrdersListener: MyOrdersListener) :
   }
 
   override fun getItemViewType(position: Int): Int {
-    return getItem(position)?.getLayoutRes() ?: R.layout.item_empty_location
+    return getItem(position)?.getLayoutRes() ?: R.layout.item_empty_order
   }
 
   override fun onBindViewHolder(holder: ViewHolder, position: Int) {

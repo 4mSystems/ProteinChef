@@ -74,7 +74,7 @@ class MealsFragment : BaseFragment<FragmentMealsBinding>(),
     // update main category adapter
     if (adapter.differ.currentList.size == 0) {
       adapter.differ.submitList(mainMealsUiState.categoryMenuUiItemList)
-      binding.rcMainMeals.setUpAdapter(adapter, "1", "2")
+      binding.mainMeals.rcMainMeals.setUpAdapter(adapter, "1", "2")
       mainMealsUiState.categoryMenuUiItemList.forEachIndexed { index, _ ->
         listSelectedOfMeals.add(index, mutableListOf())
       }
@@ -92,7 +92,7 @@ class MealsFragment : BaseFragment<FragmentMealsBinding>(),
 
   private fun updateMealsAdapter(mealsUiStateList: MutableList<MealsUiState>) {
     mealsAdapter.differ.submitList(mealsUiStateList)
-    binding.rcMeals.setUpAdapter(mealsAdapter, "1", "1")
+    binding.layoutMeals.rcMeals.setUpAdapter(mealsAdapter, "1", "1")
   }
 
   private fun collectMealsData() {

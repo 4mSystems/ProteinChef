@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+
+    <variable
+      name="itemUiState"
+      type="app.te.protein_chef.presentation.order_details.ui_state.OrderMealsItemUiStat" />
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="@dimen/dimen200"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dimen10"
+    android:background="@drawable/corner_view_gray_border">
+
+    <androidx.appcompat.widget.AppCompatImageView
+      android:id="@+id/ic_meal"
+      android:layout_width="@dimen/dimen100"
+      android:layout_height="@dimen/dimen100"
+      android:layout_marginTop="@dimen/dimen10"
+      android:src="@drawable/logo"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:loadImage="@{itemUiState.mealImage}" />
+
+    <TextView
+      android:id="@+id/tv_title"
+      style="@style/TextMediumFont"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/dimen16"
+      android:text="@{itemUiState.mealTitle}"
+      android:textAlignment="viewStart"
+      android:textAppearance="@style/TextAppearance.AppCompat.Small"
+      android:textColor="@color/black"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/ic_meal"
+      tools:text="9سناكس طبيعي بطعم روعة بطعم روعة" />
+
+    <TextView
+      android:id="@+id/tv_date"
+      style="@style/TextMediumFont"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/dimen16"
+      android:text="@{itemUiState.mealDate}"
+      android:textAlignment="viewStart"
+      android:textAppearance="@style/TextAppearance.AppCompat.Small"
+      android:textColor="@color/black"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/tv_title"
+      tools:text="9 / 2 /2022 الاثنين" />
+
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

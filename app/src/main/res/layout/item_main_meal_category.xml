@@ -8,10 +8,6 @@
     <import type="app.te.protein_chef.R" />
 
     <variable
-      name="eventListener"
-      type="app.te.protein_chef.presentation.meals.listeners.MealsListener" />
-
-    <variable
       name="uiState"
       type="app.te.protein_chef.presentation.packages.ui_state.CategoryMenuUiItem" />
   </data>

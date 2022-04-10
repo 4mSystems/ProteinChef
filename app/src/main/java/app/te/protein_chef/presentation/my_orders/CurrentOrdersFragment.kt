@@ -7,6 +7,7 @@ import androidx.paging.LoadState
 import app.te.protein_chef.R
 import app.te.protein_chef.databinding.FragmentCurrentOrdersBinding
 import app.te.protein_chef.presentation.base.BaseFragment
+import app.te.protein_chef.presentation.base.extensions.navigateSafe
 import app.te.protein_chef.presentation.base.extensions.setUpAdapter
 import app.te.protein_chef.presentation.my_orders.adapters.MyOrdersAdapter
 import app.te.protein_chef.presentation.my_orders.listeners.MyOrdersListener
@@ -16,9 +17,10 @@ import kotlinx.coroutines.flow.collect
 
 
 @AndroidEntryPoint
-class CurrentOrdersFragment : BaseFragment<FragmentCurrentOrdersBinding>(), MyOrdersListener {
+class CurrentOrdersFragment(val myOrdersListener: MyOrdersListener) :
+  BaseFragment<FragmentCurrentOrdersBinding>() {
   private val viewModel: MyCurrentOrdersViewModel by viewModels()
-  private val adapter = MyOrdersAdapter(this)
+  private val adapter = MyOrdersAdapter(myOrdersListener)
 
   override
   fun getLayoutId() = R.layout.fragment_current_orders
@@ -64,4 +66,5 @@ class CurrentOrdersFragment : BaseFragment<FragmentCurrentOrdersBinding>(), MyOr
       }
     }
   }
+
 }

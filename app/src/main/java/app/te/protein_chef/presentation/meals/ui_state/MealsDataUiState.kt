@@ -31,5 +31,6 @@ class MealsDataUiState(val mealType: MainMealType) : MealsUiState {
   override fun getId(): Int = mealType.meal_id
   fun getMealImage(): String = mealType.image
   fun getMealTitle(): String = mealType.title
+  fun getMealDate(): String = mealType.date
   fun getMealSelected(): Boolean = mealType.selected == 1
 }

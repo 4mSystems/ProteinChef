@@ -19,6 +19,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="@dimen/dimen16"
+    android:onClick="@{()->eventListener.openOrderDetails(uiState.id)}"
+
     android:layout_marginTop="@dimen/dimen10"
     android:layout_marginEnd="@dimen/dimen16"
     android:background="@drawable/corner_white">
@@ -67,6 +69,7 @@
       android:layout_marginStart="@dimen/dimen8"
       android:layout_marginTop="@dimen/dimen16"
       android:layout_marginBottom="@dimen/dimen16"
+      android:onClick="@{()->eventListener.openOrderDetails(uiState.id)}"
       android:text="@string/order_show_details"
       android:textAlignment="viewStart"
       android:textAppearance="@style/TextAppearance.AppCompat.Small"
