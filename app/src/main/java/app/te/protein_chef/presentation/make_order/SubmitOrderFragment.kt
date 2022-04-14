@@ -79,4 +79,8 @@ class SubmitOrderFragment : BaseFragment<FragmentSubmitOrderBinding>(),
     viewModel.makeOrder()
   }
 
+  override fun openMyPromo() {
+    navigateSafe(SubmitOrderFragmentDirections.actionSubmitOrderFragmentToCouponsFragment())
+  }
+
 }

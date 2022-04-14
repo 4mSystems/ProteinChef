@@ -28,8 +28,9 @@ import app.te.protein_chef.domain.my_coupons.use_case.MyCouponsUseCase
 import app.te.protein_chef.domain.my_locations.repository.MyLocationsRepository
 import app.te.protein_chef.domain.my_locations.use_case.MyLocationsUseCase
 import app.te.protein_chef.domain.my_orders.repository.MyOrdersRepository
-import app.te.protein_chef.domain.my_orders.use_case.CurrentOrdersUseCase
-import app.te.protein_chef.domain.my_orders.use_case.PreviousOrdersUseCase
+import app.te.protein_chef.domain.my_orders.use_case.*
+import app.te.protein_chef.domain.notifications.repository.NotificationsRepository
+import app.te.protein_chef.domain.notifications.use_case.NotificationsUseCase
 import app.te.protein_chef.domain.packages_categories.repository.PackageCategoriesRepository
 import app.te.protein_chef.domain.packages_categories.use_case.PackageCategoriesUseCase
 import app.te.protein_chef.domain.profile.repository.ProfileRepository
@@ -146,10 +147,40 @@ class UseCaseModule {
 
   @Provides
   @Singleton
+  fun provideCancelOrderUseCase(
+    myOrdersRepository: MyOrdersRepository
+  ): CancelOrderUseCase = CancelOrderUseCase(myOrdersRepository)
+
+  @Provides
+  @Singleton
+  fun provideOrderDetailsUseCase(
+    myOrdersRepository: MyOrdersRepository
+  ): OrderDetailsUseCase = OrderDetailsUseCase(myOrdersRepository)
+
+  @Provides
+  @Singleton
   fun provideOrderMainSettingsUseCase(
     settingsRepository: SettingsRepository,
     userLocalUseCase: UserLocalUseCase
   ): OrderMainSettingsUseCase = OrderMainSettingsUseCase(settingsRepository, userLocalUseCase)
+
+  @Provides
+  @Singleton
+  fun provideOrderDaysUseCase(
+    myOrdersRepository: MyOrdersRepository
+  ): OrderDaysUseCase = OrderDaysUseCase(myOrdersRepository)
+
+  @Provides
+  @Singleton
+  fun provideFreezeOrderUseCase(
+    myOrdersRepository: MyOrdersRepository
+  ): FreezeOrderUseCase = FreezeOrderUseCase(myOrdersRepository)
+
+  @Provides
+  @Singleton
+  fun provideNotificationsUseCase(
+    notificationsRepository: NotificationsRepository
+  ): NotificationsUseCase = NotificationsUseCase(notificationsRepository)
 
 
   //public use cases

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <import type="android.view.View" />
+
+    <variable
+      name="uiState"
+      type="app.te.protein_chef.presentation.order_details.ui_state.freeze.FreezeUiState" />
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/menu_title"
+      style="@style/TextBoldFont"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/dimen16"
+      android:text="@string/freeze_title"
+      android:textAlignment="center"
+      android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+      android:textColor="@color/black"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/rc_order_days"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_margin="@dimen/dimen8"
+      app:layoutManager="GridLayoutManager"
+      app:layout_constraintBottom_toTopOf="@id/input_to"
+      app:layout_constraintTop_toBottomOf="@id/menu_title"
+      app:spanCount="3"
+      tools:itemCount="28"
+      tools:listitem="@layout/item_order_days" />
+
+    <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/input_to"
+      style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/dimen18"
+      android:hint="@string/from_to"
+      app:error="@{uiState.freezeOrderRequest.validation.newDateError}"
+      app:errorEnabled="@{uiState.freezeOrderRequest.validation.newDateError==null?false:true}"
+      app:helperTextTextColor="@color/black"
+      app:layout_constraintBottom_toTopOf="@+id/cancel"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toStartOf="parent">
+
+      <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:inputType="text"
+        android:onClick="@{()-> uiState.showDateDialog()}"
+        android:text="@={uiState.freezeOrderRequest.new_date}"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/black" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+      android:id="@+id/cancel"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/dimen18"
+      android:background="@{!uiState.loading?@drawable/corner_view_dark:@drawable/corner_view_primary_medium,default=@drawable/corner_view_dark}"
+      android:enabled="@{!uiState.loading}"
+      android:onClick="@{()-> uiState.freezeOrder(context)}"
+      android:padding="@dimen/dimen10"
+      android:text="@string/confirm_freeze"
+      android:textAppearance="@style/TextAppearance.AppCompat.Small"
+      android:textColor="@color/white"
+      app:cornerRadius="@dimen/dimen5"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+      android:id="@+id/progress"
+      style="Widget.MaterialComponents.LinearProgressIndicator"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:indeterminate="true"
+      android:visibility="@{uiState.loading?View.VISIBLE:View.GONE}"
+      app:layout_constraintBottom_toBottomOf="@id/cancel"
+      app:layout_constraintStart_toStartOf="@id/cancel"
+      app:layout_constraintTop_toTopOf="@id/cancel"
+      app:trackColor="@color/white"
+      app:trackThickness="@dimen/dimen4" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -12,11 +12,11 @@
 
 
     <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/tv_title"
       style="@style/TextRegularFont"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:gravity="center"
-      android:id="@+id/tv_title"
       android:text="@string/account"
       android:textAppearance="@style/TextAppearance.AppCompat.Medium"
       android:textColor="@color/white"
@@ -32,6 +32,7 @@
       android:layout_marginEnd="@dimen/dimen16"
       android:background="@drawable/ic_notification_cover"
       android:src="@drawable/ic_notification"
+      android:visibility="gone"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintTop_toTopOf="parent" />

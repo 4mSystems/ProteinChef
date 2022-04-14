@@ -3,6 +3,8 @@ package app.te.protein_chef.data.my_order.repository
 import app.te.protein_chef.data.my_order.data_source.MyOrdersDataSource
 import app.te.protein_chef.domain.my_orders.entity.MyOrdersPaginate
 import app.te.protein_chef.domain.my_orders.entity.order_details.OrderDetails
+import app.te.protein_chef.domain.my_orders.entity.order_details.requests.CancelOrderRequest
+import app.te.protein_chef.domain.my_orders.entity.order_details.requests.FreezeOrderRequest
 import app.te.protein_chef.domain.my_orders.repository.MyOrdersRepository
 import app.te.protein_chef.domain.utils.BaseResponse
 import app.te.protein_chef.domain.utils.Resource
@@ -25,6 +27,15 @@ class MyOrdersRepositoryImpl @Inject constructor(
     categoryId: Int
   ): Resource<BaseResponse<OrderDetails>> =
     remoteDataSource.orderMealsByCategory(orderId, categoryId)
+
+  override suspend fun cancelOrder(cancelOrderRequest: CancelOrderRequest): Resource<BaseResponse<*>> =
+    remoteDataSource.cancelOrder(cancelOrderRequest)
+
+  override suspend fun orderDays(orderId: Int): Resource<BaseResponse<Array<String>>> =
+    remoteDataSource.orderDays(orderId)
+
+  override suspend fun freezeOrder(freezeOrderRequest: FreezeOrderRequest): Resource<BaseResponse<*>> =
+    remoteDataSource.freezeOrder(freezeOrderRequest)
 
 
 }

@@ -1,5 +1,6 @@
 package app.te.protein_chef.presentation.home
 
+import android.annotation.SuppressLint
 import android.view.MenuItem
 import android.view.View
 import androidx.navigation.NavController
@@ -33,7 +34,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
         R.id.home_fragment,
         R.id.myMealsFragment,
         R.id.accountFragment,
-        R.id.moreFragment
+        R.id.moreFragment,
+        R.id.moreFragment,
       )
     )
     setSupportActionBar(binding.toolbar)
@@ -43,6 +45,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
     navChangeListener()
   }
 
+  @SuppressLint("UseCompatLoadingForDrawables")
   private fun navChangeListener() {
     nav.addOnDestinationChangedListener { _, destination, _ ->
       if (destination.id == R.id.home_fragment

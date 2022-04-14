@@ -6,6 +6,10 @@
   <data>
 
     <variable
+      name="uiState"
+      type="app.te.protein_chef.presentation.home.ui_state.HomeUiState" />
+
+    <variable
       name="eventListener"
       type="app.te.protein_chef.presentation.home.eventListener.HomeEventListener" />
   </data>
@@ -39,13 +43,13 @@
           app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
+          android:id="@+id/locality"
           style="@style/TextRegularFont"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_marginStart="@dimen/dimen30"
           android:drawableStart="@drawable/ic_arrow_down"
           android:gravity="center"
-          android:text="Cairo"
           android:onClick="@{()->eventListener.openMap()}"
           android:textAppearance="@style/TextAppearance.AppCompat.Small"
           android:textColor="@color/white"
@@ -61,6 +65,7 @@
           android:layout_height="wrap_content"
           android:layout_marginEnd="@dimen/dimen16"
           android:background="@drawable/ic_notification_cover"
+          android:onClick="@{()-> eventListener.openNotifications()}"
           android:src="@drawable/ic_notification"
           app:layout_constraintBottom_toBottomOf="parent"
           app:layout_constraintEnd_toEndOf="parent"
@@ -73,7 +78,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dimen20"
-        app:layout_constraintTop_toBottomOf="@id/home_toolbar" />
+        android:visibility="@{uiState.onZone,default=gone}"
+        app:layout_constraintTop_toBottomOf="@id/home_toolbar"
+        tools:visibility="visible" />
 
       <com.smarteist.autoimageslider.SliderView
         android:id="@+id/imageSlider"

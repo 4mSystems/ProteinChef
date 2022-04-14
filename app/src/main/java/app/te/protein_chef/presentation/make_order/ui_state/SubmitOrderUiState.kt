@@ -61,4 +61,8 @@ class SubmitOrderUiState {
   fun makeOrder() {
     submitOrderEventListener.makeOrder()
   }
+
+  fun openPromo() {
+    submitOrderEventListener.openMyPromo()
+  }
 }

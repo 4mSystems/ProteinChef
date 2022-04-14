@@ -45,13 +45,34 @@
       <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_have_promo"
         style="@style/TextBoldFont"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dimen6"
+        android:text="@string/have_promo"
+        android:textAlignment="viewStart"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/colorAccentDark"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_my_codes"
+        app:layout_constraintEnd_toStartOf="@+id/tv_my_codes"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/tv_payment"
+        app:layout_constraintTop_toTopOf="@+id/tv_my_codes" />
+
+      <com.google.android.material.button.MaterialButton
+        android:id="@+id/tv_my_codes"
+        style="@style/TextBoldFont"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimen24"
-        android:text="@string/have_promo"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/colorAccentDark"
-        app:layout_constraintStart_toStartOf="@id/tv_payment"
+        android:layout_marginEnd="@dimen/dimen8"
+        android:onClick="@{()-> uiState.openPromo()}"
+        android:text="@string/my_codes"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/colorAccentDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tv_have_promo"
         app:layout_constraintTop_toBottomOf="@id/tv_payment" />
 
       <com.google.android.material.textfield.TextInputLayout
@@ -70,7 +91,7 @@
         app:hintTextAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintEnd_toStartOf="@id/btn_confirm_promo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_have_promo">
+        app:layout_constraintTop_toBottomOf="@+id/tv_my_codes">
 
         <androidx.appcompat.widget.AppCompatEditText
           android:layout_width="match_parent"

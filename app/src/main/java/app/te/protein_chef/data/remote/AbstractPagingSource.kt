@@ -13,7 +13,7 @@ abstract class AbstractPagingSource<U : Any> {
       override suspend fun load(params: LoadParams<Int>): LoadResult<Int, U> {
         val position = params.key ?: STARTING_PAGE_INDEX
         return try {
-          val response = fetchData(position)
+          val response = fetchData(params.loadSize, position)
           LoadResult.Page(
             data = response,
             prevKey = if (position == STARTING_PAGE_INDEX) null else position - 1,
@@ -34,7 +34,7 @@ abstract class AbstractPagingSource<U : Any> {
     }
   }
 
-  abstract suspend fun fetchData(PageIndex: Int): List<U>
+  abstract suspend fun fetchData(pageSize: Int = 10, PageIndex: Int): List<U>
 
   open fun hasNextPages() = true
 }

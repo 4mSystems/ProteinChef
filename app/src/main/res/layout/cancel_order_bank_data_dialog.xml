@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <data>
+
+    <import type="android.view.View" />
+
+    <variable
+      name="uiState"
+      type="app.te.protein_chef.presentation.order_details.ui_state.cancel_order.CancelOrderUiState" />
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/menu_title"
+      style="@style/TextBoldFont"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/dimen16"
+      android:text="@string/cancel_order_dialog_payment_title"
+      android:textAlignment="center"
+      android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+      android:textColor="@color/black"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/menu_body"
+      style="@style/TextMediumFont"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/dimen16"
+      android:text="@string/cancel_order_dialog_payment_body"
+      android:textAlignment="center"
+      android:textAppearance="@style/TextAppearance.AppCompat.Small"
+      android:textColor="@color/colorAccentDark"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/menu_title" />
+
+    <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/input_ban"
+      style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/dimen14"
+      android:layout_marginTop="@dimen/dimen40"
+      android:layout_marginEnd="@dimen/dimen14"
+      android:hint="@string/payment_cancel_iban"
+      android:textAlignment="viewEnd"
+      android:textColorHint="@color/darkGray"
+      app:error="@{uiState.cancelOrderRequest.validation.ibanError}"
+      app:errorEnabled="@{uiState.cancelOrderRequest.validation.ibanError==null?false:true}"
+      app:helperTextTextColor="@color/black"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/menu_body">
+
+      <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:text="@={uiState.cancelOrderRequest.iban}"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/darkGray"
+        android:textDirection="ltr" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/input_bank_name"
+      style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/dimen14"
+      android:layout_marginTop="@dimen/dimen20"
+      android:layout_marginEnd="@dimen/dimen14"
+      android:hint="@string/payment_cancel_bank_name"
+      android:textAlignment="viewEnd"
+      android:textColorHint="@color/darkGray"
+      app:error="@{uiState.cancelOrderRequest.validation.bankNameError}"
+      app:errorEnabled="@{uiState.cancelOrderRequest.validation.bankNameError==null?false:true}"
+      app:helperTextTextColor="@color/black"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/input_ban">
+
+      <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:text="@={uiState.cancelOrderRequest.bank_name}"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/darkGray" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/input_bank_account_name"
+      style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/dimen14"
+      android:layout_marginTop="@dimen/dimen20"
+      android:layout_marginEnd="@dimen/dimen14"
+      android:hint="@string/payment_cancel_bank_account_name"
+      android:textAlignment="viewEnd"
+      android:textColorHint="@color/darkGray"
+      app:error="@{uiState.cancelOrderRequest.validation.nameError}"
+      app:errorEnabled="@{uiState.cancelOrderRequest.validation.nameError==null?false:true}"
+      app:helperTextTextColor="@color/black"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/input_bank_name">
+
+      <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:text="@={uiState.cancelOrderRequest.name}"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/darkGray" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+      android:id="@+id/cancel"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/dimen18"
+      android:background="@{!uiState.loading?@drawable/corner_view_dark:@drawable/corner_view_primary_medium,default=@drawable/corner_view_dark}"
+      android:enabled="@{!uiState.loading}"
+      android:onClick="@{()-> uiState.cancelOrder(context)}"
+      android:padding="@dimen/dimen10"
+      android:text="@string/confirm_cancel"
+      android:textAppearance="@style/TextAppearance.AppCompat.Small"
+      android:textColor="@color/white"
+      app:cornerRadius="@dimen/dimen5"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/input_bank_account_name" />
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+      android:id="@+id/progress"
+      style="Widget.MaterialComponents.LinearProgressIndicator"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:indeterminate="true"
+      android:visibility="@{uiState.loading?View.VISIBLE:View.GONE}"
+      app:layout_constraintBottom_toBottomOf="@id/cancel"
+      app:layout_constraintStart_toStartOf="@id/cancel"
+      app:layout_constraintTop_toTopOf="@id/cancel"
+      app:trackColor="@color/white"
+      app:trackThickness="@dimen/dimen4" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

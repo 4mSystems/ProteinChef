@@ -1,6 +1,9 @@
 package app.te.protein_chef.presentation.my_orders
 
+import android.os.Bundle
 import android.widget.Toast
+import androidx.fragment.app.setFragmentResult
+import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
@@ -9,6 +12,7 @@ import app.te.protein_chef.databinding.FragmentCurrentOrdersBinding
 import app.te.protein_chef.presentation.base.BaseFragment
 import app.te.protein_chef.presentation.base.extensions.navigateSafe
 import app.te.protein_chef.presentation.base.extensions.setUpAdapter
+import app.te.protein_chef.presentation.base.utils.Constants
 import app.te.protein_chef.presentation.my_orders.adapters.MyOrdersAdapter
 import app.te.protein_chef.presentation.my_orders.listeners.MyOrdersListener
 import app.te.protein_chef.presentation.my_orders.viewModel.MyCurrentOrdersViewModel
@@ -17,16 +21,22 @@ import kotlinx.coroutines.flow.collect
 
 
 @AndroidEntryPoint
-class CurrentOrdersFragment(val myOrdersListener: MyOrdersListener) :
-  BaseFragment<FragmentCurrentOrdersBinding>() {
+class CurrentOrdersFragment :
+  BaseFragment<FragmentCurrentOrdersBinding>(), MyOrdersListener {
   private val viewModel: MyCurrentOrdersViewModel by viewModels()
-  private val adapter = MyOrdersAdapter(myOrdersListener)
+  private val adapter = MyOrdersAdapter(this)
 
   override
   fun getLayoutId() = R.layout.fragment_current_orders
 
   override fun setBindingVariables() {
     viewModel.currentOrders(lifecycleScope)
+  }
+
+  override fun setUpViews() {
+    setFragmentResultListener(Constants.BUNDLE) { _: String, _: Bundle ->
+      viewModel.currentOrders(lifecycleScope)
+    }
   }
 
   override fun setupObservers() {
@@ -65,6 +75,10 @@ class CurrentOrdersFragment(val myOrdersListener: MyOrdersListener) :
         binding.currentOrders.setUpAdapter(adapter, "1", "1")
       }
     }
+  }
+
+  override fun openOrderDetails(orderId: Int) {
+    navigateSafe(MyOrdersFragmentDirections.actionMyMealsFragmentToOrderDetailsFragment(orderId))
   }
 
 }

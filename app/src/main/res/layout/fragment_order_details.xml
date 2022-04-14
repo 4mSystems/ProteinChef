@@ -6,6 +6,10 @@
   <data>
 
     <variable
+      name="eventListeners"
+      type="app.te.protein_chef.presentation.order_details.listeners.OrderDetailsListeners" />
+
+    <variable
       name="uiState"
       type="app.te.protein_chef.presentation.order_details.ui_state.OrderDetailsUiState" />
   </data>
@@ -76,7 +80,7 @@
         android:layout_marginStart="@dimen/dimen28"
         android:layout_marginTop="@dimen/dimen18"
         android:layout_marginEnd="@dimen/dimen28"
-        android:text="@{uiState.orderRemainDays(context)}"
+        android:text="@{uiState.orderPackage}"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
@@ -154,6 +158,7 @@
         android:textAlignment="viewStart"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textColor="@color/colorPrimaryDark"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_received" />
 
@@ -163,10 +168,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dimen16"
-        android:text="@{uiState.orderDeliveryLocationName()}"
         android:textAlignment="viewStart"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textColor="@color/black"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/tv_location_name"
         app:layout_constraintTop_toBottomOf="@+id/tv_received" />
@@ -177,10 +182,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dimen16"
-        android:text="@string/location_address"
+        android:text="@string/from_market"
         android:textAlignment="viewStart"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textColor="@color/colorPrimaryDark"
+        android:visibility="@{uiState.checkIfOrderFromStore}"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_location_name_value" />
 
@@ -190,13 +196,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dimen16"
-        android:text="@{uiState.orderDeliveryLocation()}"
+        android:text="@{uiState.orderDeliveryLocation}"
         android:textAlignment="viewStart"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tv_location_name"
-        app:layout_constraintTop_toBottomOf="@+id/tv_location_name_value" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_location_address" />
 
       <View
         android:id="@+id/v_address"
@@ -205,6 +211,41 @@
         android:layout_marginTop="@dimen/dimen18"
         android:background="@color/backgroundGray"
         app:layout_constraintTop_toBottomOf="@id/tv_location_address_value" />
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_order_status"
+        style="@style/TextBoldFont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen16"
+        android:text="@string/order_status"
+        android:textAlignment="viewStart"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/v_address" />
+
+      <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_order_status_value"
+        style="@style/TextMediumFont"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen16"
+        android:text="@{uiState.orderStatus(context)}"
+        android:textAlignment="viewStart"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_order_status" />
+
+      <View
+        android:id="@+id/v_order_status"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/dimen18"
+        android:background="@color/backgroundGray"
+        app:layout_constraintTop_toBottomOf="@id/tv_order_status_value" />
 
       <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_delivery_time"
@@ -217,7 +258,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/v_address" />
+        app:layout_constraintTop_toBottomOf="@+id/v_order_status" />
 
       <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_delivery_time_value"
@@ -430,9 +471,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimen18"
         android:background="@color/colorAccentDark"
+        android:onClick="@{()-> eventListeners.freezeOrder()}"
         android:text="@string/freeze"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/white"
+        android:visibility="@{uiState.showFreezeButton}"
         app:layout_constraintEnd_toStartOf="@+id/cancel"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -444,12 +487,28 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimen18"
         android:background="@color/colorPrimaryDark"
+        android:onClick="@{()-> eventListeners.cancelOrder()}"
         android:text="@string/cancel_package"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/white"
+        android:visibility="@{uiState.showCancelButton}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/freeze"
+        app:layout_constraintTop_toBottomOf="@+id/tv_total_cost_value" />
+
+      <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/re_order"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen18"
+        android:background="@color/colorAccentDark"
+        android:text="@string/re_order"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/white"
+        android:visibility="@{uiState.showReorderButton}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_total_cost_value" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

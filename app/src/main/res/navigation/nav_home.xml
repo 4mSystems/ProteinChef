@@ -24,6 +24,13 @@
       app:exitAnim="@anim/anim_slide_out_left"
       app:popEnterAnim="@anim/anim_slide_in_left"
       app:popExitAnim="@anim/anim_slide_out_right" />
+    <action
+      android:id="@+id/action_home_fragment_to_notificationsFragment"
+      app:destination="@id/notificationsFragment"
+      app:enterAnim="@anim/anim_slide_in_right"
+      app:exitAnim="@anim/anim_slide_out_left"
+      app:popEnterAnim="@anim/anim_slide_in_left"
+      app:popExitAnim="@anim/anim_slide_out_right" />
   </fragment>
 
   <fragment
@@ -330,6 +337,13 @@
     <action
       android:id="@+id/action_submitOrderFragment_to_orderSuccessCreationDialog"
       app:destination="@id/orderSuccessCreationDialog" />
+    <action
+      android:id="@+id/action_submitOrderFragment_to_couponsFragment"
+      app:destination="@id/couponsFragment"
+      app:enterAnim="@anim/anim_slide_in_right"
+      app:exitAnim="@anim/anim_slide_out_left"
+      app:popEnterAnim="@anim/anim_slide_in_left"
+      app:popExitAnim="@anim/anim_slide_out_right" />
   </fragment>
   <dialog
     android:id="@+id/orderSuccessCreationDialog"
@@ -338,7 +352,8 @@
   <fragment
     android:id="@+id/myMealsFragment"
     android:name="app.te.protein_chef.presentation.my_orders.MyOrdersFragment"
-    android:label="MyOrdersFragment">
+    android:label="MyOrdersFragment"
+    tools:layout="@layout/fragment_my_orders">
     <action
       android:id="@+id/action_myMealsFragment_to_orderDetailsFragment"
       app:destination="@id/orderDetailsFragment"
@@ -351,11 +366,67 @@
   <fragment
     android:id="@+id/orderDetailsFragment"
     android:name="app.te.protein_chef.presentation.order_details.OrderDetailsFragment"
-    android:label="@string/order_details">
+    android:label="@string/order_details"
+    tools:layout="@layout/fragment_order_details">
 
     <argument
       android:name="order_id"
       app:argType="integer" />
+    <action
+      android:id="@+id/action_orderDetailsFragment_to_cancelWarningDialog"
+      app:destination="@id/cancelWarningDialog" />
+    <action
+      android:id="@+id/action_orderDetailsFragment_to_freezeDialog"
+      app:destination="@id/freezeDialog" />
   </fragment>
+  <dialog
+    android:id="@+id/cancelWarningDialog"
+    android:name="app.te.protein_chef.presentation.order_details.dialog.CancelWarningDialog"
+    tools:layout="@layout/cancel_order_warning_dialog">
+    <argument
+      android:name="order_id"
+      app:argType="integer" />
+    <action
+      android:id="@+id/action_cancelWarningDialog_to_cancelOrderBankDialog"
+      app:destination="@id/cancelOrderBankDialog" />
+  </dialog>
+  <dialog
+    android:id="@+id/cancelOrderBankDialog"
+    android:name="app.te.protein_chef.presentation.order_details.dialog.CancelOrderBankDataDialog"
+    tools:layout="@layout/cancel_order_bank_data_dialog">
+    <argument
+      android:name="order_id"
+      app:argType="integer" />
+  </dialog>
+  <dialog
+    android:id="@+id/freezeDialog"
+    android:name="app.te.protein_chef.presentation.order_details.dialog.FreezeOrderDialog"
+    tools:layout="@layout/freeze_dialog">
+    <argument
+      android:name="order_days"
+      app:argType="string[]" />
+
+    <action
+      android:id="@+id/action_freezeDialog_to_datePickerFragment"
+      app:destination="@id/datePickerFragment" />
+    <argument
+      android:name="order_id"
+      app:argType="integer" />
+  </dialog>
+  <dialog
+    android:id="@+id/datePickerFragment"
+    android:name="app.te.protein_chef.presentation.base.DatePickerFragment"
+    android:label="DatePickerFragment">
+
+    <argument
+      android:name="start_date"
+      app:argType="string" />
+  </dialog>
+  <fragment
+    android:id="@+id/notificationsFragment"
+    android:name="app.te.protein_chef.presentation.notifications.NotificationsFragment"
+    android:label="@string/notifications"
+    tools:layout="@layout/fragment_notifications" />
+
 
 </navigation>

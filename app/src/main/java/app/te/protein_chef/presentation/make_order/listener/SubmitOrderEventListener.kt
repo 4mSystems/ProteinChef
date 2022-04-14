@@ -5,4 +5,5 @@ import app.te.protein_chef.domain.make_order.entity.coupon.ApplyCouponRequest
 interface SubmitOrderEventListener {
   fun applyCoupon(applyCouponRequest: ApplyCouponRequest)
   fun makeOrder()
+  fun openMyPromo()
 }

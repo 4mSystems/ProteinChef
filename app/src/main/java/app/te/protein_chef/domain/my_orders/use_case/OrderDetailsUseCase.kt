@@ -27,6 +27,7 @@ class OrderDetailsUseCase @Inject constructor(
       discount_price = orderDetails.discount_price,
       frozen_meals = orderDetails.frozen_meals,
       location = orderDetails.location,
+      company_address = orderDetails.company_address.value,
       meal_types = orderDetails.meal_types,
       order_addition_prices = orderDetails.order_addition_prices,
       order_meals = orderDetails.order_meals,
@@ -36,6 +37,8 @@ class OrderDetailsUseCase @Inject constructor(
       total_price = orderDetails.total_price,
       working_hours = orderDetails.working_hours,
       remain_frozen_meals = orderDetails.remain_frozen_meals,
+      package_name = orderDetails.package_name,
+      order_status = orderDetails.order_status,
     )
   }
 

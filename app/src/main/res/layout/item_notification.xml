@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <variable
+      name="eventListener"
+      type="app.te.protein_chef.presentation.notifications.listeners.NotificationsListener" />
+
+    <variable
+      name="uiState"
+      type="app.te.protein_chef.presentation.notifications.ui_state.NotificationsDataUiState" />
+  </data>
+
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/dimen16"
+    android:layout_marginTop="@dimen/dimen10"
+    android:layout_marginEnd="@dimen/dimen16"
+    android:background="@drawable/corner_white"
+    android:onClick="@{()->eventListener.openOrderDetails(uiState.id)}">
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/tv_created_at"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/dimen6"
+      android:textColor="@color/black"
+      android:textSize="@dimen/text_size12"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:text="01 May 2018 , 6 Am" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/tv_title"
+      style="@style/TextMediumFont"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/dimen6"
+      android:layout_marginEnd="@dimen/dimen6"
+      android:text="@{uiState.notificationTitle}"
+      android:textAlignment="viewStart"
+      android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+      android:textColor="@color/black"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/tv_created_at"
+      tools:text="عنوان الإشعار" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/tv_body"
+      style="@style/TextMediumFont"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/dimen6"
+      android:text="@{uiState.notificationBody}"
+      android:textAlignment="viewStart"
+      android:textAppearance="@style/TextAppearance.AppCompat.Small"
+      android:textColor="@color/colorAccentDark"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/tv_title"
+      tools:text="لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل ليتصور" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,17 +1,17 @@
 package app.te.protein_chef.presentation.order_details
 
-import android.util.Log
+import android.os.Bundle
+import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import app.te.protein_chef.R
 import app.te.protein_chef.databinding.FragmentOrderDetailsBinding
 import app.te.protein_chef.domain.my_orders.entity.order_details.OrderMeal
-import app.te.protein_chef.domain.packages_categories.entity.category_menu.CategoryMenu
 import app.te.protein_chef.domain.utils.Resource
 import app.te.protein_chef.presentation.base.BaseFragment
-import app.te.protein_chef.presentation.base.extensions.handleApiError
-import app.te.protein_chef.presentation.base.extensions.hideKeyboard
-import app.te.protein_chef.presentation.base.extensions.setUpAdapter
+import app.te.protein_chef.presentation.base.extensions.*
+import app.te.protein_chef.presentation.base.utils.Constants
+import app.te.protein_chef.presentation.base.utils.showNoApiErrorAlert
 import app.te.protein_chef.presentation.order_details.adapters.OrderCategoriesAdapter
 import app.te.protein_chef.presentation.order_details.adapters.OrderMealsAdapter
 import app.te.protein_chef.presentation.order_details.listeners.OrderDetailsListeners
@@ -33,7 +33,15 @@ class OrderDetailsFragment : BaseFragment<FragmentOrderDetailsBinding>(), OrderD
   fun getLayoutId() = R.layout.fragment_order_details
 
   override fun setBindingVariables() {
+    binding.eventListeners = this
     viewModel.orderDetails()
+  }
+
+  override
+  fun setUpViews() {
+    setFragmentResultListener(Constants.BUNDLE) { _: String, _: Bundle ->
+      viewModel.orderDetails()
+    }
   }
 
   override fun setupObservers() {
@@ -75,7 +83,20 @@ class OrderDetailsFragment : BaseFragment<FragmentOrderDetailsBinding>(), OrderD
         }
       }
     }
-
+    lifecycleScope.launchWhenResumed {
+      viewModel.orderDaysResponse.collect {
+        when (it) {
+          is Resource.Success -> {
+            hideLoading()
+            orderDetailsUiState.days = it.value.data
+          }
+          is Resource.Failure -> {
+            hideLoading()
+            handleApiError(it)
+          }
+        }
+      }
+    }
   }
 
   private fun bindUi() {
@@ -93,5 +114,24 @@ class OrderDetailsFragment : BaseFragment<FragmentOrderDetailsBinding>(), OrderD
 
   override fun changeCategoryType(categoryId: Int) {
     viewModel.orderMealsBuCategory(categoryId)
+  }
+
+  override fun cancelOrder() {
+    navigateSafe(
+      OrderDetailsFragmentDirections.actionOrderDetailsFragmentToCancelWarningDialog(
+        viewModel.orderId
+      )
+    )
+  }
+
+  override fun freezeOrder() {
+    if (orderDetailsUiState.remain_frozen_meals != 0 && orderDetailsUiState.days.isNotEmpty())
+      navigateSafe(
+        OrderDetailsFragmentDirections.actionOrderDetailsFragmentToFreezeDialog(
+          orderDetailsUiState.days, viewModel.orderId
+        )
+      )
+    else
+      showNoApiErrorAlert(requireActivity(), getString(R.string.freeze_limit))
   }
 }

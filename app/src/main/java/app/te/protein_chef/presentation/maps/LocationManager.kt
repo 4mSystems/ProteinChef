@@ -13,6 +13,7 @@ import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
 import java.io.IOException
 import javax.inject.Inject
+
 class LocationManager @Inject constructor(
   private val fusedLocationClient: FusedLocationProviderClient
 ) {
@@ -68,12 +69,31 @@ class LocationManager @Inject constructor(
       val addressList =
         geocoder.getFromLocation(lat ?: 0.0, lng ?: 0.0, 1)
       var address = ""
-      Log.e("getAddress", "getAddress: "+addressList)
+      Log.e("getAddress", "getAddress: " + addressList)
       if (addressList != null && addressList.size > 0) {
         val addressObj = addressList[0]
         address = addressObj.getAddressLine(0)
+        Log.e("getAddress", "getAddress: " + addressObj.locality)
       }
       address
+    } catch (e: IOException) {
+      e.printStackTrace()
+      null
+    }
+  }
+
+  fun getLocality(lat: Double?, lng: Double?, context: Context): String? {
+    val geocoder = Geocoder(context)
+    return try {
+      val addressList =
+        geocoder.getFromLocation(lat ?: 0.0, lng ?: 0.0, 1)
+      var locality = ""
+      if (addressList != null && addressList.size > 0) {
+        val addressObj = addressList[0]
+        locality = addressObj.locality
+        Log.e("getAddress", "getAddress: " + addressObj.locality)
+      }
+      locality
     } catch (e: IOException) {
       e.printStackTrace()
       null

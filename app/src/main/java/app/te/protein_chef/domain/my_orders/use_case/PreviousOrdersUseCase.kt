@@ -48,6 +48,7 @@ class PreviousOrdersUseCase @Inject constructor(
         object : AbstractPagingSource<MyOrdersUiState>() {
 
           override suspend fun fetchData(
+            pageSize: Int,
             PageIndex: Int
           ): List<MyOrdersUiState> {
             val result = myOrdersRepository.getMyPreviousOrders(PageIndex)

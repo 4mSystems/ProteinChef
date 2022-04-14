@@ -18,12 +18,9 @@ class HomeViewModel @Inject constructor(
     MutableStateFlow<Resource<BaseResponse<HomeMainData>>>(Resource.Default)
   val homeResponse = _homeResponse
 
-  init {
-    getHomeData()
-  }
 
-  private fun getHomeData() {
-    homeUseCase.homeService(0.0, 0.0)
+  fun getHomeData(lat:Double,lng: Double) {
+    homeUseCase.homeService(lat, lng)
       .onEach { result ->
         _homeResponse.value = result
       }

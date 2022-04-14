@@ -5,6 +5,8 @@ import android.widget.CalendarView
 import app.te.protein_chef.presentation.base.utils.DateUtils.Companion.API_DATE_FORMAT
 import app.te.protein_chef.presentation.base.utils.DateUtils.Companion.DAY
 import app.te.protein_chef.presentation.base.utils.DateUtils.Companion.DAY_NAME
+import app.te.protein_chef.presentation.base.utils.DateUtils.Companion.MONTH
+import app.te.protein_chef.presentation.base.utils.DateUtils.Companion.YEAR
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -72,6 +74,14 @@ fun CalendarView.getSelectedDate(): String {
   return inputFormat.format(this.date)
 }
 
+fun minDate(parsedDate: String): Long {
+  val calendar = Calendar.getInstance()
+  calendar.set(Calendar.YEAR, year(parsedDate).toInt())
+  calendar.set(Calendar.MONTH, month(parsedDate).toInt())
+  calendar.set(Calendar.DAY_OF_MONTH, day(parsedDate).toInt() + 1)
+  return calendar.time.time
+}
+
 fun dayName(parsedDate: String): String {
   val inputFormat = SimpleDateFormat(
     API_DATE_FORMAT,
@@ -79,6 +89,63 @@ fun dayName(parsedDate: String): String {
   )
   val dayFormat = SimpleDateFormat(
     DAY_NAME,
+    getLocale()
+  )
+  val date: Date?
+  return try {
+    date = inputFormat.parse(parsedDate)
+    return dayFormat.format(date)
+  } catch (e: Exception) {
+    e.printStackTrace()
+    ""
+  }
+}
+
+fun day(parsedDate: String): String {
+  val inputFormat = SimpleDateFormat(
+    API_DATE_FORMAT,
+    getLocale()
+  )
+  val dayFormat = SimpleDateFormat(
+    DAY,
+    getLocale()
+  )
+  val date: Date?
+  return try {
+    date = inputFormat.parse(parsedDate)
+    return dayFormat.format(date)
+  } catch (e: Exception) {
+    e.printStackTrace()
+    ""
+  }
+}
+
+fun month(parsedDate: String): String {
+  val inputFormat = SimpleDateFormat(
+    API_DATE_FORMAT,
+    getLocale()
+  )
+  val dayFormat = SimpleDateFormat(
+    MONTH,
+    getLocale()
+  )
+  val date: Date?
+  return try {
+    date = inputFormat.parse(parsedDate)
+    return dayFormat.format(date)
+  } catch (e: Exception) {
+    e.printStackTrace()
+    ""
+  }
+}
+
+fun year(parsedDate: String): String {
+  val inputFormat = SimpleDateFormat(
+    API_DATE_FORMAT,
+    getLocale()
+  )
+  val dayFormat = SimpleDateFormat(
+    YEAR,
     getLocale()
   )
   val date: Date?

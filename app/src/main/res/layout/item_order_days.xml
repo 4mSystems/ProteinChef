@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <variable
+      name="myLocationsEventListener"
+      type="app.te.protein_chef.presentation.my_locations.listeners.MyLocationsEventListener" />
+
+    <variable
+      name="uiState"
+      type="app.te.protein_chef.presentation.packages.ui_state.PackageCategoryUiItem" />
+  </data>
+
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/dates_container"
+    android:background="@drawable/corner_view_gray_border"
+    android:layout_margin="@dimen/dimen4">
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/tv_date"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/dimen16"
+      android:buttonTint="@color/colorPrimaryDark"
+      android:clickable="false"
+      android:drawablePadding="@dimen/dimen4"
+      android:minWidth="0dp"
+      android:text="2022-02-15"
+      android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+      android:textColor="@color/colorAccentDark"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

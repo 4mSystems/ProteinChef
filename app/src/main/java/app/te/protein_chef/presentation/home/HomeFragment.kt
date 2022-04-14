@@ -2,28 +2,39 @@ package app.te.protein_chef.presentation.home
 
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import app.te.protein_chef.R
+import app.te.protein_chef.databinding.FragmentHomeBinding
 import app.te.protein_chef.domain.home.models.HomeMainData
 import app.te.protein_chef.domain.utils.Resource
-import app.te.protein_chef.R
 import app.te.protein_chef.presentation.base.BaseFragment
 import app.te.protein_chef.presentation.base.extensions.*
+import app.te.protein_chef.presentation.base.utils.showNoApiErrorAlert
 import app.te.protein_chef.presentation.home.adapters.HomeSliderAdapter
 import app.te.protein_chef.presentation.home.adapters.OffersAdapter
 import app.te.protein_chef.presentation.home.adapters.PackagesAdapter
 import app.te.protein_chef.presentation.home.eventListener.HomeEventListener
 import app.te.protein_chef.presentation.home.ui_state.HomeUiState
-import app.te.protein_chef.databinding.FragmentHomeBinding
 import app.te.protein_chef.presentation.home.viewModels.HomeViewModel
+import app.te.protein_chef.presentation.maps.LocationManager
+import app.te.protein_chef.presentation.maps.PermissionManager
+import app.te.protein_chef.presentation.maps.requestAppPermissions
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
+import javax.inject.Inject
+
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeEventListener {
-
   private val viewModel: HomeViewModel by viewModels()
   private val sliderAdapter = HomeSliderAdapter(this)
   private val packagesAdapter = PackagesAdapter(this)
   private val offersAdapter = OffersAdapter()
+
+  @Inject
+  lateinit var permissionManager: PermissionManager
+
+  @Inject
+  lateinit var locationManager: LocationManager
 
   override
   fun getLayoutId() = R.layout.fragment_home
@@ -31,6 +42,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeEventListener {
   override
   fun setBindingVariables() {
     binding.eventListener = this
+    if (permissionManager.hasAllLocationPermissions()) {
+      checkIfLocationEnabled()
+    } else {
+      permissionsResult?.launch(permissionManager.getAllLocationPermissions())
+    }
   }
 
   override
@@ -58,6 +74,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeEventListener {
 
   private fun setupUiState(homeMainData: HomeMainData) {
     val homeUiState = HomeUiState(homeMainData)
+    binding.uiState = homeUiState
     //setupSlider
     sliderAdapter.update(homeUiState.setUpSlider())
     binding.imageSlider.setSliderAdapter(sliderAdapter)
@@ -67,6 +84,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeEventListener {
     // setUpOfferAdapter
     offersAdapter.differ.submitList(homeUiState.setUpOffers())
     binding.rcOffers.setUpAdapter(offersAdapter, "1", "1")
+  }
+
+  override fun openNotifications() {
+    navigateSafe(HomeFragmentDirections.actionHomeFragmentToNotificationsFragment())
   }
 
   override fun openMap() {
@@ -87,5 +108,29 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeEventListener {
     )
   }
 
+  // for location
+  private val permissionsResult = requestAppPermissions { allIsGranted, _ ->
+    if (allIsGranted) {
+      checkIfLocationEnabled()
+    } else {
+      showNoApiErrorAlert(requireActivity(), getString(R.string.not_all_permission_accepted))
+    }
+  }
+
+  private fun checkIfLocationEnabled() {
+    if (locationManager.isLocationEnabled(requireContext())) {
+      getLocationNow()
+    } else {
+      viewModel.getHomeData(0.0, 0.0)
+    }
+  }
+
+  private fun getLocationNow() {
+    locationManager.requestNewLocationData(false) {
+      viewModel.getHomeData(it.latitude, it.longitude)
+      binding.locality.text =
+        locationManager.getLocality(it.latitude, it.longitude, requireContext())
+    }
+  }
 
 }

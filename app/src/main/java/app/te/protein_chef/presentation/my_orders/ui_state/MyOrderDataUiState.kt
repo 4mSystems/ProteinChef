@@ -26,7 +26,7 @@ class MyOrderDataUiState(private val orderData: OrderData) : MyOrdersUiState {
 
 
   override fun getId(): Int = orderData.id
-  fun getOrderNumber(): String = orderData.order_num
+  fun getOrderNumber(): String = "#".plus(orderData.order_num)
   fun getOrderPackageType(): String = orderData.package_type
   fun getOrderOrderCount(): String =
     orderData.meals_count.toString().plus(" / ").plus(orderData.delivered_meals_count)

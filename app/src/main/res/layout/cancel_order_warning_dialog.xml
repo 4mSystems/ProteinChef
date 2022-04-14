@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.airbnb.lottie.LottieAnimationView
+      android:id="@+id/guard_lottie"
+      android:layout_width="@dimen/dimen150"
+      android:layout_height="@dimen/dimen150"
+      android:layout_margin="@dimen/dimen10"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:lottie_autoPlay="true"
+      app:lottie_fileName="warning.json"
+      app:lottie_loop="true" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/menu_title"
+      style="@style/TextBoldFont"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/dimen16"
+      android:text="@string/cancel_order_dialog_title"
+      android:textAlignment="center"
+      android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+      android:textColor="@color/black"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/guard_lottie" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/menu_body"
+      style="@style/TextMediumFont"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/dimen16"
+      android:text="@string/cancel_order_dialog_body"
+      android:textAlignment="center"
+      android:textAppearance="@style/TextAppearance.AppCompat.Small"
+      android:textColor="@color/colorAccentDark"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/menu_title" />
+
+    <com.google.android.material.button.MaterialButton
+      android:id="@+id/cancel"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/dimen18"
+      android:padding="@dimen/dimen10"
+      android:text="@string/confirm_cancel"
+      android:textAppearance="@style/TextAppearance.AppCompat.Small"
+      android:textColor="@color/white"
+      app:backgroundTint="@color/colorAccentDark"
+      app:cornerRadius="@dimen/dimen5"
+      app:layout_constraintEnd_toStartOf="@+id/back"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/menu_body" />
+
+    <com.google.android.material.button.MaterialButton
+      android:id="@+id/back"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/dimen18"
+      android:padding="@dimen/dimen10"
+      android:text="@string/back"
+      android:textAppearance="@style/TextAppearance.AppCompat.Small"
+      android:textColor="@color/white"
+      app:backgroundTint="@color/colorPrimaryDark"
+      app:cornerRadius="@dimen/dimen5"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toEndOf="@+id/cancel"
+      app:layout_constraintTop_toBottomOf="@+id/menu_body" />
+
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

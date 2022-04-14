@@ -7,6 +7,7 @@ import androidx.paging.LoadState
 import app.te.protein_chef.R
 import app.te.protein_chef.databinding.FragmentPreviousOrdersBinding
 import app.te.protein_chef.presentation.base.BaseFragment
+import app.te.protein_chef.presentation.base.extensions.navigateSafe
 import app.te.protein_chef.presentation.base.extensions.setUpAdapter
 import app.te.protein_chef.presentation.my_orders.adapters.MyOrdersAdapter
 import app.te.protein_chef.presentation.my_orders.listeners.MyOrdersListener
@@ -16,9 +17,9 @@ import kotlinx.coroutines.flow.collect
 
 
 @AndroidEntryPoint
-class PreviousOrdersFragment(val myOrdersListener: MyOrdersListener) : BaseFragment<FragmentPreviousOrdersBinding>() {
+class PreviousOrdersFragment : BaseFragment<FragmentPreviousOrdersBinding>(),MyOrdersListener {
   private val viewModel: PreviousOrdersViewModel by viewModels()
-  private val adapter = MyOrdersAdapter(myOrdersListener)
+  private val adapter = MyOrdersAdapter(this)
 
   override
   fun getLayoutId() = R.layout.fragment_previous_orders
@@ -69,6 +70,11 @@ class PreviousOrdersFragment(val myOrdersListener: MyOrdersListener) : BaseFragm
         binding.previousOrders.setUpAdapter(adapter, "1", "1")
       }
     }
+  }
+
+  override fun openOrderDetails(orderId: Int) {
+    navigateSafe(MyOrdersFragmentDirections.actionMyMealsFragmentToOrderDetailsFragment(orderId))
+
   }
 
 }
