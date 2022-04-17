@@ -6,6 +6,12 @@ import app.te.protein_chef.presentation.notifications.listeners.NotificationsLis
 
 interface NotificationsUiState {
   fun getLayoutRes(): Int
-  fun bind(item: View?, position: Int, context: Context,notificationsListener: NotificationsListener)
+  fun bind(
+    item: View?,
+    position: Int,
+    context: Context,
+    notificationsListener: NotificationsListener
+  )
+
   fun getId(): Int
 }

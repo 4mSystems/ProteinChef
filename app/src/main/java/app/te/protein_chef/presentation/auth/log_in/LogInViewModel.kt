@@ -9,6 +9,8 @@ import app.te.protein_chef.domain.auth.use_case.LogInUseCase
 import app.te.protein_chef.domain.utils.BaseResponse
 import app.te.protein_chef.domain.utils.Resource
 import app.te.protein_chef.presentation.base.BaseViewModel
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
@@ -24,6 +26,10 @@ class LogInViewModel @Inject constructor(
     MutableStateFlow<Resource<BaseResponse<UserResponse>>>(Resource.Default)
   val logInResponse = _logInResponse
 
+  init {
+    updateFireBaseToken()
+  }
+
   fun onLogInClicked() {
     logInUseCase(request)
       .catch { exception ->
@@ -36,6 +42,16 @@ class LogInViewModel @Inject constructor(
         _logInResponse.value = result
       }
       .launchIn(viewModelScope)
+  }
+
+  private fun updateFireBaseToken() {
+    FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+      if (!task.isSuccessful) {
+        return@OnCompleteListener
+      }
+      // Get new FCM registration token
+      request.device_token = task.result
+    })
   }
 
 }

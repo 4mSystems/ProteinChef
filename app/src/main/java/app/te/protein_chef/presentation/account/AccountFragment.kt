@@ -31,29 +31,6 @@ class AccountFragment : BaseFragment<FragmentAccountBinding>(), AccountEventList
   override fun setUpViews() {
     binding.toolbar.tvTitle.text = getString(R.string.account)
   }
-  override
-  fun setupObservers() {
-
-    lifecycleScope.launchWhenResumed {
-      viewModelTeacher.logOutResponse.collect {
-        when (it) {
-          Resource.Loading -> {
-            hideKeyboard()
-            showLoading()
-          }
-          is Resource.Success -> {
-            hideLoading()
-            viewModelTeacher.clearStorage()
-            openLogInScreen()
-          }
-          is Resource.Failure -> {
-            hideLoading()
-            handleApiError(it)
-          }
-        }
-      }
-    }
-  }
 
   private fun showLogOutPopUp() {
     PrettyPopUpHelper.Builder(childFragmentManager)
@@ -67,7 +44,8 @@ class AccountFragment : BaseFragment<FragmentAccountBinding>(), AccountEventList
       .setImage(R.drawable.ic_logout)
       .setPositiveButton(R.string.log_out) {
         it.dismiss()
-        viewModelTeacher.logOut()
+        viewModelTeacher.clearStorage()
+        openLogInScreen()
       }
       .setNegativeButtonBackground(R.drawable.btn_gray)
       .setNegativeButtonTextColor(getMyColor(R.color.white))

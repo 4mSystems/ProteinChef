@@ -1,5 +1,9 @@
 package app.te.protein_chef.domain.my_orders.entity
 
+import androidx.annotation.Keep
+
+@Keep
+
 data class OrderData(
   val delivered_meals_count: Int = 0,
   val id: Int,

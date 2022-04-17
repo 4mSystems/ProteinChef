@@ -56,7 +56,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeEventListener {
         when (it) {
           Resource.Loading -> {
             hideKeyboard()
-            showLoading()
           }
           is Resource.Success -> {
             hideLoading()
@@ -118,6 +117,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeEventListener {
   }
 
   private fun checkIfLocationEnabled() {
+    showLoading() // for user to see Loader
     if (locationManager.isLocationEnabled(requireContext())) {
       getLocationNow()
     } else {

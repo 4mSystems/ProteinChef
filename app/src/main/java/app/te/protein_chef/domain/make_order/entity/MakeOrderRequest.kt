@@ -1,10 +1,12 @@
 package app.te.protein_chef.domain.make_order.entity
 
 import android.os.Parcelable
+import androidx.annotation.Keep
 import kotlinx.android.parcel.Parcelize
 import kotlinx.android.parcel.RawValue
 
 @Parcelize
+@Keep
 data class MakeOrderRequest(
   var selected_meal: @RawValue MutableList<SelectedMeals> = mutableListOf(),
   var order_additions: @RawValue MutableList<OrderAdditions> = mutableListOf(),

@@ -3,9 +3,16 @@
     <CLASSES>
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/051cffc9fffd33f043187c1bcb56bd54/transformed/jetified-viewbinding-7.0.2/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/0d916f4fcc8b5b242864f7050c18e779/transformed/jetified-viewbinding-7.0.2/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/f0981f9d828f1098bb3e904f0c005fe2/transformed/jetified-viewbinding-7.0.2/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/f0981f9d828f1098bb3e904f0c005fe2/transformed/jetified-viewbinding-7.0.2/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/f0981f9d828f1098bb3e904f0c005fe2/transformed/jetified-viewbinding-7.0.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/419a103aa972b5c0e5dedc741a1b0e3a/transformed/jetified-viewbinding-7.0.2/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/8623cc5a9cb5172b421f585d4078ebaf/transformed/jetified-viewbinding-7.0.2/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/13a40893358f5bb29e5737349f0fa056/transformed/jetified-viewbinding-7.0.2/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/a995f7c6ca7a5856664ba8e50e2ffb6b/transformed/jetified-viewbinding-7.0.2/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/11179ada29bc8e3b11ffd7fd5c7ebab4/transformed/jetified-viewbinding-7.0.2/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/7e807d6012a590157d8893b33180a21e/transformed/jetified-viewbinding-7.0.2/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/301e9a3fa74b2febdfaacf1a0948bdce/transformed/jetified-viewbinding-7.0.2/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/301e9a3fa74b2febdfaacf1a0948bdce/transformed/jetified-viewbinding-7.0.2/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/301e9a3fa74b2febdfaacf1a0948bdce/transformed/jetified-viewbinding-7.0.2/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

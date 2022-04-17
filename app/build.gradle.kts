@@ -137,7 +137,8 @@ dependencies {
 
   // Hilt
   implementation(Libraries.hilt)
-  implementation(Libraries.firebase_platform)
+  implementation(platform(Libraries.firebase_platform))
+//  implementation(Libraries.firebase_core)
   implementation(Libraries.firebase_messaging)
   kapt(Libraries.hiltDaggerCompiler)
   // Support
@@ -174,7 +175,6 @@ dependencies {
   implementation(Libraries.map)
   implementation(Libraries.playServicesLocation)
   implementation(Libraries.rxLocation)
-  implementation(Libraries.firebase_messaging)
 
   //Ted bottom picker
   implementation(Libraries.ted_bottom_picker)

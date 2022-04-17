@@ -27,8 +27,6 @@ class FreezeOrderViewModel @Inject constructor(
   val feeezeOrderResponse = _feeezeOrderResponse
 
   fun freezeOrder(freezeOrderRequest: FreezeOrderRequest) {
-    freezeOrderRequest.order_id =
-      FreezeOrderDialogArgs.fromSavedStateHandle(savedStateHandle).orderId
     viewModelScope.launch {
       freezeOrderUseCase.invoke(freezeOrderRequest)
         .collect { result ->

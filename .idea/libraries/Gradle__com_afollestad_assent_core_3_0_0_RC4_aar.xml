@@ -4,8 +4,15 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/231e7de466dfbf48d0de7b858949027c/transformed/jetified-core-3.0.0-RC4/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/6782aa24df82f3c804b92bff26c6e885/transformed/jetified-core-3.0.0-RC4/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/54c257e6c45815a3c80aa19a667a300f/transformed/jetified-core-3.0.0-RC4/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/54c257e6c45815a3c80aa19a667a300f/transformed/jetified-core-3.0.0-RC4/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/54c257e6c45815a3c80aa19a667a300f/transformed/jetified-core-3.0.0-RC4/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/91d3829741726c705fb8cf28c4d0ffd5/transformed/jetified-core-3.0.0-RC4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/90cdeeb9a5ea9dda07217a0dc92cf8fe/transformed/jetified-core-3.0.0-RC4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/605c151227c6a7a18194c17710c953f7/transformed/jetified-core-3.0.0-RC4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/296acb28a8d5ab70104ede5528a15ff6/transformed/jetified-core-3.0.0-RC4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/af0497de600563745ddb3f12136c1d4c/transformed/jetified-core-3.0.0-RC4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/7b71b60cbea6baa292136280a5dcd033/transformed/jetified-core-3.0.0-RC4/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/f437924ea3f71b8d6dd23917e4716e8c/transformed/jetified-core-3.0.0-RC4/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/f437924ea3f71b8d6dd23917e4716e8c/transformed/jetified-core-3.0.0-RC4/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/f437924ea3f71b8d6dd23917e4716e8c/transformed/jetified-core-3.0.0-RC4/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.afollestad.assent/core/3.0.0-RC4/bd1653e6b5c971d67fc50c2841860a64252e2962/core-3.0.0-RC4-javadoc.jar!/" />

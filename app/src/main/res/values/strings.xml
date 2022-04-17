@@ -195,4 +195,5 @@
   <string name="confirm_freeze">تأكيد التجميد</string>
   <string name="re_order">اعاده الطلب</string>
   <string name="no_notifications_avail">لا يوجد اشعارات</string>
+    <string name="frozen_title">أيام التجميد التي حددتها</string>
 </resources>

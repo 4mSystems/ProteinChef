@@ -1,6 +1,7 @@
 package app.te.protein_chef.presentation.base.utils
 
 object Constants {
+  const val NOTIFICATION: String = "NOTIFICATION"
   const val REVIEWS = 7
   const val BACK = 8
   const val FORWARD: Int = 9

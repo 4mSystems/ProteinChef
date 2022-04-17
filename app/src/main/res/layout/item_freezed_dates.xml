@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <variable
+      name="myLocationsEventListener"
+      type="app.te.protein_chef.presentation.my_locations.listeners.MyLocationsEventListener" />
+
+    <variable
+      name="uiState"
+      type="app.te.protein_chef.presentation.order_details.ui_state.freeze.FreezedItemUiState" />
+  </data>
+
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/dates_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dimen4"
+    android:background="@drawable/corner_view_gray_border"
+    >
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/tv_old_date"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:text="@{uiState.freezeOldDate}"
+      android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+      android:textColor="@color/colorAccentDark"
+      tools:text="2022-02-15" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+      android:id="@+id/ic_double_arrow"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:src="@drawable/ic_double_arrow" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+      android:id="@+id/tv_new_date"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:textAlignment="viewEnd"
+      android:text="@{uiState.freezeNewDate}"
+      android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+      android:textColor="@color/colorAccentDark"
+      tools:text="2022-02-15" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="@dimen/dimen16"
+      app:flow_horizontalStyle="spread_inside"
+      app:flow_horizontalGap="@dimen/dimen6"
+      app:constraint_referenced_ids="tv_old_date,ic_double_arrow,tv_new_date"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

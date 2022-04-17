@@ -7,7 +7,10 @@ import androidx.paging.LoadState
 import app.te.protein_chef.R
 import app.te.protein_chef.databinding.FragmentNotificationsBinding
 import app.te.protein_chef.presentation.base.BaseFragment
+import app.te.protein_chef.presentation.base.extensions.navigateSafe
+import app.te.protein_chef.presentation.base.extensions.openActivityAndClearStack
 import app.te.protein_chef.presentation.base.extensions.setUpAdapter
+import app.te.protein_chef.presentation.home.HomeActivity
 import app.te.protein_chef.presentation.notifications.adapters.NotificationsAdapter
 import app.te.protein_chef.presentation.notifications.listeners.NotificationsListener
 import app.te.protein_chef.presentation.notifications.viewModel.NotificationsViewModel
@@ -67,6 +70,15 @@ class NotificationsFragment : BaseFragment<FragmentNotificationsBinding>(), Noti
   }
 
   override fun openOrderDetails(orderId: Int) {
+    navigateSafe(NotificationsFragmentDirections.actionNotificationsToOrderDetailsFragment(orderId))
+  }
+
+  override fun openHome() {
+    openActivityAndClearStack(HomeActivity::class.java)
+  }
+
+  override fun openMyCoupons() {
+    navigateSafe(NotificationsFragmentDirections.actionNotificationsToCouponsFragment())
   }
 
 }

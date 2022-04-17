@@ -1,9 +1,7 @@
 package app.te.protein_chef.presentation.make_order
 
-import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.navArgs
 import app.te.protein_chef.R
 import app.te.protein_chef.databinding.FragmentDetectDeliveryBinding
 import app.te.protein_chef.presentation.base.BaseFragment
@@ -19,12 +17,13 @@ class DetectDeliveryFragment : BaseFragment<FragmentDetectDeliveryBinding>(),
   DetectLocationEventListener {
   private val viewModel: DetectDeliveryViewModel by viewModels()
   private val detectDeliveryItemUiState = DetectDeliveryItemUiState()
-  private val args: DetectDeliveryFragmentArgs by navArgs()
+  private lateinit var args: DetectDeliveryFragmentArgs
 
   override
   fun getLayoutId() = R.layout.fragment_detect_delivery
   override fun setBindingVariables() {
     binding.eventListener = this
+    args = DetectDeliveryFragmentArgs.fromBundle(requireArguments())
     viewModel.orderSettings()
   }
 
@@ -37,7 +36,6 @@ class DetectDeliveryFragment : BaseFragment<FragmentDetectDeliveryBinding>(),
     }
     lifecycleScope.launchWhenResumed {
       viewModel.getWorkingHours().collect {
-        Log.e("setupObservers", "setupObservers: "+it)
         binding.tvDeliveryPeriod.text = it
       }
     }

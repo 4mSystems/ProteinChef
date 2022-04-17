@@ -26,7 +26,6 @@ class LogInFragment : BaseFragment<FragmentLogInBinding>(), LoginEventListener {
   fun setBindingVariables() {
     binding.request = viewModel.request
     binding.eventListener = this
-    viewModel.request.device_token = getDeviceId(requireActivity())
   }
 
   override

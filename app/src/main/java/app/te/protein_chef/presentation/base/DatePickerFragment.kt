@@ -5,14 +5,13 @@ import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.setFragmentResult
-import androidx.navigation.fragment.navArgs
 import app.te.protein_chef.R
 import app.te.protein_chef.presentation.base.utils.*
 import java.util.*
 
 class DatePickerFragment : DialogFragment() {
-  private val args: DatePickerFragmentArgs by navArgs()
   override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+     val args= DatePickerFragmentArgs.fromBundle(requireArguments())
     val datePickerDialog = DatePickerDialog(
       requireActivity(), R.style.date_picker_theme, { _, year, month, dayOfMonth ->
         val monthDate = month.toString().takeIf { it.length == 2 } ?: "0".plus(month)

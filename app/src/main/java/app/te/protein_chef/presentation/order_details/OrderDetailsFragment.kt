@@ -1,6 +1,7 @@
 package app.te.protein_chef.presentation.order_details
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -12,6 +13,7 @@ import app.te.protein_chef.presentation.base.BaseFragment
 import app.te.protein_chef.presentation.base.extensions.*
 import app.te.protein_chef.presentation.base.utils.Constants
 import app.te.protein_chef.presentation.base.utils.showNoApiErrorAlert
+import app.te.protein_chef.presentation.order_details.adapters.FrozenMealsAdapter
 import app.te.protein_chef.presentation.order_details.adapters.OrderCategoriesAdapter
 import app.te.protein_chef.presentation.order_details.adapters.OrderMealsAdapter
 import app.te.protein_chef.presentation.order_details.listeners.OrderDetailsListeners
@@ -27,6 +29,7 @@ class OrderDetailsFragment : BaseFragment<FragmentOrderDetailsBinding>(), OrderD
 
   private val adapter = OrderCategoriesAdapter(this)
   private val orderMealAdapter = OrderMealsAdapter()
+  private val frozenMealsAdapter = FrozenMealsAdapter()
   private var orderDetailsUiState = OrderDetailsUiState()
 
   override
@@ -37,9 +40,9 @@ class OrderDetailsFragment : BaseFragment<FragmentOrderDetailsBinding>(), OrderD
     viewModel.orderDetails()
   }
 
-  override
-  fun setUpViews() {
-    setFragmentResultListener(Constants.BUNDLE) { _: String, _: Bundle ->
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setFragmentResultListener(Constants.BUNDLE) { _: String, bundle: Bundle ->
       viewModel.orderDetails()
     }
   }
@@ -105,6 +108,9 @@ class OrderDetailsFragment : BaseFragment<FragmentOrderDetailsBinding>(), OrderD
     adapter.differ.submitList(orderDetailsUiState.getMealCategories())
     binding.mainMeals.rcMainMeals.setUpAdapter(adapter, "1", "2")
     updateOrderMealsAdapter(orderDetailsUiState.order_meals)
+    // update frozen meals
+    frozenMealsAdapter.differ.submitList(orderDetailsUiState.getOrderFreezedMealsItemUiState())
+    binding.rcFrozenMeals.setUpAdapter(frozenMealsAdapter, "1", "1")
   }
 
   private fun updateOrderMealsAdapter(mealTypes: List<OrderMeal>) {

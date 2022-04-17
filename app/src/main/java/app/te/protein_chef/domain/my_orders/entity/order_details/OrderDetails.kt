@@ -1,6 +1,8 @@
 package app.te.protein_chef.domain.my_orders.entity.order_details
 
+import androidx.annotation.Keep
 import app.te.protein_chef.domain.packages_categories.entity.category_menu.CategoryMenu
+@Keep
 
 data class OrderDetails(
   val discount_price: Double,

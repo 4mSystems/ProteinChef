@@ -17,11 +17,13 @@ import kotlinx.coroutines.flow.collect
 class PrivacyOrderFragment : BaseFragment<FragmentPrivacyOrderBinding>() {
 
   private val viewModel: PrivacyViewModel by viewModels()
-  val args: PrivacyOrderFragmentArgs by navArgs()
+  private lateinit var args: PrivacyOrderFragmentArgs
 
   override
   fun getLayoutId() = R.layout.fragment_privacy_order
-
+  override fun setBindingVariables() {
+    args = PrivacyOrderFragmentArgs.fromBundle(requireArguments())
+  }
 
   override fun setupObservers() {
     lifecycleScope.launchWhenResumed {

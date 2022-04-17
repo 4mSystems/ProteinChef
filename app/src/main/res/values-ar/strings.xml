@@ -185,7 +185,8 @@
   <string name="confirm_freeze">تأكيد التجميد</string>
   <string name="re_order">اعاده الطلب</string>
   <string name="no_notifications_avail">لا يوجد اشعارات</string>
-  <string-array name="gender">
+    <string name="frozen_title">أيام التجميد التي حددتها</string>
+    <string-array name="gender">
     <item>ذكر </item>
     <item>انثى</item>
   </string-array>

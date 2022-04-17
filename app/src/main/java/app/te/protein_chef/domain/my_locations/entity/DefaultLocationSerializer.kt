@@ -1,11 +1,13 @@
 package app.te.protein_chef.domain.my_locations.entity
 
+import androidx.annotation.Keep
 import androidx.datastore.core.CorruptionException
 import androidx.datastore.core.Serializer
 import androidx.datastore.preferences.protobuf.InvalidProtocolBufferException
 import com.structure.base_mvvm.DefaultLocation
 import java.io.InputStream
 import java.io.OutputStream
+@Keep
 
 object DefaultLocationSerializer: Serializer<DefaultLocation> {
   override val defaultValue: DefaultLocation = DefaultLocation.getDefaultInstance()

@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.readystatesoftware.chuck:library:1.1.0@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/89a50a6924f8fa0a233b4073229f0b93/transformed/jetified-library-1.1.0/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/89a50a6924f8fa0a233b4073229f0b93/transformed/jetified-library-1.1.0/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/89a50a6924f8fa0a233b4073229f0b93/transformed/jetified-library-1.1.0/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/b5bf00840ae7661815d6fbd2bff28c8c/transformed/jetified-library-1.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/b5bf00840ae7661815d6fbd2bff28c8c/transformed/jetified-library-1.1.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/b5bf00840ae7661815d6fbd2bff28c8c/transformed/jetified-library-1.1.0/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.readystatesoftware.chuck/library/1.1.0/97523a88e5c088269cc0cd02b18731c2b5cad3d8/library-1.1.0-javadoc.jar!/" />

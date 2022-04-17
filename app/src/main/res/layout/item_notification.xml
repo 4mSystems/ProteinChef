@@ -5,9 +5,6 @@
 
   <data>
 
-    <variable
-      name="eventListener"
-      type="app.te.protein_chef.presentation.notifications.listeners.NotificationsListener" />
 
     <variable
       name="uiState"
@@ -22,13 +19,14 @@
     android:layout_marginTop="@dimen/dimen10"
     android:layout_marginEnd="@dimen/dimen16"
     android:background="@drawable/corner_white"
-    android:onClick="@{()->eventListener.openOrderDetails(uiState.id)}">
+    android:onClick="@{()->uiState.action()}">
 
     <androidx.appcompat.widget.AppCompatTextView
       android:id="@+id/tv_created_at"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_margin="@dimen/dimen6"
+      android:text="@{uiState.notificationTime}"
       android:textColor="@color/black"
       android:textSize="@dimen/text_size12"
       app:layout_constraintEnd_toEndOf="parent"
@@ -37,7 +35,7 @@
 
     <androidx.appcompat.widget.AppCompatTextView
       android:id="@+id/tv_title"
-      style="@style/TextMediumFont"
+      style="@style/TextRegularFont"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:layout_marginStart="@dimen/dimen6"

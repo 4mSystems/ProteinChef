@@ -1,18 +1,19 @@
 package app.te.protein_chef.presentation.order_details.dialog
 
 import android.app.Dialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.navArgs
 import app.te.protein_chef.BR
 import app.te.protein_chef.R
 import app.te.protein_chef.databinding.FreezeDialogBinding
@@ -38,11 +39,10 @@ import kotlinx.coroutines.flow.collect
 @AndroidEntryPoint
 class FreezeOrderDialog : BottomSheetDialogFragment(), FreezeOrderListener {
   lateinit var binding: FreezeDialogBinding
-  private val args: FreezeOrderDialogArgs by navArgs()
   private val orderDaysAdapter = OrderDaysAdapter()
   private val freezeUiState = FreezeUiState(this)
   private val viewModel: FreezeOrderViewModel by viewModels()
-
+  private lateinit var args: FreezeOrderDialogArgs
   override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
     val dialog = super.onCreateDialog(savedInstanceState)
     dialog.setOnShowListener { dialogInterface ->
@@ -60,6 +60,7 @@ class FreezeOrderDialog : BottomSheetDialogFragment(), FreezeOrderListener {
     binding =
       DataBindingUtil.inflate(inflater, R.layout.freeze_dialog, container, false)
     binding.uiState = freezeUiState
+    args = FreezeOrderDialogArgs.fromSavedStateHandle(viewModel.savedStateHandle)
     bindUi()
     setupObservable()
     return binding.root
@@ -70,7 +71,6 @@ class FreezeOrderDialog : BottomSheetDialogFragment(), FreezeOrderListener {
     binding.rcOrderDays.setUpAdapter(orderDaysAdapter, "3", "1")
     setFragmentResultListener(Constants.BUNDLE) { _: String, bundle: Bundle ->
       freezeUiState.freezeOrderRequest.new_date = bundle.get(Constants.SELECTED_DATE).toString()
-//      binding.text.setText(bundle.get(Constants.SELECTED_DATE).toString())
       freezeUiState.notifyPropertyChanged(BR.freezeOrderRequest)
     }
   }
@@ -87,6 +87,7 @@ class FreezeOrderDialog : BottomSheetDialogFragment(), FreezeOrderListener {
             freezeUiState.hideLoading()
             showSuccessAlert(requireActivity(), it.value.message)
             val bundle = Bundle()
+            bundle.putString(Constants.BUNDLE, "Done")
             setFragmentResult(Constants.BUNDLE, bundle)
             dismiss()
           }
@@ -121,6 +122,7 @@ class FreezeOrderDialog : BottomSheetDialogFragment(), FreezeOrderListener {
 
   override fun freezeOrder(freezeOrderRequest: FreezeOrderRequest) {
     freezeOrderRequest.old_date = orderDaysAdapter.orderDays[orderDaysAdapter.lastPosition]
+    freezeOrderRequest.order_id = args.orderId
     viewModel.freezeOrder(freezeOrderRequest)
   }
 
@@ -128,4 +130,9 @@ class FreezeOrderDialog : BottomSheetDialogFragment(), FreezeOrderListener {
     navigateSafe(FreezeOrderDialogDirections.actionFreezeDialogToDatePickerFragment(orderDaysAdapter.orderDays.last()))
   }
 
+  override fun onDismiss(dialog: DialogInterface) {
+    super.onDismiss(dialog)
+    setFragmentResult(Constants.BUNDLE, bundleOf(Constants.BUNDLE to "Done"))
+
+  }
 }

@@ -16,7 +16,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class AdditionsDialog : BottomSheetDialogFragment(), AdditionalEventListener {
   lateinit var binding: AdditionsDialogBinding
-  private val additionsDialogArgs: AdditionsDialogArgs by navArgs()
+  private lateinit var additionsDialogArgs: AdditionsDialogArgs
   override fun onCreateView(
     inflater: LayoutInflater,
     container: ViewGroup?,
@@ -25,6 +25,7 @@ class AdditionsDialog : BottomSheetDialogFragment(), AdditionalEventListener {
     binding =
       DataBindingUtil.inflate(inflater, R.layout.additions_dialog, container, false)
     binding.eventListener = this
+    additionsDialogArgs = AdditionsDialogArgs.fromBundle(requireArguments())
     return binding.root
   }
 

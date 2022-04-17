@@ -23,6 +23,30 @@
       android:layout_height="match_parent">
 
       <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_frozen_title"
+        style="@style/TextBoldFont"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/dimen12"
+        android:layout_marginTop="@dimen/dimen24"
+        android:text="@string/frozen_title"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@color/black"
+        android:visibility="@{uiState.showFrozenMeal}"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+      <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rc_frozen_meals"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen8"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@+id/tv_frozen_title"
+        tools:itemCount="4"
+        tools:listitem="@layout/item_freezed_dates" />
+
+      <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_remain_days"
         style="@style/TextBoldFont"
         android:layout_width="wrap_content"
@@ -33,7 +57,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/rc_frozen_meals" />
 
       <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_remain_days_value"

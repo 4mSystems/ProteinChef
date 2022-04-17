@@ -8,6 +8,7 @@ import app.te.protein_chef.domain.my_orders.entity.order_details.OrderAdditionPr
 import app.te.protein_chef.domain.my_orders.entity.order_details.OrderMeal
 import app.te.protein_chef.domain.my_orders.entity.order_details.OrderStatus
 import app.te.protein_chef.domain.packages_categories.entity.category_menu.CategoryMenu
+import app.te.protein_chef.presentation.order_details.ui_state.freeze.FreezedItemUiState
 import app.te.protein_chef.presentation.packages.ui_state.CategoryMenuUiItem
 
 class OrderDetailsUiState(
@@ -98,6 +99,12 @@ class OrderDetailsUiState(
     else
       View.GONE
 
+  fun showFrozenMeal(): Int =
+    if (frozen_meals.isEmpty())
+      View.GONE
+    else
+      View.VISIBLE
+
   fun getMealCategories(): MutableList<CategoryMenuUiItem> {
     val items = mutableListOf<CategoryMenuUiItem>()
     meal_types.map { menu ->
@@ -128,4 +135,18 @@ class OrderDetailsUiState(
     }
     return orderMealsList
   }
+
+  fun getOrderFreezedMealsItemUiState(): MutableList<FreezedItemUiState> {
+    val orderMealsList: MutableList<FreezedItemUiState> = mutableListOf()
+    frozen_meals.forEach {
+      orderMealsList.add(
+        FreezedItemUiState(
+          it.old_date,
+          it.date
+        )
+      )
+    }
+    return orderMealsList
+  }
+
 }
