@@ -169,6 +169,7 @@
         android:id="@+id/ic_facebook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="@{()-> eventListener.loginFacebook()}"
         android:src="@drawable/ic_facebook" />
 
 
@@ -176,6 +177,7 @@
         android:id="@+id/ic_google"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="@{()-> eventListener.loginGoogle()}"
         android:src="@drawable/ic_google" />
 
       <androidx.constraintlayout.helper.widget.Flow
@@ -188,6 +190,17 @@
         app:flow_horizontalStyle="packed"
         app:flow_wrapMode="chain"
         app:layout_constraintTop_toBottomOf="@id/tv_or" />
+
+      <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:onClick="@{()-> eventListener.loginFacebook()}"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
       <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/login_no_account"

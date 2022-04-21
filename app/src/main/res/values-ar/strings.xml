@@ -13,13 +13,10 @@
 
   <!-- Tutorial -->
   <string name="next">التالى</string>
-  <string name="previous_app">السابق</string>
   <!-- Intro -->
-  <string name="log_in_sign_up">تسجيل الدخول/انشاء حساب</string>
 
   <!-- Log In -->
   <string name="log_in">تسجيل الدخول</string>
-  <string name="email">البريد الالكترونى</string>
   <string name="password">كلمة المرور</string>
   <string name="forgot_your_password">نسيت كلمة المرور؟</string>
   <string name="not_have_account">ليس لديك حساب؟</string>
@@ -34,19 +31,18 @@
   <string name="log_out">تسجيل الخروج</string>
   <string name="log_out_hint">هل انت متأكد من انك تريد تسجيل الخروج؟</string>
   <string name="skip">تخطى</string>
-  <string name="explore_app">تريد تصفح خدمات التطبيق</string>
-  <string name="continue_as_guest">المتابعة كضيف</string>
   <string name="send">ارسال</string>
   <string name="contact_us">اتصل بنا</string>
+  <string name="ar">اللغة العربية</string>
+  <string name="en">english</string>
+
   <string name="or">او عن طريق</string>
   <string name="register_name">اضف اسمك</string>
   <string name="register_phone"> رقم الهاتف </string>
   <string name="email_hint">أدخل البريد الإلكتروني</string>
   <string name="password_hint_confirm">قم بتأكيد كلمة المرور</string>
-  <string name="agree_to">أوافق على</string>
   <string name="have_account">لدي حساب</string>
   <string name="privacy">سياسة التجميد والالغاء</string>
-  <string name="terms_auth">| شروط الاستخدام </string>
   <string name="confirm_header_text">تأكيد حسابك</string>
   <string name="confirm_resend">إعادة ارسال</string>
   <string name="confirm_header">أدخل كود التفعيل المرسل لك على هاتفك</string>
@@ -55,43 +51,26 @@
   <string name="old_password">كلمة المرور القديمة</string>
   <string name="confirm">تأكيد</string>
   <string name="packages">الباقات</string>
-  <string name="all">عرض الجميع</string>
   <string name="offers">عروضنا</string>
-  <string name="test">إختبر نفسك</string>
   <string name="profile">بياناتي الشخصية</string>
-  <string name="my_groups">مجموعاتي</string>
-  <string name="lessons">الحصص التعويضية</string>
   <string name="my_meals">وجباتي</string>
   <string name="menu_more">المزيد</string>
   <string name="terms">الشروط والاحكام</string>
-  <string name="suggestions">الشكاوي والاقتراحات</string>
   <string name="about">من نحن</string>
   <string name="share_app">مشاركة التطبيق</string>
   <string name="rate_app">تقيم التطبيق</string>
   <string name="message">الرسالة</string>
   <string name="notifications">الاشعارات</string>
   <string name="change_password">تغير كلمة المرور</string>
-  <string name="change_country">تغير الدولة</string>
-  <string name="change_study">تغير بياناتي الدراسيه</string>
   <string name="save">حفظ</string>
   <string name="age">السن</string>
-  <string name="student">طالب</string>
-  <string name="teacher">معلم</string>
   <string name="not_match_password">كلمتا المرور غير متطابقتان</string>
-  <string name="empty_terms">يرجى الموافقه على الشروط والاحكام</string>
-  <string name="empty_image">يرجى اختيار الصورة</string>
-  <string name="continue_register_title">هل تريد استكمال البيانات ؟</string>
   <string name="yes">نعم</string>
-  <string name="continue_register_body">يمكنك استكمال انشاء حسابك عند اخر خطوة</string>
   <string name="active">تفعيل الحساب</string>
-  <string name="social">مواقع التواصل الاجتماعي</string>
   <string name="male_gender">ذكر</string>
-  <string name="female_gender">انثي</string>
   <string name="gender_type">النوع</string>
   <string name="open_app">بدأ التطبيق</string>
   <string name="choose_lang">اختر اللغة المناسبة لك</string>
-  <string name="ar">اللغة العربية</string>
-  <string name="en">english</string>
   <string name="choose_lang_toolbar">اختيار اللغة</string>
   <string name="forgot_header">أدخل رقم هاتف تستطيع تلقي الرسائل عليه</string>
   <string name="remember_password">تذكرت كلمة المرور</string>
@@ -178,15 +157,14 @@
   <string name="order_finished">انتهى الطلب</string>
   <string name="order_status">حالة الطلب</string>
   <string name="freeze_title">حدد اليوم الذى تريد تجميد الباقه به </string>
-  <string name="freeze_from">يوم المراد تجميده</string>
   <string name="from_to">يوم التعويض</string>
-    <string name="my_codes">كوبوناتى </string>
+  <string name="my_codes">كوبوناتى </string>
   <string name="freeze_limit">لقد وصلت للحد الاقصى من محاولات التجميد</string>
   <string name="confirm_freeze">تأكيد التجميد</string>
   <string name="re_order">اعاده الطلب</string>
   <string name="no_notifications_avail">لا يوجد اشعارات</string>
-    <string name="frozen_title">أيام التجميد التي حددتها</string>
-    <string-array name="gender">
+  <string name="frozen_title">أيام التجميد التي حددتها</string>
+  <string-array name="gender">
     <item>ذكر </item>
     <item>انثى</item>
   </string-array>

@@ -1,17 +1,21 @@
 package app.te.protein_chef.domain.profile.entity
 
+import android.os.Parcelable
 import androidx.annotation.Keep
 import androidx.databinding.ObservableField
 import app.te.protein_chef.domain.utils.BaseRequest
 import com.google.gson.annotations.Expose
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 @Keep
-class UpdateProfileRequest : BaseRequest() {
+class UpdateProfileRequest : BaseRequest(), Parcelable {
   var name: String = ""
     set(value) {
       validation.nameError.set(null)
       field = value
     }
+
   @Transient
   var isCompleted: Int = 0
 
@@ -48,6 +52,7 @@ class UpdateProfileRequest : BaseRequest() {
       validation.heightError.set(null)
       field = value
     }
+  var socialToken = ""
 
   @Transient
   var validation: UpdateProfileValidationException = UpdateProfileValidationException()

@@ -41,7 +41,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
     setSupportActionBar(binding.toolbar)
     setupActionBarWithNavController(nav, appBarConfiguration)
     binding.bottomNavigationView.setupWithNavController(nav)
-    binding.toolbar.navigationIcon = null
+//    binding.toolbar.navigationIcon = null
     navChangeListener()
   }
 
@@ -58,7 +58,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
       } else {
         binding.bottomNavigationView.visibility = View.GONE
         binding.toolbar.visibility = View.VISIBLE
-        binding.toolbar.navigationIcon = getDrawable(R.drawable.ic_back)
+//        binding.toolbar.navigationIcon = getDrawable(R.drawable.ic_back)
+//        binding.toolbar.setNavigationIconTint(getColor(R.color.white))
       }
     }
   }

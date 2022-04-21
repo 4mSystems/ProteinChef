@@ -116,9 +116,10 @@ class AppPreferences @Inject constructor(private val context: Context) {
         .setPhone(user.phone)
         .setGender(user.gender ?: "")
         .setToken(user.token)
-        .setAge(user.age.toString())
+        .setAge(user.age)
         .setWeight(user.weight)
         .setHeight(user.height)
+        .setSocialToken(user.social_id)
         .build()
 
     }

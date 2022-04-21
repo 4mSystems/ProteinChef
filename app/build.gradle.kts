@@ -58,10 +58,10 @@ android {
 
     signingConfigs {
       create("releaseConfig") {
-        storeFile = file(rootProject.file("key"))
-        storePassword = "123456"
-        keyAlias = "My-Key"
-        keyPassword = "123456"
+        storeFile = file("/home/t-e-s/Osman.jks")
+        storePassword = "te2018"
+        keyAlias = "te"
+        keyPassword = "te2018"
       }
     }
 
@@ -70,6 +70,7 @@ android {
 
       isMinifyEnabled = true
       isShrinkResources = true
+      isDebuggable = true
 
 //      resValue("string", "google_api_key", gradleLocalProperties(rootDir).getProperty("GOOGLE_API_KEY"))
       manifestPlaceholders["appName"] = "@string/app_name"
@@ -81,6 +82,7 @@ android {
     }
     buildTypes.all {
       proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+      buildConfigField("String", "SERVER_CLIENT_ID", Config.Environments.server_client_id)
     }
   }
 
@@ -137,9 +139,13 @@ dependencies {
 
   // Hilt
   implementation(Libraries.hilt)
+  // Firebase
   implementation(platform(Libraries.firebase_platform))
-//  implementation(Libraries.firebase_core)
   implementation(Libraries.firebase_messaging)
+  implementation(Libraries.firebase_auth_ktx)
+  implementation(Libraries.firebase_auth)
+  implementation(Libraries.facebook_auth)
+
   kapt(Libraries.hiltDaggerCompiler)
   // Support
   implementation(Libraries.appCompat)

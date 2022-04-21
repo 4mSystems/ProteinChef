@@ -32,13 +32,18 @@
       app:exitAnim="@anim/anim_slide_out_left"
       app:popEnterAnim="@anim/anim_slide_in_left"
       app:popExitAnim="@anim/anim_slide_out_right" />
+
     <action
       android:id="@+id/action_log_in_fragment_to_nav_profile"
       app:destination="@id/nav_profile"
       app:enterAnim="@anim/anim_slide_in_right"
       app:exitAnim="@anim/anim_slide_out_left"
       app:popEnterAnim="@anim/anim_slide_in_left"
-      app:popExitAnim="@anim/anim_slide_out_right" />
+      app:popExitAnim="@anim/anim_slide_out_right">
+      <argument
+        android:name="register_info"
+        app:argType="app.te.protein_chef.domain.profile.entity.UpdateProfileRequest" />
+    </action>
 
   </fragment>
 

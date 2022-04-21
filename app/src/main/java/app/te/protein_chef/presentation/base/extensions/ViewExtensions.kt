@@ -139,6 +139,7 @@ fun ImageView.loadImage(imageUrl: String?, progressBar: ProgressBar?, defaultIma
         .crossfade(true)
         .crossfade(400)
         .error(R.drawable.bg_no_image)
+        .placeholder(R.drawable.logo)
         .target(
           onStart = { placeholder ->
             progressBar?.show()

@@ -8,6 +8,7 @@
     <variable
       name="eventListener"
       type="app.te.protein_chef.presentation.my_locations.listeners.MyLocationsEventListener" />
+
   </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout

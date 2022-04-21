@@ -11,7 +11,7 @@ data class UserResponse(
   val name: String = "",
   val phone: String = "",
   val gender: String = "",
-  val age: Int = 0,
+  val age: String = "",
   val weight: Float = 0F,
   val height: Float = 0F,
   val provider: String = "",

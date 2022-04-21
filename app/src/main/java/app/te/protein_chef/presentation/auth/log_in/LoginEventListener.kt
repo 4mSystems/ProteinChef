@@ -7,4 +7,6 @@ interface LoginEventListener {
   fun openConfirm()
   fun openHome()
   fun openProfile()
+  fun loginGoogle()
+  fun loginFacebook()
 }

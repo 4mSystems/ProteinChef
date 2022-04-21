@@ -9,6 +9,7 @@ import app.te.protein_chef.domain.utils.Resource
 interface AuthRepository {
 
   suspend fun logIn(request: LogInRequest): Resource<BaseResponse<UserResponse>>
+  suspend fun socialLogin(request: SocialLogInRequest): Resource<BaseResponse<UserResponse>>
   suspend fun changePassword(request: ChangePasswordRequest): Resource<BaseResponse<*>>
   suspend fun updatePassword(request: UpdatePassword): Resource<BaseResponse<*>>
   suspend fun forgetPassword(request: ForgetPasswordRequest): Resource<BaseResponse<*>>

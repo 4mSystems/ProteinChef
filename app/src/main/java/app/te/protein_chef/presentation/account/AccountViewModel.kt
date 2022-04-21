@@ -21,16 +21,6 @@ class AccountViewModel @Inject constructor(
 ) : BaseViewModel() {
   val accountUiState = AccountUiState()
   private val _logOuResponse = MutableStateFlow<Resource<BaseResponse<*>>>(Resource.Default)
-  val logOutResponse = _logOuResponse
-
-  fun logOut() {
-    accountUseCases.logOutUseCase()
-      .onEach { result ->
-        _logOuResponse.value = result
-      }
-      .launchIn(viewModelScope)
-  }
-
   fun clearStorage() {
     viewModelScope.launch {
       userLocalUseCase.logOut()

@@ -15,6 +15,10 @@ class AuthRepositoryImpl @Inject constructor(
 
   override
   suspend fun logIn(request: LogInRequest) = remoteDataSource.logIn(request)
+
+  override suspend fun socialLogin(request: SocialLogInRequest): Resource<BaseResponse<UserResponse>> =
+    remoteDataSource.socialLogIn(request)
+
   override suspend fun changePassword(request: ChangePasswordRequest): Resource<BaseResponse<*>> =
     remoteDataSource.changePassword(request)
 

@@ -2,6 +2,7 @@ package app.te.protein_chef.presentation.profile.viewModels
 
 import android.util.Log
 import androidx.databinding.Bindable
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import app.te.protein_chef.domain.account.use_case.UserLocalUseCase
 import app.te.protein_chef.domain.auth.entity.model.UserResponse
@@ -19,30 +20,35 @@ import javax.inject.Inject
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
   private val userLocalUseCase: UserLocalUseCase,
-  private val profileUseCase: ProfileUseCase
+  private val profileUseCase: ProfileUseCase,
+  val savedStateHandle: SavedStateHandle
 ) :
   BaseViewModel() {
   @Bindable
-  val request = UpdateProfileRequest()
+  lateinit var request: UpdateProfileRequest
   private val _profileResponse =
     MutableStateFlow<Resource<BaseResponse<UserResponse>>>(Resource.Default)
   val profileResponse = _profileResponse
-  val userUiState = UserUiState(null)
+  val userUiState = UserUiState(null, "")
 
   init {
     viewModelScope.launch {
+      savedStateHandle.get<UpdateProfileRequest>("register_info")?.let { registerInfo ->
+        request = registerInfo
+      }
 
       userLocalUseCase.invoke().collect { userLocal ->
+        userUiState.socialToken = request.socialToken
         userUiState.userResponse = userLocal
-        Log.e("ProfileViewModel", ":"+userLocal.age )
         request.isCompleted = userLocal.isCompleted
-        request.name = userLocal.name
+        request.name = request.name.ifEmpty { userLocal.name }
         request.phone = userLocal.phone
-        request.age = userLocal.age
+        request.age = if (userLocal.age != "0") userLocal.age else ""
         request.gender = userLocal.gender
-        request.weight = userLocal.weight.toString()
-        request.height = userLocal.height.toString()
+        request.weight = if (userLocal.weight != 0F) userLocal.weight.toString() else ""
+        request.height = if (userLocal.height != 0F) userLocal.height.toString() else ""
       }
+
     }
 
   }

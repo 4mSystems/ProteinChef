@@ -20,6 +20,7 @@
     <item name="android:windowDisablePreview">true</item>
     <item name="android:dialogTheme">@style/PauseDialog</item>
     <item name="bottomSheetDialogTheme">@style/BottomSheetDialogStyle</item>
+
   </style>
 
   <style name="date_picker_theme" parent="ThemeOverlay.AppCompat.Dialog">
@@ -33,11 +34,6 @@
   </style>
 
   <style name="TextBoldFont">
-    <item name="android:textStyle">bold</item>
-    <item name="fontFamily">@font/tajawal_bold</item>
-  </style>
-
-  <style name="TitleBoldFont">
     <item name="android:textStyle">bold</item>
     <item name="fontFamily">@font/tajawal_bold</item>
   </style>
@@ -58,22 +54,6 @@
   <style name="TutorialContentFont">
     <item name="android:textAppearance">@style/TextAppearance.AppCompat.Small</item>
     <item name="fontFamily">@font/tajawal_regular</item>
-  </style>
-
-  <style name="ShapeAppearanceOverlay.App.CornerSize50Percent" parent="">
-    <item name="cornerSize">50%</item>
-  </style>
-
-  <style name="ToolbarColoredBackArrow" parent="AppTheme">
-    <item name="android:textColor">@color/white</item>
-    <item name="background">@color/colorAccentDark</item>
-  </style>
-
-  <style name="ThemeOverlay.App.NavigationView" parent="Widget.MaterialComponents.NavigationView">
-    <item name="colorPrimary">@color/colorPrimary</item>
-    <item name="colorSurface">@color/transparent</item>
-    <item name="colorOnSurface">@color/white</item>
-    <item name="listPreferredItemHeightSmall">@dimen/dimen60</item>
   </style>
 
   <style name="CustomDialogAnimation" parent="Theme.MaterialComponents.DayNight.Dialog.Bridge">

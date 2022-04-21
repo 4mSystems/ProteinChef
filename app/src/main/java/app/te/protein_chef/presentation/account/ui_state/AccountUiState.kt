@@ -4,6 +4,7 @@ import android.content.Context
 import app.te.protein_chef.presentation.account.AccountAdapter
 import app.te.protein_chef.presentation.account.AccountFragmentDirections
 import app.te.protein_chef.R
+import app.te.protein_chef.domain.profile.entity.UpdateProfileRequest
 
 class AccountUiState {
   lateinit var accountAdapter: AccountAdapter
@@ -13,7 +14,7 @@ class AccountUiState {
       list.add(
         AccountItem(
           context.getString(R.string.profile),
-          AccountFragmentDirections.actionAccountFragmentToProfileFragment()
+          AccountFragmentDirections.actionAccountFragmentToProfileFragment(UpdateProfileRequest())
         )
       )
       list.add(

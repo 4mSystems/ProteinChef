@@ -11,6 +11,9 @@ interface AuthServices {
   @POST("V1/auth/login")
   suspend fun logIn(@Body request: LogInRequest): BaseResponse<UserResponse>
 
+  @POST("V1/auth/social-login")
+  suspend fun socialLogIn(@Body request: SocialLogInRequest): BaseResponse<UserResponse>
+
   @POST("V1/auth/forget-password")
   suspend fun forgetPassword(@Body request: ForgetPasswordRequest): BaseResponse<*>
 

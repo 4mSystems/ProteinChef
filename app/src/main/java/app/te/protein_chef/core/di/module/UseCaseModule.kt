@@ -9,10 +9,7 @@ import app.te.protein_chef.domain.account.use_case.UserLocalUseCase
 import app.te.protein_chef.domain.account.use_case.SendFirebaseTokenUseCase
 import app.te.protein_chef.domain.account.use_case.SetFirstTimeUseCase
 import app.te.protein_chef.domain.auth.repository.AuthRepository
-import app.te.protein_chef.domain.auth.use_case.ChangePasswordUseCase
-import app.te.protein_chef.domain.auth.use_case.LogInUseCase
-import app.te.protein_chef.domain.auth.use_case.RegisterUseCase
-import app.te.protein_chef.domain.auth.use_case.VerifyAccountUseCase
+import app.te.protein_chef.domain.auth.use_case.*
 import app.te.protein_chef.domain.general.use_case.LanguageUseCase
 import app.te.protein_chef.domain.general.use_case.GeneralUseCases
 import app.te.protein_chef.domain.home.repository.HomeRepository
@@ -54,6 +51,13 @@ class UseCaseModule {
     authRepository: AuthRepository,
     userLocalUseCase: UserLocalUseCase
   ): LogInUseCase = LogInUseCase(authRepository, userLocalUseCase)
+
+  @Provides
+  @Singleton
+  fun provideSocialLogInUseCase(
+    authRepository: AuthRepository,
+    userLocalUseCase: UserLocalUseCase
+  ): SocialLogInUseCase = SocialLogInUseCase(authRepository, userLocalUseCase)
 
   @Provides
   @Singleton

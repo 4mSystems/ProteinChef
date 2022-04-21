@@ -7,6 +7,7 @@ object Constants {
   const val FORWARD: Int = 9
   const val BACK_WORD: Int = 10
   const val NOT_MATCH_PASSWORD: Int = 20
+   const val RC_SIGN_IN = 9001
   const val SELECTED_DATE: String = "SELECTED_DATE"
   const val Verify: String = "verify"
   const val FORGET: String = "reset"

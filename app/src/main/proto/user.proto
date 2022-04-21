@@ -14,5 +14,6 @@ message User{
   float height = 9;
   string token = 10;
   string age = 11;
+  string social_token = 12;
 
 }

@@ -56,7 +56,7 @@ class ProfileUseCase @Inject constructor(
       isValid = false
     }
 
-    if (request.isCompleted == 1 && request.phone.isEmpty()) {
+    if ((request.isCompleted == 1 || request.socialToken.isNotEmpty()) && request.phone.isEmpty()) {
       request.validation.phoneError.set(Constants.EMPTY)
       isValid = false
     }
