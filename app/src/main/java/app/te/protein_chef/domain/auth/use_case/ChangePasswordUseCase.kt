@@ -51,7 +51,7 @@ class ChangePasswordUseCase @Inject constructor(
 
   private fun checkUpdatePasswordValidation(request: UpdatePassword): Boolean {
     var isValid = true
-    if (request.old_password.isEmpty()) {
+    if (!request.isForget && request.old_password.isEmpty()) {
       request.validation.oldPasswordError.set(Constants.EMPTY)
       isValid = false
     }

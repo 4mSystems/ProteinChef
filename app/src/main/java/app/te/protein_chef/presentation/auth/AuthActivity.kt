@@ -40,7 +40,7 @@ class AuthActivity : BaseActivity<ActivityAuthBinding>() {
         if (destination.id == R.id.log_in_fragment)
           binding.toolbar.navigationIcon = null
         else
-          binding.toolbar.navigationIcon = getDrawable(R.drawable.ic_back)
+          binding.toolbar.navigationIcon = getDrawable(R.drawable.ic_arrow_back)
       }
     }
   }

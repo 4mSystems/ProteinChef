@@ -52,8 +52,6 @@ object Libraries {
   const val loadingAnimations = "com.airbnb.android:lottie:${Versions.loadingAnimations}"
   const val alerter = "com.github.tapadoo:alerter:${Versions.alerter}"
   const val coil = "io.coil-kt:coil:${Versions.coil}"
-  const val powerspinner = "com.github.skydoves:powerspinner:${Versions.powerspinner}"
-  const val materialdatetimepicker = "com.wdullaer:materialdatetimepicker:${Versions.materialdatetimepicker}"
 
   // Utils
   const val playServices = "com.google.android.gms:play-services-auth:${Versions.playServices}"
@@ -70,12 +68,15 @@ object Libraries {
   const val map = "com.google.android.gms:play-services-maps:${Versions.map}"
   const val playServicesLocation =
     "com.google.android.gms:play-services-location:${Versions.playServicesLocation}"
-  const val rxLocation = "com.github.ShabanKamell:RxLocation:${Versions.rxLocation}"
+  const val rx = "io.reactivex.rxjava2:rxjava:${Versions.rx}"
 
   //FireBase
   const val firebase_platform = "com.google.firebase:firebase-bom:${Versions.firebase}"
-  const val firebase_core = "com.google.firebase:firebase-core:${Versions.firebase}"
   const val firebase_messaging = "com.google.firebase:firebase-messaging-ktx"
+  const val firebase_auth_ktx = "com.google.firebase:firebase-auth-ktx"
+  const val firebase_auth = "com.google.android.gms:play-services-auth:${Versions.firebase_auth}"
+//  const val facebook_auth = "com.facebook.android:facebook-login:${Versions.facebook_auth}"
+  const val facebook_auth = "com.facebook.android:facebook-android-sdk:${Versions.facebook_auth}"
 
   //multi select media
   const val ted_bottom_picker = "gun0912.ted:tedbottompicker:${Versions.ted_bottom_picker}"
@@ -86,13 +87,5 @@ object Libraries {
   //smartteist
   const val smartteist = "com.github.smarteist:autoimageslider:${Versions.smarteist}"
 
-  //Expandable
-  const val expandable = "com.github.florent37:expansionpanel:${Versions.expandable}"
 
-  //circularprogressbar
-  const val circularprogressbar =
-    "com.mikhaellopez:circularprogressbar:${Versions.circularprogressbar}"
-
-  //com.github.IslamKhSh:CardSlider
-  const val card_slider = "com.github.IslamKhSh:CardSlider:${Versions.card_slider}"
 }

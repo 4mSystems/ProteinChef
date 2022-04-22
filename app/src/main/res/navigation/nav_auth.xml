@@ -50,6 +50,7 @@
   <fragment
     android:id="@+id/sign_up_fragment"
     android:name="app.te.protein_chef.presentation.auth.sign_up.SignUpFragment"
+    android:label="@string/sign_up"
     tools:layout="@layout/fragment_sign_up">
     <action
       android:id="@+id/action_open_confirmCodeFragment"
@@ -65,6 +66,7 @@
   <fragment
     android:id="@+id/forgot_password_fragment"
     android:name="app.te.protein_chef.presentation.auth.forgot_password.ForgotPasswordFragment"
+    android:label="@string/change_password"
     tools:layout="@layout/fragment_forgot_password">
 
     <action
@@ -81,6 +83,7 @@
   <fragment
     android:id="@+id/fragment_confirm_code"
     android:name="app.te.protein_chef.presentation.auth.confirmCode.ConfirmCodeFragment"
+    android:label="@string/confirm_header_text"
     tools:layout="@layout/fragment_confirm_code">
     <action
       android:id="@+id/action_fragment_confirm_code_to_changePasswordFragment"
@@ -111,7 +114,8 @@
   <fragment
     android:id="@+id/changePasswordFragment"
     android:name="app.te.protein_chef.presentation.profile.changePassword.ChangePasswordFragment"
-    android:label="@string/change_password" />
+    android:label="@string/change_password"
+    tools:layout="@layout/fragment_update_password" />
   <fragment
     android:id="@+id/splashFragment"
     android:name="app.te.protein_chef.presentation.splash.SplashFragment"
@@ -148,7 +152,8 @@
   <fragment
     android:id="@+id/tutorialFragment"
     android:name="app.te.protein_chef.presentation.intro.tutorial.TutorialFragment"
-    android:label="TutorialFragment">
+    android:label="TutorialFragment"
+    tools:layout="@layout/fragment_tutorial">
 
     <action
       android:id="@+id/action_tutorialFragment_to_languageFragment"
@@ -163,7 +168,8 @@
   <fragment
     android:id="@+id/languageFragment"
     android:name="app.te.protein_chef.presentation.language.LanguageFragment"
-    android:label="@string/choose_lang_toolbar">
+    android:label="@string/choose_lang_toolbar"
+    tools:layout="@layout/fragment_language">
     <action
       android:id="@+id/action_languageFragment_to_log_in_fragment"
       app:destination="@id/log_in_fragment"

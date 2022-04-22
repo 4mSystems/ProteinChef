@@ -1,7 +1,7 @@
 object Config {
   object AppConfig {
     const val appId = "app.te.protein_chef"
-    const val compileSdkVersion = 31
+    const val compileSdkVersion = 32
     const val minSdkVersion = 23
     const val versionCode = 1
     const val versionName = "1"
@@ -29,7 +29,6 @@ object Config {
     const val navigationSafeArgs = "androidx.navigation.safeargs"
     const val hilt = "dagger.hilt.android.plugin"
     const val kotlin_extensions = "kotlin-android-extensions"
-    const val kotlinJvm = "org.jetbrains.kotlin.jvm"
     const val ktLint = "org.jlleitschuh.gradle.ktlint"
     const val google_services = "com.google.gms.google-services"
     const val proto_buf = "com.google.protobuf"
@@ -42,7 +41,8 @@ object Config {
   }
 
   object Environments {
-    const val roomDb = "\"tafwk_db\""
+    const val roomDb = "\"protein_db\""
+    const val server_client_id = "\"654641907466-q9fljq7lumaci6cf0nilsp3d03m23osq.apps.googleusercontent.com\""
     const val debugBaseUrl = "\"http://protenchef.golden-info.com/api/\""
     const val releaseBaseUrl = "\"http://protenchef.golden-info.com/api/\""
   }

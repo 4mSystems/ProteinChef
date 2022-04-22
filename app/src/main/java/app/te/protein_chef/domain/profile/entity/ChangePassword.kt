@@ -22,6 +22,9 @@ class UpdatePassword {
     }
 
   @Transient
+  var isForget: Boolean = false
+
+  @Transient
   var validation: UpdateValidationException = UpdateValidationException()
 }
 

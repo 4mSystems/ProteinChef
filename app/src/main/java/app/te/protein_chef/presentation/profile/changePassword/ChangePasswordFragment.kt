@@ -1,7 +1,10 @@
 package app.te.protein_chef.presentation.profile.changePassword
 
+import android.util.Log
+import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.viewModelScope
 import app.te.protein_chef.domain.utils.Resource
 import app.te.protein_chef.presentation.auth.changePassword.ChangePasswordEventListener
 import app.te.protein_chef.presentation.base.BaseFragment
@@ -13,6 +16,7 @@ import app.te.protein_chef.R
 import app.te.protein_chef.databinding.FragmentUpdatePasswordBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class ChangePasswordFragment : BaseFragment<FragmentUpdatePasswordBinding>(),
@@ -31,6 +35,17 @@ class ChangePasswordFragment : BaseFragment<FragmentUpdatePasswordBinding>(),
 
   override
   fun setupObservers() {
+    lifecycleScope.launch {
+
+      viewModel.userLocalUseCase.invoke().collect { userLocal ->
+        Log.e("userLocalUseCase", ": "+userLocal.phone)
+        if (userLocal.phone.isEmpty()) {
+          binding.inputOldPassword.visibility = View.GONE
+          viewModel.request.isForget = true
+        }
+      }
+
+    }
 
     lifecycleScope.launchWhenResumed {
       viewModel.changePasswordResponse.collect {

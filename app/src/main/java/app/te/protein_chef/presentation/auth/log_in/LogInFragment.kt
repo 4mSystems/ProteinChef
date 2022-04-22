@@ -103,6 +103,7 @@ class LogInFragment : BaseFragment<FragmentLogInBinding>(), LoginEventListener {
   }
 
   override fun loginFacebook() {
+    binding.loginButton.performClick()
     viewModel.registerRequest = socialHelper.setUpFacebook(binding.loginButton)
   }
 

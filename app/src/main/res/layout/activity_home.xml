@@ -9,12 +9,13 @@
 
     <com.google.android.material.appbar.MaterialToolbar
       android:id="@+id/toolbar"
+      style="@style/Widget.MaterialComponents.Toolbar.Primary"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:background="@color/colorAccentDark"
       app:layout_constraintTop_toTopOf="parent"
-      style="@style/Widget.MaterialComponents.Toolbar.Primary"
       app:titleCentered="true"
+      app:titleTextAppearance="@style/TextAppearance.AppCompat.Small"
       app:titleTextColor="@color/white" />
 
     <androidx.fragment.app.FragmentContainerView

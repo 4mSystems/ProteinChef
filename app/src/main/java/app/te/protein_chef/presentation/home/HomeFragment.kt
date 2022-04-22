@@ -112,6 +112,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeEventListener {
     if (allIsGranted) {
       checkIfLocationEnabled()
     } else {
+      viewModel.getHomeData(0.0, 0.0)
       showNoApiErrorAlert(requireActivity(), getString(R.string.not_all_permission_accepted))
     }
   }

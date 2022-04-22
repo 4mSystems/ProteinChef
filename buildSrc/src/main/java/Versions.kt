@@ -33,13 +33,11 @@ object Versions {
   const val chuckLogging = "1.1.0"
 
   // UI
-  const val materialDesign = "1.4.0"
+  const val materialDesign = "1.7.0-alpha01"
   const val androidNavigation = "2.4.0-alpha01"
   const val loadingAnimations = "3.6.0"
   const val alerter = "7.2.4"
   const val coil = "1.4.0"
-  const val powerspinner = "1.1.9"
-  const val materialdatetimepicker = "4.2.3"
 
   // Utils
   const val playServices = "19.2.0"
@@ -53,10 +51,12 @@ object Versions {
   // Map
   const val map = "18.0.2"
   const val playServicesLocation = "18.0.0"
-  const val rxLocation = "1.0"
+  const val rx = "2.2.6"
 
   //Fire base
   const val firebase = "29.3.1"
+  const val firebase_auth = "20.1.0"
+  const val facebook_auth = "[8,9)"
   const val google_services = "4.3.10"
   const val google_secret = "2.0.0"
 
@@ -68,7 +68,4 @@ object Versions {
 
   //smarteist
   const val smarteist = "1.4.0"
-  const val expandable = "1.2.2"
-  const val circularprogressbar = "3.1.0"
-  const val card_slider = "1.0.1"
 }

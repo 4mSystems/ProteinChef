@@ -40,7 +40,6 @@ android {
     targetSdk = Config.AppConfig.compileSdkVersion
     versionCode = Config.AppConfig.versionCode
     versionName = Config.AppConfig.versionName
-
     vectorDrawables.useSupportLibrary = true
     multiDexEnabled = true
     testInstrumentationRunner = Config.AppConfig.testRunner
@@ -173,14 +172,11 @@ dependencies {
   implementation(Libraries.loadingAnimations)
   implementation(Libraries.alerter)
   implementation(Libraries.coil)
-  implementation(Libraries.card_slider)
-  implementation(Libraries.powerspinner)
-  implementation(Libraries.materialdatetimepicker)
 
   // Map
   implementation(Libraries.map)
   implementation(Libraries.playServicesLocation)
-  implementation(Libraries.rxLocation)
+  implementation(Libraries.rx)
 
   //Ted bottom picker
   implementation(Libraries.ted_bottom_picker)
@@ -189,10 +185,6 @@ dependencies {
   implementation(Libraries.pin_code)
   //smarteist
   implementation(Libraries.smartteist)
-  //expandable
-  implementation(Libraries.expandable)
-  //circularprogressbar
-  implementation(Libraries.circularprogressbar)
 
   // Project Modules
   implementation(project(Config.Modules.prettyPopUp))
