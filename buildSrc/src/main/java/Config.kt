@@ -3,7 +3,7 @@ object Config {
     const val appId = "app.te.protein_chef"
     const val compileSdkVersion = 32
     const val minSdkVersion = 23
-    const val versionCode = 1
+    const val versionCode = 2
     const val versionName = "1"
     const val testRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
@@ -16,7 +16,8 @@ object Config {
       "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.androidNavigation}"
     const val hilt = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hiltVersion}"
     const val google_services = "com.google.gms:google-services:${Versions.google_services}"
-    const val google_secret = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin:secrets-gradle-plugin:${Versions.google_secret}"
+    const val google_secret =
+      "com.google.android.libraries.mapsplatform.secrets-gradle-plugin:secrets-gradle-plugin:${Versions.google_secret}"
     const val proto_buf =
       "com.google.protobuf:protobuf-gradle-plugin:${Versions.classPath_protobuf}"
 
@@ -42,7 +43,8 @@ object Config {
 
   object Environments {
     const val roomDb = "\"protein_db\""
-    const val server_client_id = "\"654641907466-q9fljq7lumaci6cf0nilsp3d03m23osq.apps.googleusercontent.com\""
+    const val server_client_id =
+      "\"654641907466-q9fljq7lumaci6cf0nilsp3d03m23osq.apps.googleusercontent.com\""
     const val debugBaseUrl = "\"http://protenchef.golden-info.com/api/\""
     const val releaseBaseUrl = "\"http://protenchef.golden-info.com/api/\""
   }

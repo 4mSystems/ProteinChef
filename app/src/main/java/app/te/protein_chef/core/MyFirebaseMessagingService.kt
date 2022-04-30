@@ -18,7 +18,7 @@ import app.te.protein_chef.presentation.home.HomeActivity
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 
-class MyFirebaseMessagingService() :
+class MyFirebaseMessagingService :
   FirebaseMessagingService() {
   override fun onMessageReceived(remoteMessage: RemoteMessage) {
     sendNotification(remoteMessage.data)

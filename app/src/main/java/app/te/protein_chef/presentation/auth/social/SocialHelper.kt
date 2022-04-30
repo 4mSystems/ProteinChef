@@ -110,7 +110,7 @@ class SocialHelper {
         idToken != null -> {
           // Got an ID token from Google. Use it to authenticate
           // with your backend.
-          Log.e("idToken", ": " + name + " " + email)
+          Log.e("idToken", ": $name $email")
           registerRequest.email = email.toString()
           registerRequest.name = name.toString()
           registerRequest.socialToken = idToken

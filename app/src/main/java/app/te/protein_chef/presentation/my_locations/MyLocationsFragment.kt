@@ -1,6 +1,7 @@
 package app.te.protein_chef.presentation.my_locations
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -80,6 +81,7 @@ class MyLocationsFragment : BaseFragment<FragmentMyLocationsBinding>(), MyLocati
   private fun getNewLocationResult() {
     setFragmentResultListener(Constants.BUNDLE) { _: String, bundle: Bundle ->
       val myLocationDto = bundle.getParcelable<MyLocationDto>(Constants.NEW_LOCATION)
+      Log.e("getNewLocationResult", "getNewLocationResult: "+myLocationDto)
       if (myLocationDto != null) {
         val myLocationsDataUiState = MyLocationsDataUiState(myLocationDto)
         val newList = adapter.differ.currentList.toMutableList()

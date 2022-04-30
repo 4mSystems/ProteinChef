@@ -8,7 +8,6 @@ import app.te.protein_chef.domain.home.models.HomeMainData
 import app.te.protein_chef.domain.utils.Resource
 import app.te.protein_chef.presentation.base.BaseFragment
 import app.te.protein_chef.presentation.base.extensions.*
-import app.te.protein_chef.presentation.base.utils.showNoApiErrorAlert
 import app.te.protein_chef.presentation.home.adapters.HomeSliderAdapter
 import app.te.protein_chef.presentation.home.adapters.OffersAdapter
 import app.te.protein_chef.presentation.home.adapters.PackagesAdapter
@@ -113,7 +112,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeEventListener {
       checkIfLocationEnabled()
     } else {
       viewModel.getHomeData(0.0, 0.0)
-      showNoApiErrorAlert(requireActivity(), getString(R.string.not_all_permission_accepted))
     }
   }
 

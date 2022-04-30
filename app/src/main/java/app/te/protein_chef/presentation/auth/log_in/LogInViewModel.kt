@@ -51,6 +51,7 @@ class LogInViewModel @Inject constructor(
   }
 
   fun socialLogin(socialType: String) {
+    socialLogInRequest.email = registerRequest.email
     socialLogInRequest.social_id = registerRequest.socialToken
     socialLogInRequest.social_type = socialType
     socialLogInRequest.device_token = request.device_token

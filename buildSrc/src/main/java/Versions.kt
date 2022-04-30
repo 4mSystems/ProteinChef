@@ -34,7 +34,7 @@ object Versions {
 
   // UI
   const val materialDesign = "1.7.0-alpha01"
-  const val androidNavigation = "2.4.0-alpha01"
+  const val androidNavigation = "2.4.2"
   const val loadingAnimations = "3.6.0"
   const val alerter = "7.2.4"
   const val coil = "1.4.0"

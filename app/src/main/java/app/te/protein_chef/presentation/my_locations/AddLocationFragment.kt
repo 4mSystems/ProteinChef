@@ -57,6 +57,7 @@ class AddLocationFragment : BaseFragment<FragmentAddLocationBinding>(), AddLocat
 
   override fun addLocation() {
     viewModel.addLocation()
+//    backWithResult(MyLocationDto(1, "titl", "ad"))
   }
 
   private fun backWithResult(myLocationDto: MyLocationDto) {

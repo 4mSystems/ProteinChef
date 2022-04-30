@@ -24,7 +24,6 @@ class LogInFragment : BaseFragment<FragmentLogInBinding>(), LoginEventListener {
 
   override
   fun getLayoutId() = R.layout.fragment_log_in
-  private val TAG = "LogInFragment"
 
   override
   fun setBindingVariables() {
