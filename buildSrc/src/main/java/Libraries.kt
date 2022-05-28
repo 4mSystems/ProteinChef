@@ -52,6 +52,8 @@ object Libraries {
   const val loadingAnimations = "com.airbnb.android:lottie:${Versions.loadingAnimations}"
   const val alerter = "com.github.tapadoo:alerter:${Versions.alerter}"
   const val coil = "io.coil-kt:coil:${Versions.coil}"
+  const val splash_screen = "androidx.core:core-splashscreen:${Versions.splash_screen}"
+  const val android_core = "androidx.core:core-animation:${Versions.android_core}"
 
   // Utils
   const val playServices = "com.google.android.gms:play-services-auth:${Versions.playServices}"
@@ -75,7 +77,8 @@ object Libraries {
   const val firebase_messaging = "com.google.firebase:firebase-messaging-ktx"
   const val firebase_auth_ktx = "com.google.firebase:firebase-auth-ktx"
   const val firebase_auth = "com.google.android.gms:play-services-auth:${Versions.firebase_auth}"
-//  const val facebook_auth = "com.facebook.android:facebook-login:${Versions.facebook_auth}"
+
+  //  const val facebook_auth = "com.facebook.android:facebook-login:${Versions.facebook_auth}"
   const val facebook_auth = "com.facebook.android:facebook-android-sdk:${Versions.facebook_auth}"
 
   //multi select media

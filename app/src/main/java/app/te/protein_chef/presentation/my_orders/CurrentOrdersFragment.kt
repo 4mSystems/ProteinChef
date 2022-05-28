@@ -1,6 +1,7 @@
 package app.te.protein_chef.presentation.my_orders
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.setFragmentResultListener
@@ -73,6 +74,7 @@ class CurrentOrdersFragment :
       viewModel.currentOrdersResponse.collect {
         adapter.submitData(it)
         binding.currentOrders.setUpAdapter(adapter, "1", "1")
+        Log.e("setupObservers", "setupObservers: "+adapter.itemCount)
       }
     }
   }

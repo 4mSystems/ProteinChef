@@ -38,6 +38,8 @@ object Versions {
   const val loadingAnimations = "3.6.0"
   const val alerter = "7.2.4"
   const val coil = "1.4.0"
+  const val splash_screen = "1.0.0-beta02"
+  const val android_core = "1.0.0-beta01"
 
   // Utils
   const val playServices = "19.2.0"

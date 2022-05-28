@@ -27,9 +27,17 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/be9fbacd6e1a3b968dcf9e2e374b0a53/transformed/jetified-locale-helper-android-1.1.4/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/98d3942098f53e959643c41ffe970585/transformed/jetified-locale-helper-android-1.1.4/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/967b1f9a0d584d5a419835ab1faa607b/transformed/jetified-locale-helper-android-1.1.4/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/45ac84810a3271a436bfd6043c294640/transformed/jetified-locale-helper-android-1.1.4/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/45ac84810a3271a436bfd6043c294640/transformed/jetified-locale-helper-android-1.1.4/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/45ac84810a3271a436bfd6043c294640/transformed/jetified-locale-helper-android-1.1.4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/113de47606d20dbe6b876d656e132d31/transformed/jetified-locale-helper-android-1.1.4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/25d823cab3f0cbfc25921275ac696294/transformed/jetified-locale-helper-android-1.1.4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/e9bc1a3220d86e0e05dd228f00eb1ac1/transformed/jetified-locale-helper-android-1.1.4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/73feb79779569a3147b6e0c7edb0d11a/transformed/jetified-locale-helper-android-1.1.4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9ecc0a3b38a6f57db8dfb25fd66a3736/transformed/jetified-locale-helper-android-1.1.4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/147444fd211dca0a85a92b1e9be577b8/transformed/jetified-locale-helper-android-1.1.4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/db74b75f49801efb3cf321525dfc9488/transformed/jetified-locale-helper-android-1.1.4/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/3ef91312e915b646128311308ec4c6a1/transformed/jetified-locale-helper-android-1.1.4/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/3ef91312e915b646128311308ec4c6a1/transformed/jetified-locale-helper-android-1.1.4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/3ef91312e915b646128311308ec4c6a1/transformed/jetified-locale-helper-android-1.1.4/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.zeugmasolutions.localehelper/locale-helper-android/1.1.4/e67c2cdd2219be7a4988842fed8a278365d2e10f/locale-helper-android-1.1.4-javadoc.jar!/" />

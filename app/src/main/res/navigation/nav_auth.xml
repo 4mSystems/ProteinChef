@@ -119,7 +119,8 @@
   <fragment
     android:id="@+id/splashFragment"
     android:name="app.te.protein_chef.presentation.splash.SplashFragment"
-    android:label="SplashFragment">
+    android:label="SplashFragment"
+    tools:layout="@layout/fragment_splash">
     <action
       android:id="@+id/action_splashFragment_to_log_in_fragment"
       app:destination="@id/log_in_fragment"
@@ -145,7 +146,7 @@
       app:exitAnim="@anim/anim_slide_out_left"
       app:popEnterAnim="@anim/anim_slide_in_left"
       app:popExitAnim="@anim/anim_slide_out_right"
-      app:popUpTo="@id/splashFragment"
+      app:popUpTo="@id/log_in_fragment"
       app:popUpToInclusive="true" />
 
   </fragment>

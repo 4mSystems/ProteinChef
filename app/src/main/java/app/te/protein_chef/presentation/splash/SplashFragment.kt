@@ -7,9 +7,7 @@ import app.te.protein_chef.presentation.base.extensions.navigateSafe
 import app.te.protein_chef.presentation.base.extensions.openActivityAndClearStack
 import app.te.protein_chef.presentation.home.HomeActivity
 import app.te.protein_chef.databinding.FragmentSplashBinding
-import com.zeugmasolutions.localehelper.LocaleHelper
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.*
 
 @AndroidEntryPoint
 class SplashFragment : BaseFragment<FragmentSplashBinding>(), SplashEventListener {
@@ -41,7 +39,6 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>(), SplashEventListene
   }
 
   override fun openOnBoarding() {
-//    LocaleHelper.setLocale(requireActivity(), Locale(language = ))
     setLanguage("ar")
     navigateSafe(SplashFragmentDirections.actionSplashFragmentToTutorialFragment())
   }

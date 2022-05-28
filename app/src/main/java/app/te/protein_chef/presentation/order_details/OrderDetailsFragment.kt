@@ -77,7 +77,7 @@ class OrderDetailsFragment : BaseFragment<FragmentOrderDetailsBinding>(), OrderD
           is Resource.Success -> {
             hideLoading()
             val data = it.value as OrderDetailsUiState
-            updateOrderMealsAdapter(it.value.order_meals)
+            updateOrderMealsAdapter(data.order_meals)
           }
           is Resource.Failure -> {
             hideLoading()
@@ -139,5 +139,14 @@ class OrderDetailsFragment : BaseFragment<FragmentOrderDetailsBinding>(), OrderD
       )
     else
       showNoApiErrorAlert(requireActivity(), getString(R.string.freeze_limit))
+  }
+
+  override fun reOrder() {
+    navigateSafe(
+      OrderDetailsFragmentDirections.actionOrderDetailsFragmentOrderStartDateFragment(
+        orderDetailsUiState.package_type_id,
+        orderDetailsUiState.package_name
+      )
+    )
   }
 }

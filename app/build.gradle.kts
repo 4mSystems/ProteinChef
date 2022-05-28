@@ -38,7 +38,7 @@ android {
     applicationId = Config.AppConfig.appId
     minSdk = Config.AppConfig.minSdkVersion
     targetSdk = Config.AppConfig.compileSdkVersion
-    versionCode = Config.AppConfig.versionCode
+    versionCode = Config.AppConfig.versionCodeTest
     versionName = Config.AppConfig.versionName
     vectorDrawables.useSupportLibrary = true
     multiDexEnabled = true
@@ -69,9 +69,7 @@ android {
 
       isMinifyEnabled = true
       isShrinkResources = true
-      isDebuggable = true
-
-//      resValue("string", "google_api_key", gradleLocalProperties(rootDir).getProperty("GOOGLE_API_KEY"))
+      isDebuggable = false
       manifestPlaceholders["appName"] = "@string/app_name"
       manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher_release"
       manifestPlaceholders["appRoundIcon"] = "@mipmap/ic_launcher_release_round"
@@ -160,7 +158,7 @@ dependencies {
   // Kotlin Coroutines
   implementation(Libraries.coroutinesCore)
   implementation(Libraries.coroutinesAndroid)
-//DATA STORE
+  //DATA STORE
   implementation(Libraries.datastore_preferences)
   implementation(Libraries.datastore_core)
   implementation(Libraries.datastore_protobuf)
@@ -172,6 +170,7 @@ dependencies {
   implementation(Libraries.loadingAnimations)
   implementation(Libraries.alerter)
   implementation(Libraries.coil)
+  implementation(Libraries.splash_screen)
 
   // Map
   implementation(Libraries.map)

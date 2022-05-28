@@ -85,7 +85,6 @@ object RetrofitModule {
         .connectTimeout(REQUEST_TIME_OUT, TimeUnit.SECONDS)
         .addInterceptor(headersInterceptor)
         .addNetworkInterceptor(logging)
-        .addInterceptor(headersInterceptor)
         .build()
     }
   }

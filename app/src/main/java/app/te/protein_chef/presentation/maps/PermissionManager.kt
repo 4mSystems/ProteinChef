@@ -4,6 +4,7 @@ import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
+import android.util.Log
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -21,6 +22,7 @@ class PermissionManager @Inject constructor(@ApplicationContext val context: Con
     ActivityCompat.checkSelfPermission(context, permission) == PackageManager.PERMISSION_GRANTED
 
   fun hasAllLocationPermissions(): Boolean {
+    Log.e("hasAllLocationPermissions", "hasAllLocationPermissions: ")
     return isGranted(
       Manifest.permission.ACCESS_COARSE_LOCATION
     ) && isGranted(

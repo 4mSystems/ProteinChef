@@ -54,9 +54,9 @@ class PreviousOrdersUseCase @Inject constructor(
             val result = myOrdersRepository.getMyPreviousOrders(PageIndex)
             val items = mutableListOf<MyOrdersUiState>()
             if (result is Resource.Success) {
-              nextPage = result.value.data.links.next
+              nextPage = result.value.data.links?.next
               val data = result.value.data.myOrdersData
-              if (data.isNullOrEmpty()) {
+              if (data.isEmpty()) {
                 items.add(MyOrdersEmptyUiState())
               } else {
                 data.map { orderData ->

@@ -18,6 +18,12 @@ open class RegisterRequest() : BaseRequest() {
       validation.phoneError.set(null)
       field = value
     }
+  var email: String = ""
+    set(value) {
+      validation.emailError.set(null)
+      field = value
+    }
+
   var device_token: String = ""
   var validation: RegisterValidationException = RegisterValidationException()
 
@@ -25,6 +31,7 @@ open class RegisterRequest() : BaseRequest() {
 
 @Keep
 class RegisterValidationException {
+  var emailError: ObservableField<String> = ObservableField<String>()
   var phoneError: ObservableField<String> = ObservableField<String>()
   var passwordError: ObservableField<String> = ObservableField<String>()
   var confirmError: ObservableField<String> = ObservableField<String>()

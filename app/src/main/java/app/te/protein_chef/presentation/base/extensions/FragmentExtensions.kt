@@ -7,6 +7,7 @@ import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.MutableLiveData
 import androidx.navigation.NavDirections
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
@@ -103,8 +104,9 @@ fun <T> Fragment.getNavigationResultLiveData(key: String = "result") =
 fun <T> Fragment.removeNavigationResultObserver(key: String = "result") =
   findNavController().currentBackStackEntry?.savedStateHandle?.remove<T>(key)
 
-fun <T> Fragment.setNavigationResult(result: T, key: String = "result") {
-  findNavController().previousBackStackEntry?.savedStateHandle?.set(key, result)
+fun <T> Fragment.setNavigationResult(result: MutableLiveData<T>, key: String = "result") {
+  findNavController().previousBackStackEntry?.savedStateHandle?.set(key, result.value)
+  backToPreviousScreen()
 }
 
 fun Fragment.onBackPressedCustomAction(action: () -> Unit) {
@@ -124,6 +126,5 @@ fun Fragment.navigateSafe(directions: NavDirections, navOptions: NavOptions? = n
 }
 
 fun Fragment.backToPreviousScreen() {
-  Log.e("backToPreviousScreen", "backToPreviousScreen: ")
   findNavController().navigateUp()
 }

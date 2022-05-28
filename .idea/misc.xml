@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.37135416666666665" />
+        <entry key="app/src/main/res/drawable/avd_anim.xml" value="0.271" />
+        <entry key="app/src/main/res/drawable/avd_anim2.xml" value="0.271" />
         <entry key="app/src/main/res/drawable/bg_no_data.xml" value="0.3578125" />
         <entry key="app/src/main/res/drawable/bg_round_pop_up.xml" value="0.2365" />
         <entry key="app/src/main/res/drawable/bottom_navigation_selector.xml" value="0.345" />
@@ -29,10 +31,13 @@
         <entry key="app/src/main/res/drawable/ic_effect.xml" value="0.205" />
         <entry key="app/src/main/res/drawable/ic_exam_level_border.xml" value="0.3578125" />
         <entry key="app/src/main/res/drawable/ic_exam_warning.xml" value="0.3578125" />
+        <entry key="app/src/main/res/drawable/ic_home_colored.xml" value="0.271" />
         <entry key="app/src/main/res/drawable/ic_left.xml" value="0.3575" />
+        <entry key="app/src/main/res/drawable/ic_location_marker.xml" value="0.345" />
         <entry key="app/src/main/res/drawable/ic_logout.xml" value="0.2455" />
         <entry key="app/src/main/res/drawable/ic_nav_more.xml" value="0.345" />
         <entry key="app/src/main/res/drawable/ic_next.xml" value="0.3578125" />
+        <entry key="app/src/main/res/drawable/ic_notification.xml" value="0.271" />
         <entry key="app/src/main/res/drawable/ic_notification_cover.xml" value="0.345" />
         <entry key="app/src/main/res/drawable/ic_success.xml" value="0.3575" />
         <entry key="app/src/main/res/drawable/ic_user.xml" value="0.2455" />
@@ -40,6 +45,7 @@
         <entry key="app/src/main/res/drawable/nav_home_selector.xml" value="0.3578125" />
         <entry key="app/src/main/res/drawable/nav_my_meals.xml" value="0.2455" />
         <entry key="app/src/main/res/drawable/rounded_dialog.xml" value="0.142" />
+        <entry key="app/src/main/res/drawable/splash_api.xml" value="0.1345" />
         <entry key="app/src/main/res/drawable/tab_background.xml" value="0.201" />
         <entry key="app/src/main/res/drawable/tab_color_selector.xml" value="0.353" />
         <entry key="app/src/main/res/drawable/white_top_corner.xml" value="0.1" />
@@ -69,7 +75,7 @@
         <entry key="app/src/main/res/layout/fragment_exam_second_step.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_exam_third_step.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/fragment_exams.xml" value="0.3416666666666667" />
-        <entry key="app/src/main/res/layout/fragment_forgot_password.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/fragment_forgot_password.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_group_details.xml" value="0.3572916666666667" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_intro.xml" value="0.34322916666666664" />
@@ -98,6 +104,7 @@
         <entry key="app/src/main/res/layout/fragment_school_grades.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/fragment_school_levels.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_study_subjects.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/fragment_submit_order.xml" value="0.34322916666666664" />
         <entry key="app/src/main/res/layout/fragment_teacher_account.xml" value="0.3572916666666667" />

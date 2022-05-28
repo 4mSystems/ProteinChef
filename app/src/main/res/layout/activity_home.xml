@@ -28,16 +28,23 @@
       app:layout_constraintTop_toBottomOf="@id/toolbar"
       app:navGraph="@navigation/nav_home" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-      android:id="@+id/bottom_navigation_view"
-      android:layout_width="match_parent"
-      android:layout_height="@dimen/dimen56"
-      android:background="@drawable/white_top_corner"
-      app:itemIconTint="@drawable/bottom_navigation_selector"
-      app:labelVisibilityMode="labeled"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:menu="@menu/menu_bottom_navigation" />
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+          android:id="@+id/bottom_navigation_view"
+          android:layout_width="match_parent"
+          android:layout_height="@dimen/dimen56"
+          android:background="@drawable/white_top_corner"
+          app:itemIconTint="@drawable/bottom_navigation_selector"
+          app:labelVisibilityMode="labeled"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:menu="@menu/menu_bottom_navigation" />
 
+<!--    <np.com.susanthapa.curved_bottom_navigation.CurvedBottomNavigationView-->
+<!--      android:id="@+id/bottom_navigation_view"-->
+<!--      android:layout_width="match_parent"-->
+<!--      android:layout_height="wrap_content"-->
+<!--      app:cbn_animDuration="400"-->
+<!--      app:cbn_selectedColor="@color/colorAccent"-->
+<!--      app:layout_constraintBottom_toBottomOf="parent" />-->
   </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

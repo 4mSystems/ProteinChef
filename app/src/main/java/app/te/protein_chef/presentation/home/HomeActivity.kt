@@ -22,6 +22,29 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
 
   override
   fun setUpBottomNavigation() {
+//    val menuItems = arrayOf(
+//      CbnMenuItem(
+//        R.drawable.nav_home_selector, // the icon
+//        R.drawable.avd_anim, // the AVD that will be shown in FAB
+//        R.id.home_fragment // optional if you use Jetpack Navigation
+//      ),
+//      CbnMenuItem(
+//        R.drawable.nav_my_meals,
+//        R.drawable.avd_anim,
+//        R.id.myMealsFragment
+//      ),
+//      CbnMenuItem(
+//        R.drawable.ic_user,
+//        R.drawable.avd_anim,
+//        R.id.accountFragment
+//      ),
+//      CbnMenuItem(
+//        R.drawable.ic_nav_more,
+//        R.drawable.avd_anim2,
+//        R.id.moreFragment
+//      )
+//    )
+//    binding.bottomNavigationView.setMenuItems(menuItems, 0)
     setUpBottomNavigationWithGraphs()
   }
 
@@ -34,8 +57,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
         R.id.home_fragment,
         R.id.myMealsFragment,
         R.id.accountFragment,
-        R.id.moreFragment,
-        R.id.moreFragment,
+        R.id.moreFragment
       )
     )
     setSupportActionBar(binding.toolbar)

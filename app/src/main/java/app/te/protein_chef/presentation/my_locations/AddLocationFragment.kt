@@ -14,6 +14,7 @@ import app.te.protein_chef.presentation.base.utils.showSuccessAlert
 import app.te.protein_chef.presentation.my_locations.listeners.AddLocationEventListener
 import app.te.protein_chef.presentation.my_locations.viewModels.AddLocationViewModel
 import app.te.protein_chef.databinding.FragmentAddLocationBinding
+import app.te.protein_chef.presentation.maps.MapExtractedData
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 
@@ -47,7 +48,7 @@ class AddLocationFragment : BaseFragment<FragmentAddLocationBinding>(), AddLocat
           }
           is Resource.Failure -> {
             hideLoading()
-            handleApiError(it, retryAction = { viewModel.addLocation() })
+            handleApiError(it)
           }
 
         }
@@ -56,8 +57,20 @@ class AddLocationFragment : BaseFragment<FragmentAddLocationBinding>(), AddLocat
   }
 
   override fun addLocation() {
-    viewModel.addLocation()
-//    backWithResult(MyLocationDto(1, "titl", "ad"))
+    if (viewModel.invokeValidation())
+      navigateSafe(AddLocationFragmentDirections.actionAddLocationFragmentToNavMap())
+  }
+
+  override fun onResume() {
+    super.onResume()
+    val mapData = getNavigationResultLiveData<MapExtractedData>()
+    if (mapData?.value != null) {
+      viewModel.addLocation(
+        mapData.value?.address,
+        mapData.value?.latitude,
+        mapData.value?.longitude
+      )
+    }
   }
 
   private fun backWithResult(myLocationDto: MyLocationDto) {

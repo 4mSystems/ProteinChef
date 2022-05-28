@@ -6,6 +6,7 @@ import app.te.protein_chef.domain.utils.BaseResponse
 import app.te.protein_chef.domain.utils.FailureStatus
 import app.te.protein_chef.presentation.base.utils.Constants
 import app.te.protein_chef.domain.utils.Resource
+import app.te.protein_chef.domain.utils.isValidEmail
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -40,6 +41,11 @@ class RegisterUseCase @Inject constructor(
       request.validation.phoneError.set(Constants.EMPTY)
       isValid = false
     }
+    if (request.email.isEmpty() || !request.email.isValidEmail()) {
+      request.validation.emailError.set(Constants.EMPTY)
+      isValid = false
+    }
+
     if (request.password.isEmpty()) {
       request.validation.passwordError.set(Constants.EMPTY)
       isValid = false

@@ -3,7 +3,8 @@ object Config {
     const val appId = "app.te.protein_chef"
     const val compileSdkVersion = 32
     const val minSdkVersion = 23
-    const val versionCode = 2
+    const val versionCode = 1
+    const val versionCodeTest = 101
     const val versionName = "1"
     const val testRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
@@ -45,7 +46,7 @@ object Config {
     const val roomDb = "\"protein_db\""
     const val server_client_id =
       "\"654641907466-q9fljq7lumaci6cf0nilsp3d03m23osq.apps.googleusercontent.com\""
-    const val debugBaseUrl = "\"http://protenchef.golden-info.com/api/\""
-    const val releaseBaseUrl = "\"http://protenchef.golden-info.com/api/\""
+    const val debugBaseUrl = "\"https://protein-chef.net/api/\""
+    const val releaseBaseUrl = "\"http://protein-chef.net/api/\""
   }
 }

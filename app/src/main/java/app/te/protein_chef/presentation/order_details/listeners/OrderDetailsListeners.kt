@@ -4,4 +4,5 @@ interface OrderDetailsListeners {
   fun changeCategoryType(categoryId: Int)
   fun cancelOrder()
   fun freezeOrder()
+  fun reOrder()
 }

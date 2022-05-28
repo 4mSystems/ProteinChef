@@ -2,6 +2,7 @@ package app.te.protein_chef.domain.make_order.entity
 
 import android.os.Parcelable
 import androidx.annotation.Keep
+import app.te.protein_chef.presentation.base.utils.Constants
 import kotlinx.android.parcel.Parcelize
 import kotlinx.android.parcel.RawValue
 
@@ -21,4 +22,5 @@ data class MakeOrderRequest(
   var deliveryFees: Double = 0.0,
   var meals_total: Double = 0.0,
   var meals_additional_total: Double = 0.0,
+  var payment_type: Int = Constants.CASH,
 ) : Parcelable

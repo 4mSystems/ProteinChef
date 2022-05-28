@@ -15,6 +15,7 @@ import app.te.protein_chef.presentation.home.eventListener.HomeEventListener
 import app.te.protein_chef.presentation.home.ui_state.HomeUiState
 import app.te.protein_chef.presentation.home.viewModels.HomeViewModel
 import app.te.protein_chef.presentation.maps.LocationManager
+import app.te.protein_chef.presentation.maps.MapExtractedData
 import app.te.protein_chef.presentation.maps.PermissionManager
 import app.te.protein_chef.presentation.maps.requestAppPermissions
 import dagger.hilt.android.AndroidEntryPoint
@@ -45,6 +46,17 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeEventListener {
       checkIfLocationEnabled()
     } else {
       permissionsResult?.launch(permissionManager.getAllLocationPermissions())
+    }
+  }
+
+
+  override fun onResume() {
+    super.onResume()
+    val mapData = getNavigationResultLiveData<MapExtractedData>()
+    if (mapData?.value != null) {
+      binding.locality.text = mapData.value?.city
+      showLoading() // for user to see Loader
+      viewModel.getHomeData(mapData.value?.latitude!!, mapData.value?.longitude!!)
     }
   }
 
@@ -117,11 +129,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeEventListener {
 
   private fun checkIfLocationEnabled() {
     showLoading() // for user to see Loader
-    if (locationManager.isLocationEnabled(requireContext())) {
-      getLocationNow()
-    } else {
+    try {
+      if (locationManager.isLocationEnabled(requireContext())) {
+        getLocationNow()
+      } else {
+        viewModel.getHomeData(0.0, 0.0)
+      }
+    } catch (e: Exception) {
       viewModel.getHomeData(0.0, 0.0)
     }
+
   }
 
   private fun getLocationNow() {

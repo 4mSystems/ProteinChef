@@ -9,11 +9,9 @@ import app.te.protein_chef.domain.utils.*
 import app.te.protein_chef.presentation.my_orders.ui_state.MyOrderDataUiState
 import app.te.protein_chef.presentation.my_orders.ui_state.MyOrdersEmptyUiState
 import app.te.protein_chef.presentation.my_orders.ui_state.MyOrdersUiState
-import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 
@@ -33,9 +31,9 @@ class CurrentOrdersUseCase @Inject constructor(
             val result = myOrdersRepository.getMyOrders(PageIndex)
             val items = mutableListOf<MyOrdersUiState>()
             if (result is Resource.Success) {
-              nextPage = result.value.data.links.next
+              nextPage = result.value.data.links?.next
               val data = result.value.data.myOrdersData
-              if (data.isNullOrEmpty()) {
+              if (data.isEmpty()) {
                 items.add(MyOrdersEmptyUiState())
               } else {
                 data.map { orderData ->

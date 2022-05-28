@@ -48,5 +48,4 @@ class AuthActivity : BaseActivity<ActivityAuthBinding>() {
   override fun onSupportNavigateUp(): Boolean {
     return nav.navigateUp() || super.onSupportNavigateUp()
   }
-
 }

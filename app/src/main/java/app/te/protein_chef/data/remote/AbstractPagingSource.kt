@@ -36,5 +36,5 @@ abstract class AbstractPagingSource<U : Any> {
 
   abstract suspend fun fetchData(pageSize: Int = 10, PageIndex: Int): List<U>
 
-  open fun hasNextPages() = true
+  open fun hasNextPages() = false
 }

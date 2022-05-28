@@ -25,7 +25,7 @@ class ProfileViewModel @Inject constructor(
 ) :
   BaseViewModel() {
   @Bindable
-  lateinit var request: UpdateProfileRequest
+   var request = UpdateProfileRequest()
   private val _profileResponse =
     MutableStateFlow<Resource<BaseResponse<UserResponse>>>(Resource.Default)
   val profileResponse = _profileResponse

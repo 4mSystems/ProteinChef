@@ -53,7 +53,7 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(), RegisterEventListe
   private fun openConfirmCode() {
     navigateSafe(
       SignUpFragmentDirections.actionOpenConfirmCodeFragment(
-        viewModel.registerRequest.phone,
+        viewModel.registerRequest.email,
         Constants.Verify
       )
     )

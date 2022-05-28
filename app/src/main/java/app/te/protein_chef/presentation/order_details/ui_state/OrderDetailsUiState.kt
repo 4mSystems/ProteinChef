@@ -20,12 +20,14 @@ class OrderDetailsUiState(
   private val order_addition_prices: List<OrderAdditionPrice> = emptyList(),
   val order_meals: List<OrderMeal> = emptyList(),
   private val package_price: Double = 0.0,
+  private val package_id: Int = 0,
+   val package_type_id: Int = 0,
   val remain_frozen_meals: Int = 0,
   private val remaining_days: Int = 0,
   private val shipping_price: Double = 0.0,
   private val total_price: Double = 0.0,
   private val working_hours: String = "",
-  private val package_name: String = "",
+   val package_name: String = "",
   private val order_status: String = "",
 ) {
   var days: Array<String> = emptyArray()

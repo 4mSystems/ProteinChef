@@ -1,5 +1,6 @@
 package app.te.protein_chef.presentation.home.viewModels
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import app.te.protein_chef.domain.home.models.HomeMainData
 import app.te.protein_chef.domain.home.use_case.HomeUseCase
@@ -12,7 +13,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-  private val homeUseCase: HomeUseCase
+  private val homeUseCase: HomeUseCase,
+  var savedStateHandle: SavedStateHandle
 ) : BaseViewModel() {
   private val _homeResponse =
     MutableStateFlow<Resource<BaseResponse<HomeMainData>>>(Resource.Default)

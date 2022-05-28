@@ -1,10 +1,12 @@
 package app.te.protein_chef.presentation.make_order.ui_state
 
 import android.content.Context
+import android.widget.RadioGroup
 import app.te.protein_chef.R
 import app.te.protein_chef.domain.make_order.entity.MakeOrderRequest
 import app.te.protein_chef.domain.make_order.entity.coupon.ApplyCouponRequest
 import app.te.protein_chef.domain.make_order.entity.coupon.Coupon
+import app.te.protein_chef.presentation.base.utils.Constants
 import app.te.protein_chef.presentation.make_order.listener.SubmitOrderEventListener
 
 class SubmitOrderUiState {
@@ -64,5 +66,12 @@ class SubmitOrderUiState {
 
   fun openPromo() {
     submitOrderEventListener.openMyPromo()
+  }
+
+  fun onPaymentChanged(radioGroup: RadioGroup?, id: Int) {
+    if (id == R.id.radio_cash)
+      makeOrderRequest.payment_type = Constants.CASH
+    else
+      makeOrderRequest.payment_type = Constants.ONLINE_TRANSFER
   }
 }

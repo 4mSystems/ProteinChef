@@ -63,22 +63,25 @@ class LocationManager @Inject constructor(
 
   }
 
-  fun getAddress(lat: Double?, lng: Double?, context: Context): String? {
+  fun getAddress(lat: Double?, lng: Double?, context: Context): MapExtractedData {
     val geocoder = Geocoder(context)
     return try {
       val addressList =
         geocoder.getFromLocation(lat ?: 0.0, lng ?: 0.0, 1)
-      var address = ""
+      var mapExtractedData = MapExtractedData()
       Log.e("getAddress", "getAddress: " + addressList)
       if (addressList != null && addressList.size > 0) {
         val addressObj = addressList[0]
-        address = addressObj.getAddressLine(0)
+        mapExtractedData.address = addressObj.getAddressLine(0)
+        mapExtractedData.city = addressObj.locality
+        mapExtractedData.latitude = addressObj.latitude
+        mapExtractedData.longitude = addressObj.longitude
         Log.e("getAddress", "getAddress: " + addressObj.locality)
       }
-      address
+      mapExtractedData
     } catch (e: IOException) {
       e.printStackTrace()
-      null
+      MapExtractedData()
     }
   }
 
@@ -102,11 +105,17 @@ class LocationManager @Inject constructor(
 
 
   fun isLocationEnabled(context: Context): Boolean {
-    val locationManager: LocationManager =
-      context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
-    return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(
-      LocationManager.NETWORK_PROVIDER
-    )
+    return try {
+      val locationManager: LocationManager =
+        context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+      locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(
+        LocationManager.NETWORK_PROVIDER
+      )
+    } catch (e: Exception) {
+      e.printStackTrace()
+      false
+    }
+
   }
 
 

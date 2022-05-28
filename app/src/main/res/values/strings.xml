@@ -49,7 +49,7 @@
   <string name="privacy">Freeze and Cancellation Policy</string>
   <string name="confirm_header_text">Confirm account</string>
   <string name="confirm_resend">Resend</string>
-  <string name="confirm_header">Enter the activation code sent to you on your phone</string>
+  <string name="confirm_header">Enter the activation code sent to you on your email</string>
   <string name="change_title">Change Password</string>
   <string name="change_body">New password </string>
   <string name="old_password">Old password</string>
@@ -76,7 +76,7 @@
   <string name="open_app">Start app</string>
   <string name="choose_lang">Choose the language that suits you</string>
   <string name="choose_lang_toolbar">Select Language</string>
-  <string name="forgot_header">Enter a phone number where you can receive messages</string>
+  <string name="forgot_header">Enter an email you can receive messages</string>
   <string name="remember_password">I remembered the password</string>
   <string name="weight">Add your weight in kilograms</string>
   <string name="height">  Add height</string>
@@ -175,6 +175,9 @@
   <string name="facebook_app_id" translatable="false">1027486111200196</string>
   <string name="fb_login_protocol_scheme" translatable="false">fb1234</string>
   <string name="facebook_client_token" translatable="false">21f5f6133b920f45f10e6e6aa82b87b3</string>
+    <string name="cash">Cash</string>
+  <string name="online_transfer">تحويل بنكى</string>
+  <string name="transfer_info">سنقوم بالتواصل معكم لتاكيد عمليه التحويل وتفعيل طلبكم</string>
 
 
 </resources>

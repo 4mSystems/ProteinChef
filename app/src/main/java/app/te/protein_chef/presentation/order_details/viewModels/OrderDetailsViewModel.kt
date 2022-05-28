@@ -41,7 +41,7 @@ class OrderDetailsViewModel @Inject constructor(
   fun orderDetails() {
     viewModelScope.launch {
       orderDetailsUseCase.invoke(orderId)
-        .collect { result ->
+        .catch { }.collect { result ->
           _orderDetailsResponse.value = result
         }
       orderDaysUseCase.invoke(orderId)
@@ -55,7 +55,7 @@ class OrderDetailsViewModel @Inject constructor(
   fun orderMealsBuCategory(categoryId: Int) {
     viewModelScope.launch {
       orderDetailsUseCase.invoke(orderId, categoryId)
-        .collect { result ->
+        .catch { }.collect { result ->
           _orderMealResponse.value = result
         }
     }

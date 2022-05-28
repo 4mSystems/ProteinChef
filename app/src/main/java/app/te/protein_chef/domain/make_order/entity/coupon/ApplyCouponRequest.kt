@@ -1,7 +1,9 @@
 package app.te.protein_chef.domain.make_order.entity.coupon
 
+import androidx.annotation.Keep
 import androidx.databinding.ObservableField
 
+@Keep
 class ApplyCouponRequest {
   var coupon_code: String = ""
     set(value) {

@@ -26,7 +26,7 @@ class AddLocationUseCase @Inject constructor(
       }
     }.flowOn(Dispatchers.IO)
 
-  private fun checkValidation(request: AddLocationRequest): Boolean {
+  fun checkValidation(request: AddLocationRequest): Boolean {
     var isValid = true
     if (request.title.isEmpty()) {
       request.validation.titleError.set(Constants.EMPTY)

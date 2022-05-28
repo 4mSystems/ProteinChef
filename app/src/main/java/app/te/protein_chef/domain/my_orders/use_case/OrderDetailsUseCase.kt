@@ -32,6 +32,8 @@ class OrderDetailsUseCase @Inject constructor(
       order_addition_prices = orderDetails.order_addition_prices,
       order_meals = orderDetails.order_meals,
       package_price = orderDetails.package_price,
+      package_id = orderDetails.package_id,
+      package_type_id = orderDetails.package_type_id,
       remaining_days = orderDetails.remaining_days,
       shipping_price = orderDetails.shipping_price,
       total_price = orderDetails.total_price,

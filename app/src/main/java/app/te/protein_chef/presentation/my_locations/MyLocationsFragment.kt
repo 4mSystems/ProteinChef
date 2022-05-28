@@ -9,10 +9,6 @@ import app.te.protein_chef.domain.my_locations.entity.MyLocationDto
 import app.te.protein_chef.domain.utils.Resource
 import app.te.protein_chef.R
 import app.te.protein_chef.presentation.base.BaseFragment
-import app.te.protein_chef.presentation.base.extensions.handleApiError
-import app.te.protein_chef.presentation.base.extensions.hideKeyboard
-import app.te.protein_chef.presentation.base.extensions.navigateSafe
-import app.te.protein_chef.presentation.base.extensions.setUpAdapter
 import app.te.protein_chef.presentation.base.utils.Constants
 import app.te.protein_chef.presentation.base.utils.showSuccessAlert
 import app.te.protein_chef.presentation.my_locations.adapter.MyLocationsAdapter
@@ -21,6 +17,8 @@ import app.te.protein_chef.presentation.my_locations.ui_state.MyLocationsDataUiS
 import app.te.protein_chef.presentation.my_locations.ui_state.MyLocationsUiState
 import app.te.protein_chef.presentation.my_locations.viewModels.MyLocationsViewModel
 import app.te.protein_chef.databinding.FragmentMyLocationsBinding
+import app.te.protein_chef.presentation.base.extensions.*
+import app.te.protein_chef.presentation.maps.MapExtractedData
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 
@@ -81,7 +79,6 @@ class MyLocationsFragment : BaseFragment<FragmentMyLocationsBinding>(), MyLocati
   private fun getNewLocationResult() {
     setFragmentResultListener(Constants.BUNDLE) { _: String, bundle: Bundle ->
       val myLocationDto = bundle.getParcelable<MyLocationDto>(Constants.NEW_LOCATION)
-      Log.e("getNewLocationResult", "getNewLocationResult: "+myLocationDto)
       if (myLocationDto != null) {
         val myLocationsDataUiState = MyLocationsDataUiState(myLocationDto)
         val newList = adapter.differ.currentList.toMutableList()

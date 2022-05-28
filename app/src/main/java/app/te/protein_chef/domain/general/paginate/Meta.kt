@@ -1,11 +1,15 @@
 package app.te.protein_chef.domain.general.paginate
 
-data class Meta (
-  val path:String="",
-  val per_page:Int=0,
-  val total:Int=0,
-  val last_page:Int=0,
-  val from:Int=0,
-  val to:Int=0,
-  val current_page:Int=0,
-  )
+import androidx.annotation.Keep
+
+@Keep
+data class Meta(
+  val current_page: Int,
+  val from: Int,
+  val last_page: Int,
+  val links: List<Link>,
+  val path: String,
+  val per_page: Int,
+  val to: Int,
+  val total: Int
+)

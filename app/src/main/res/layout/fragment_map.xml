@@ -20,6 +20,15 @@
       android:layout_height="match_parent"
       map:mapId="2c8d5914cced5e1" />
 
+    <androidx.appcompat.widget.AppCompatImageView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:src="@drawable/ic_location_marker"
+      map:layout_constraintBottom_toTopOf="@+id/confirm_button"
+      map:layout_constraintStart_toStartOf="parent"
+      map:layout_constraintEnd_toEndOf="parent"
+      map:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.button.MaterialButton
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
@@ -27,6 +36,7 @@
       android:onClick="@{()-> mapEventListener.detectLocation()}"
       android:padding="@dimen/dimen10"
       android:text="@string/detect_location"
+      android:id="@+id/confirm_button"
       android:textAppearance="@style/TextAppearance.AppCompat.Medium"
       android:textColor="@color/white"
       map:backgroundTint="@color/colorAccentDark"

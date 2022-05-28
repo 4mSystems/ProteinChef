@@ -29,7 +29,7 @@ class CancelWarningDialog : BottomSheetDialogFragment() {
 
   private fun setupObservable() {
     binding.cancel.setOnClickListener {
-      dismiss()
+
       navigateSafe(
         CancelWarningDialogDirections.actionCancelWarningDialogToCancelOrderBankDialog(
           args.orderId
@@ -38,4 +38,5 @@ class CancelWarningDialog : BottomSheetDialogFragment() {
     }
     binding.back.setOnClickListener { dismiss() }
   }
+
 }

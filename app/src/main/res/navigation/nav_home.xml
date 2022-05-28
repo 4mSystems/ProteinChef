@@ -36,7 +36,8 @@
   <fragment
     android:id="@+id/accountFragment"
     android:name="app.te.protein_chef.presentation.account.AccountFragment"
-    android:label="@string/account">
+    android:label="@string/account"
+    tools:layout="@layout/fragment_account">
 
     <action
       android:id="@+id/action_accountFragment_to_profileFragment"
@@ -110,7 +111,8 @@
   <fragment
     android:id="@+id/aboutFragment"
     android:name="app.te.protein_chef.presentation.about.AboutFragment"
-    android:label="@string/about" />
+    android:label="@string/about"
+    tools:layout="@layout/fragment_about" />
 
   <fragment
     android:id="@+id/contact_fragment"
@@ -125,23 +127,28 @@
   <fragment
     android:id="@+id/privacy_fragment"
     android:name="app.te.protein_chef.presentation.privacy.PrivacyFragment"
-    android:label="@string/privacy" />
+    android:label="@string/privacy"
+    tools:layout="@layout/fragment_privacy" />
   <fragment
     android:id="@+id/terms_fragment"
     android:name="app.te.protein_chef.presentation.terms.TermsFragment"
-    android:label="@string/terms" />
+    android:label="@string/terms"
+    tools:layout="@layout/fragment_terms" />
   <fragment
     android:id="@+id/languageFragment2"
     android:name="app.te.protein_chef.presentation.language.LanguageFragment"
-    android:label="@string/choose_lang_toolbar" />
+    android:label="@string/choose_lang_toolbar"
+    tools:layout="@layout/fragment_language" />
   <fragment
     android:id="@+id/couponsFragment"
     android:name="app.te.protein_chef.presentation.my_coupons.CouponsFragment"
-    android:label="@string/promo_codes" />
+    android:label="@string/promo_codes"
+    tools:layout="@layout/fragment_my_coupons" />
   <fragment
     android:id="@+id/myLocationsFragment"
     android:name="app.te.protein_chef.presentation.my_locations.MyLocationsFragment"
-    android:label="@string/my_locations">
+    android:label="@string/my_locations"
+    tools:layout="@layout/fragment_my_locations">
     <action
       android:id="@+id/action_myLocationsFragment_to_addLocationFragment"
       app:destination="@id/addLocationFragment"
@@ -153,11 +160,21 @@
   <fragment
     android:id="@+id/addLocationFragment"
     android:name="app.te.protein_chef.presentation.my_locations.AddLocationFragment"
-    android:label="@string/add_location" />
+    android:label="@string/add_location"
+    tools:layout="@layout/fragment_add_location">
+    <action
+      android:id="@+id/action_add_location_fragment_to_nav_map"
+      app:destination="@id/nav_map"
+      app:enterAnim="@anim/anim_slide_in_right"
+      app:exitAnim="@anim/anim_slide_out_left"
+      app:popEnterAnim="@anim/anim_slide_in_left"
+      app:popExitAnim="@anim/anim_slide_out_right" />
+  </fragment>
   <fragment
     android:id="@+id/packageCategoriesFragment"
     android:name="app.te.protein_chef.presentation.packages.PackageCategoriesFragment"
-    android:label="{title}">
+    android:label="{title}"
+    tools:layout="@layout/fragment_package_categories">
     <argument
       android:name="title"
       app:argType="string" />
@@ -171,7 +188,8 @@
   <dialog
     android:id="@+id/menuDialog"
     android:name="app.te.protein_chef.presentation.packages.MenuDialog"
-    android:label="MenuDialog">
+    android:label="MenuDialog"
+    tools:layout="@layout/menu_dialog">
     <argument
       android:name="category_id"
       app:argType="integer" />
@@ -189,13 +207,15 @@
   <fragment
     android:id="@+id/orderStartDateFragment"
     android:name="app.te.protein_chef.presentation.order_start_date.OrderStartDateFragment"
-    android:label="{title}">
+    android:label="{title}"
+    tools:layout="@layout/fragment_order_start_date">
     <argument
       android:name="category_id"
       app:argType="integer" />
     <argument
       android:name="title"
       app:argType="string" />
+
     <action
       android:id="@+id/action_orderStartDateFragment_to_mealsFragment"
       app:destination="@id/mealsFragment"
@@ -207,7 +227,8 @@
   <fragment
     android:id="@+id/mealsFragment"
     android:name="app.te.protein_chef.presentation.meals.MealsFragment"
-    android:label="{title}">
+    android:label="{title}"
+    tools:layout="@layout/fragment_meals">
     <argument
       android:name="package_id"
       app:argType="integer" />
@@ -240,7 +261,8 @@
   <fragment
     android:id="@+id/mealDetailsFragment"
     android:name="app.te.protein_chef.presentation.meal_details.MealDetailsFragment"
-    android:label="{meal_type}">
+    android:label="{meal_type}"
+    tools:layout="@layout/fragment_meal_details">
     <argument
       android:name="meal_id"
       app:argType="integer" />
@@ -256,7 +278,8 @@
   <dialog
     android:id="@+id/additionsDialog"
     android:name="app.te.protein_chef.presentation.additions_meals.AdditionsDialog"
-    android:label="AdditionsDialog">
+    android:label="AdditionsDialog"
+    tools:layout="@layout/additions_dialog">
 
     <argument
       android:name="order_request"
@@ -279,7 +302,8 @@
   <fragment
     android:id="@+id/additionsMealsFragment"
     android:name="app.te.protein_chef.presentation.additions_meals.AdditionsMealsFragment"
-    android:label="@string/snaks">
+    android:label="@string/snaks"
+    tools:layout="@layout/fragment_meal_additions">
     <argument
       android:name="order_request"
       app:argType="app.te.protein_chef.domain.make_order.entity.MakeOrderRequest" />
@@ -297,7 +321,8 @@
   <fragment
     android:id="@+id/privacyOrderFragment"
     android:name="app.te.protein_chef.presentation.privacy.PrivacyOrderFragment"
-    android:label="@string/privacy">
+    android:label="@string/privacy"
+    tools:layout="@layout/fragment_privacy_order">
     <argument
       android:name="order_request"
       app:argType="app.te.protein_chef.domain.make_order.entity.MakeOrderRequest" />
@@ -312,7 +337,8 @@
   <fragment
     android:id="@+id/detectDeliveryFragment"
     android:name="app.te.protein_chef.presentation.make_order.DetectDeliveryFragment"
-    android:label="@string/order_location">
+    android:label="@string/order_location"
+    tools:layout="@layout/fragment_detect_delivery">
     <argument
       android:name="order_request"
       app:argType="app.te.protein_chef.domain.make_order.entity.MakeOrderRequest" />
@@ -334,7 +360,8 @@
   <fragment
     android:id="@+id/submitOrderFragment"
     android:name="app.te.protein_chef.presentation.make_order.SubmitOrderFragment"
-    android:label="@string/confirm_order">
+    android:label="@string/confirm_order"
+    tools:layout="@layout/fragment_submit_order">
     <argument
       android:name="order_request"
       app:argType="app.te.protein_chef.domain.make_order.entity.MakeOrderRequest" />
@@ -352,7 +379,8 @@
   <dialog
     android:id="@+id/orderSuccessCreationDialog"
     android:name="app.te.protein_chef.presentation.make_order.OrderSuccessCreationDialog"
-    android:label="OrderSuccessCreationDialog" />
+    android:label="OrderSuccessCreationDialog"
+    tools:layout="@layout/order_create_success_dialog" />
   <fragment
     android:id="@+id/myMealsFragment"
     android:name="app.te.protein_chef.presentation.my_orders.MyOrdersFragment"
@@ -382,6 +410,13 @@
     <action
       android:id="@+id/action_orderDetailsFragment_to_freezeDialog"
       app:destination="@id/freezeDialog" />
+    <action
+      android:id="@+id/action_orderDetailsFragment_orderStartDateFragment"
+      app:destination="@id/orderStartDateFragment"
+      app:enterAnim="@anim/anim_slide_in_right"
+      app:exitAnim="@anim/anim_slide_out_left"
+      app:popEnterAnim="@anim/anim_slide_in_left"
+      app:popExitAnim="@anim/anim_slide_out_right" />
   </fragment>
   <dialog
     android:id="@+id/cancelWarningDialog"

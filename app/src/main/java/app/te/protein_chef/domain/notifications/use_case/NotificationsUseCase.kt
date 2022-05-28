@@ -29,7 +29,7 @@ class NotificationsUseCase @Inject constructor(
             val result = notificationsRepository.getNotifications(pageSize, PageIndex)
             val items = mutableListOf<NotificationsUiState>()
             if (result is Resource.Success) {
-              nextPage = result.value.data.links.next
+              nextPage = result.value.data.links?.next
               val data = result.value.data.notificationData
               if (data.isNullOrEmpty()) {
                 items.add(NotificationsEmptyUiState())

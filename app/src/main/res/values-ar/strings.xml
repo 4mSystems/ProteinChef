@@ -45,7 +45,7 @@
   <string name="privacy">سياسة التجميد والالغاء</string>
   <string name="confirm_header_text">تأكيد حسابك</string>
   <string name="confirm_resend">إعادة ارسال</string>
-  <string name="confirm_header">أدخل كود التفعيل المرسل لك على هاتفك</string>
+  <string name="confirm_header">أدخل كود التفعيل المرسل لك على البريد الالكترونى</string>
   <string name="change_title">تغير كلمة المرور</string>
   <string name="change_body">من فضللك قم بكتابة كلمة مرور جديدة </string>
   <string name="old_password">كلمة المرور القديمة</string>
@@ -72,7 +72,7 @@
   <string name="open_app">بدأ التطبيق</string>
   <string name="choose_lang">اختر اللغة المناسبة لك</string>
   <string name="choose_lang_toolbar">اختيار اللغة</string>
-  <string name="forgot_header">أدخل رقم هاتف تستطيع تلقي الرسائل عليه</string>
+  <string name="forgot_header">أدخل بريد الكترونى تستطيع تلقي الرسائل عليه</string>
   <string name="remember_password">تذكرت كلمة المرور</string>
   <string name="weight">" أضف وزنك بالكيلو جرام"</string>
   <string name="height">أضف الطول</string>
@@ -164,6 +164,9 @@
   <string name="re_order">اعاده الطلب</string>
   <string name="no_notifications_avail">لا يوجد اشعارات</string>
   <string name="frozen_title">أيام التجميد التي حددتها</string>
+  <string name="cash">الدفع عند الاستلام </string>
+  <string name="online_transfer">تحويل بنكى</string>
+  <string name="transfer_info">سنقوم بالتواصل معكم لتاكيد عمليه التحويل وتفعيل طلبكم</string>
   <string-array name="gender">
     <item>ذكر </item>
     <item>انثى</item>

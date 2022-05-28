@@ -42,6 +42,56 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+      <RadioGroup
+        android:id="@+id/payment_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen16"
+        android:layout_marginTop="@dimen/dimen8"
+        android:padding="@dimen/dimen8"
+        android:background="@drawable/corner_white"
+        android:layout_marginEnd="@dimen/dimen16"
+        android:checkedButton="@id/radio_cash"
+        android:onCheckedChanged="@{uiState.onPaymentChanged}"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/tv_payment">
+
+        <RadioButton
+          android:id="@+id/radio_cash"
+          style="@style/TextMediumFont"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:buttonTint="@color/colorPrimaryDark"
+          android:text="@string/cash"
+          android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+          android:textColor="@color/black" />
+
+        <View
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:layout_marginTop="@dimen/dimen10"
+          android:background="@color/colorGray" />
+
+        <RadioButton
+          android:id="@+id/radio_online"
+          style="@style/TextMediumFont"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:buttonTint="@color/colorPrimaryDark"
+          android:text="@string/online_transfer"
+          android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+          android:textColor="@color/black" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="@string/transfer_info"
+          android:layout_marginStart="@dimen/dimen12"
+          android:layout_marginEnd="@dimen/dimen12"
+          android:textAppearance="@style/TextAppearance.AppCompat.Small"
+          android:textColor="@color/tabGray" />
+      </RadioGroup>
+
       <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_have_promo"
         style="@style/TextBoldFont"
@@ -73,7 +123,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/tv_have_promo"
-        app:layout_constraintTop_toBottomOf="@id/tv_payment" />
+        app:layout_constraintTop_toBottomOf="@id/payment_group" />
 
       <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_promo"

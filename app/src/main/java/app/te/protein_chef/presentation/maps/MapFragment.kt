@@ -2,19 +2,20 @@ package app.te.protein_chef.presentation.maps
 
 import android.Manifest
 import android.content.pm.PackageManager
-import android.location.Location
 import android.util.Log
 import androidx.core.app.ActivityCompat
-import app.te.protein_chef.databinding.FragmentMapBinding
+import androidx.lifecycle.MutableLiveData
 import app.te.protein_chef.R
+import app.te.protein_chef.databinding.FragmentMapBinding
 import app.te.protein_chef.presentation.base.BaseFragment
+import app.te.protein_chef.presentation.base.extensions.setNavigationResult
 import app.te.protein_chef.presentation.base.utils.showNoApiErrorAlert
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.GoogleMap.OnCameraIdleListener
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -65,7 +66,6 @@ class MapFragment : BaseFragment<FragmentMapBinding>(), OnMapReadyCallback, MapE
   }
 
   private fun getLocationNow() {
-
     locationManager.requestNewLocationData(false) {
       latLng = LatLng(it.latitude, it.longitude)
       addMarker()
@@ -74,11 +74,12 @@ class MapFragment : BaseFragment<FragmentMapBinding>(), OnMapReadyCallback, MapE
 
   private fun addMarker() {
     googleMap.setOnMapLoadedCallback {
-      googleMap.addMarker(
-        MarkerOptions()
-          .title(getString(R.string.your_location))
-          .position(latLng)
-      )
+      onCameraChangeListener()
+//      googleMap.addMarker(
+//        MarkerOptions()
+//          .title(getString(R.string.your_location))
+//          .position(latLng)
+//      )
       googleMap.moveCamera(
         CameraUpdateFactory.newLatLngZoom(
           latLng, 16F
@@ -86,7 +87,12 @@ class MapFragment : BaseFragment<FragmentMapBinding>(), OnMapReadyCallback, MapE
       )
     }
 
+  }
 
+  private fun onCameraChangeListener() {
+    googleMap.setOnCameraIdleListener { // camera not moving
+      latLng = googleMap.cameraPosition.target
+    }
   }
 
   private fun buildAlertMessageNoGps() {
@@ -123,7 +129,10 @@ class MapFragment : BaseFragment<FragmentMapBinding>(), OnMapReadyCallback, MapE
   override fun detectLocation() {
     if (this::latLng.isInitialized) {
       val address = locationManager.getAddress(latLng.latitude, latLng.longitude, requireContext())
+      val returnedLiveData = MutableLiveData<MapExtractedData>()
+      returnedLiveData.value = address
       Log.e("detectLocation", "detectLocation: $address")
+      setNavigationResult(returnedLiveData)
     }
   }
 

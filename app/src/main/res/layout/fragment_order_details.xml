@@ -531,6 +531,7 @@
         android:text="@string/re_order"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/white"
+        android:onClick="@{()-> eventListeners.reOrder()}"
         android:visibility="@{uiState.showReorderButton}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

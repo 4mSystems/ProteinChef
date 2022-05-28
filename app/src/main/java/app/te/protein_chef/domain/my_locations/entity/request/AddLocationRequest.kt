@@ -10,11 +10,7 @@ class AddLocationRequest() {
       validation.titleError.set(null)
       field = value
     }
-  var body: String = "شارع خالد اباظة - الزقازيق - الشرقية"
-    set(value) {
-      validation.bodyError.set(null)
-      field = value
-    }
+  var body: String = ""
   var notes: String = ""
     set(value) {
       validation.noteError.set(null)
@@ -30,9 +26,9 @@ class AddLocationRequest() {
       validation.flatError.set(null)
       field = value
     }
-  var lat: String = "31.31"
+  var lat: String = ""
 
-  var lng: String = "31.31"
+  var lng: String = ""
 
   @Transient
   var validation: AddLocationValidationException = AddLocationValidationException()
@@ -46,9 +42,6 @@ class AddLocationValidationException {
 
   @Transient
   var buildingError: ObservableField<String> = ObservableField<String>()
-
-  @Transient
-  var bodyError: ObservableField<String> = ObservableField<String>()
 
   @Transient
   var titleError: ObservableField<String> = ObservableField<String>()

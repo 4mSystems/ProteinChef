@@ -1,11 +1,11 @@
 package app.te.protein_chef.presentation.my_orders.adapters
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
-import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import app.te.protein_chef.R
@@ -39,9 +39,9 @@ class MyOrdersAdapter(val myOrdersListener: MyOrdersListener) :
   }
 
   override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    Log.e("onBindViewHolder", "onBindViewHolder: " + getItem(position))
     holder.bindItem(getItem(position), position)
   }
-
 
   inner class ViewHolder(itemView: View) :
     RecyclerView.ViewHolder(itemView) {
