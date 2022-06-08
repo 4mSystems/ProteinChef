@@ -10,26 +10,26 @@ import app.te.protein_chef.presentation.base.extensions.handleApiError
 import app.te.protein_chef.presentation.base.extensions.hideKeyboard
 import app.te.protein_chef.presentation.base.extensions.navigateSafe
 import app.te.protein_chef.presentation.base.extensions.setUpAdapter
-import app.te.protein_chef.presentation.packages.adapters.PackageCategoriesAdapter
 import app.te.protein_chef.presentation.packages.ui_state.PackageCategoriesEventListener
 import app.te.protein_chef.presentation.packages.ui_state.PackageCategoryUiItem
 import app.te.protein_chef.presentation.packages.viewModel.PackagesViewModel
-import app.te.protein_chef.databinding.FragmentPackageCategoriesBinding
+import app.te.protein_chef.databinding.FragmentPackageSubCategoriesBinding
+import app.te.protein_chef.presentation.packages.adapters.PackageSubCategoriesAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 
 @Suppress("UNCHECKED_CAST")
 @AndroidEntryPoint
-class PackageCategoriesFragment : BaseFragment<FragmentPackageCategoriesBinding>(),
+class PackageSubCategoriesFragment : BaseFragment<FragmentPackageSubCategoriesBinding>(),
   PackageCategoriesEventListener {
   private val viewModel: PackagesViewModel by viewModels()
-  private val adapter = PackageCategoriesAdapter()
-  private val args: PackageCategoriesFragmentArgs by navArgs()
+  private val adapter = PackageSubCategoriesAdapter()
+  private val args: PackageSubCategoriesFragmentArgs by navArgs()
 
   override
-  fun getLayoutId() = R.layout.fragment_package_categories
+  fun getLayoutId() = R.layout.fragment_package_sub_categories
   override fun setBindingVariables() {
-    viewModel.getPackageCategories(args.packageId)
+    viewModel.getSubCategory(args.packageTypeId, args.packageId)
     binding.eventListener = this
   }
 
@@ -60,10 +60,9 @@ class PackageCategoriesFragment : BaseFragment<FragmentPackageCategoriesBinding>
   override fun openDates() {
     if (adapter.lastSelected != -1)
       navigateSafe(
-        PackageCategoriesFragmentDirections.actionPackageCategoriesFragmentToPackageSubCategoriesFragment(
-          args.title,
-          args.packageId,
+        PackageSubCategoriesFragmentDirections.actionPackageCategoriesFragmentToMenuDialog(
           adapter.lastSelected,
+          args.title
         )
       )
   }

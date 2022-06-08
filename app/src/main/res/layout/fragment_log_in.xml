@@ -44,7 +44,7 @@
         android:layout_marginStart="@dimen/dimen14"
         android:layout_marginTop="@dimen/dimen18"
         android:layout_marginEnd="@dimen/dimen14"
-        android:hint="@string/register_phone"
+        android:hint="@string/email_hint"
         android:textColorHint="@color/black"
         app:error="@{request.validation.emailError.equals(Constants.EMPTY)?@string/empty_warning:``}"
         app:errorEnabled="@{request.validation.emailError==null?false:true}"
@@ -53,13 +53,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_login_title"
-        app:startIconDrawable="@drawable/ic_call"
+        app:startIconDrawable="@drawable/ic_email"
         app:startIconTint="@color/colorPrimaryDark">
 
         <androidx.appcompat.widget.AppCompatEditText
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:inputType="phone"
+          android:inputType="textEmailAddress"
           android:text="@={request.phone}"
           android:textAppearance="@style/TextAppearance.AppCompat.Small"
           android:textColor="@color/colorPrimaryDark"

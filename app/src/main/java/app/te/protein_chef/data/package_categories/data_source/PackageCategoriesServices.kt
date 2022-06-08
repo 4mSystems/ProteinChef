@@ -7,10 +7,16 @@ import retrofit2.http.*
 
 interface PackageCategoriesServices {
 
-  @GET("V1/user/package_types/{package_id}")
-  suspend fun getPackageCategories(@Path("package_id") package_id: Int): BaseResponse<PackageCategoriesMainData>
+  @GET("V1/user/package_types")
+  suspend fun getPackageCategories(@Query("package_id") package_id: Int): BaseResponse<PackageCategoriesMainData>
 
-  @GET("V1/user/package_meal_types/main/{category_id}")
-  suspend fun getCategoryMenu(@Path("category_id") package_id: Int): BaseResponse<List<CategoryMenu>>
+  @GET("V1/user/package_meal_types/main")
+  suspend fun getCategoryMenu(@Query("package_price_id") package_id: Int): BaseResponse<List<CategoryMenu>>
+
+  @GET("V1/user/package_parent_type")
+  suspend fun getPackageSubCategories(
+    @Query("package_type_id") packageTypeId: Int,
+    @Query("package_id") package_id: Int
+  ): BaseResponse<PackageCategoriesMainData>
 
 }

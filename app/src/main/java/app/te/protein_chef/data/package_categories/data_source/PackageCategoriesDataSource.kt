@@ -10,6 +10,10 @@ class PackageCategoriesDataSource @Inject constructor(private val apiService: Pa
     apiService.getPackageCategories(package_id)
   }
 
+  suspend fun getPackageSubCategories(packageTypeId: Int, package_id: Int) = safeApiCall {
+    apiService.getPackageSubCategories(packageTypeId, package_id)
+  }
+
   suspend fun getCategoryMenu(category_id: Int) = safeApiCall {
     apiService.getCategoryMenu(category_id)
   }

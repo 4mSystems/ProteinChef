@@ -181,9 +181,15 @@
     <argument
       android:name="package_id"
       app:argType="integer" />
+
     <action
-      android:id="@+id/action_packageCategoriesFragment_to_menuDialog"
-      app:destination="@id/menuDialog" />
+      android:id="@+id/action_packageCategoriesFragment_to_packageSubCategoriesFragment"
+      app:destination="@id/packageSubCategoriesFragment"
+      app:enterAnim="@anim/anim_slide_in_right"
+      app:exitAnim="@anim/anim_slide_out_left"
+      app:popEnterAnim="@anim/anim_slide_in_left"
+      app:popExitAnim="@anim/anim_slide_out_right" />
+
   </fragment>
   <dialog
     android:id="@+id/menuDialog"
@@ -191,7 +197,7 @@
     android:label="MenuDialog"
     tools:layout="@layout/menu_dialog">
     <argument
-      android:name="category_id"
+      android:name="package_type_id"
       app:argType="integer" />
     <argument
       android:name="title"
@@ -479,6 +485,29 @@
       app:exitAnim="@anim/anim_slide_out_left"
       app:popEnterAnim="@anim/anim_slide_in_left"
       app:popExitAnim="@anim/anim_slide_out_right" />
+  </fragment>
+  <fragment
+    android:id="@+id/packageSubCategoriesFragment"
+    android:name="app.te.protein_chef.presentation.packages.PackageSubCategoriesFragment"
+    android:label="{title}"
+    tools:layout="@layout/fragment_package_sub_categories">
+
+    <action
+      android:id="@+id/action_packageCategoriesFragment_to_menuDialog"
+      app:destination="@id/menuDialog" />
+
+    <argument
+      android:name="title"
+      app:argType="string" />
+
+    <argument
+      android:name="package_id"
+      app:argType="integer" />
+
+    <argument
+      android:name="package_type_id"
+      app:argType="integer" />
+
   </fragment>
 
 

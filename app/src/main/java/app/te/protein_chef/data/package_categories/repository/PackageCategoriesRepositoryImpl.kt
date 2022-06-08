@@ -16,6 +16,12 @@ class PackageCategoriesRepositoryImpl @Inject constructor(
   override suspend fun getPackageCategories(package_id: Int): Resource<BaseResponse<PackageCategoriesMainData>> =
     remoteDataSource.getPackageCategories(package_id)
 
+  override suspend fun getPackageSubCategories(
+    package_type_id: Int,
+    package_id: Int
+  ): Resource<BaseResponse<PackageCategoriesMainData>> =
+    remoteDataSource.getPackageSubCategories(package_type_id, package_id)
+
   override suspend fun getCategoryMenu(category_id: Int): Resource<BaseResponse<List<CategoryMenu>>> =
     remoteDataSource.getCategoryMenu(category_id)
 

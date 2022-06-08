@@ -30,6 +30,7 @@ import app.te.protein_chef.domain.notifications.repository.NotificationsReposito
 import app.te.protein_chef.domain.notifications.use_case.NotificationsUseCase
 import app.te.protein_chef.domain.packages_categories.repository.PackageCategoriesRepository
 import app.te.protein_chef.domain.packages_categories.use_case.PackageCategoriesUseCase
+import app.te.protein_chef.domain.packages_categories.use_case.PackageSubCategoriesUseCase
 import app.te.protein_chef.domain.profile.repository.ProfileRepository
 import app.te.protein_chef.domain.profile.use_case.ProfileUseCase
 import app.te.protein_chef.domain.settings.repository.SettingsRepository
@@ -124,6 +125,12 @@ class UseCaseModule {
   fun providePackageCategoriesUseCase(
     packageCategoriesRepository: PackageCategoriesRepository
   ): PackageCategoriesUseCase = PackageCategoriesUseCase(packageCategoriesRepository)
+
+  @Provides
+  @Singleton
+  fun providePackageSubCategoriesUseCase(
+    packageCategoriesRepository: PackageCategoriesRepository
+  ): PackageSubCategoriesUseCase = PackageSubCategoriesUseCase(packageCategoriesRepository)
 
   @Provides
   @Singleton

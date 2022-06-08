@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.fragment:fragment:1.1.0@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/fcef3365642742aadabb9b798e6e7e8f/transformed/fragment-1.1.0/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/6d0a8a63f48b3accfb2c5857991778fb/transformed/fragment-1.1.0/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/f78e5ef21a8f2d82dab6861b70ecfbaa/transformed/fragment-1.1.0/res" />
@@ -39,8 +39,11 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5dc9c7a7ec9c1a59a4b4b190aa6e07b6/transformed/fragment-1.1.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/e6400453319c86b122657018696239c7/transformed/fragment-1.1.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/fcef3365642742aadabb9b798e6e7e8f/transformed/fragment-1.1.0/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/fcef3365642742aadabb9b798e6e7e8f/transformed/fragment-1.1.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/fcef3365642742aadabb9b798e6e7e8f/transformed/fragment-1.1.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/6e625e519bbb3bf1d6572e0754341171/transformed/fragment-1.1.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/fdf299a5ffaf77880b2d125c361f2083/transformed/fragment-1.1.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/6d0a8a63f48b3accfb2c5857991778fb/transformed/fragment-1.1.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/6d0a8a63f48b3accfb2c5857991778fb/transformed/fragment-1.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/6d0a8a63f48b3accfb2c5857991778fb/transformed/fragment-1.1.0/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

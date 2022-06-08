@@ -33,7 +33,7 @@ class MenuDialog : BottomSheetDialogFragment() {
   ): View {
     binding =
       DataBindingUtil.inflate(inflater, R.layout.menu_dialog, container, false)
-    viewModel.getCategoryMenu(MenuDialogArgs.fromSavedStateHandle(viewModel.savedStateHandle).categoryId)
+    viewModel.getCategoryMenu(MenuDialogArgs.fromSavedStateHandle(viewModel.savedStateHandle).packageTypeId)
     setupObservable()
     return binding.root
   }
@@ -63,7 +63,7 @@ class MenuDialog : BottomSheetDialogFragment() {
       if (menuAdapter.differ.currentList.size > 0)
         navigateSafe(
           MenuDialogDirections.actionMenuDialogToOrderStartDateFragment(
-            MenuDialogArgs.fromSavedStateHandle(viewModel.savedStateHandle).categoryId,
+            MenuDialogArgs.fromSavedStateHandle(viewModel.savedStateHandle).packageTypeId,
             MenuDialogArgs.fromSavedStateHandle(viewModel.savedStateHandle).title
           )
         )

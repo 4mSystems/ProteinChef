@@ -4,7 +4,7 @@ object Config {
     const val compileSdkVersion = 32
     const val minSdkVersion = 23
     const val versionCode = 1
-    const val versionCodeTest = 101
+    const val versionCodeTest = 103
     const val versionName = "1"
     const val testRunner = "androidx.test.runner.AndroidJUnitRunner"
   }

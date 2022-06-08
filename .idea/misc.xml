@@ -95,7 +95,8 @@
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.34322916666666664" />
         <entry key="app/src/main/res/layout/fragment_order_details.xml" value="0.3281872509960159" />
         <entry key="app/src/main/res/layout/fragment_order_start_date.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/fragment_package_categories.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_package_categories.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_package_sub_categories.xml" value="0.34322916666666664" />
         <entry key="app/src/main/res/layout/fragment_packages.xml" value="0.34322916666666664" />
         <entry key="app/src/main/res/layout/fragment_previous_orders.xml" value="0.24074074074074073" />
         <entry key="app/src/main/res/layout/fragment_privacy.xml" value="0.34322916666666664" />
@@ -106,7 +107,7 @@
         <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_study_subjects.xml" value="0.3416666666666667" />
-        <entry key="app/src/main/res/layout/fragment_submit_order.xml" value="0.34322916666666664" />
+        <entry key="app/src/main/res/layout/fragment_submit_order.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_teacher_account.xml" value="0.3572916666666667" />
         <entry key="app/src/main/res/layout/fragment_teacher_groups.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_teacher_home.xml" value="0.3572916666666667" />
@@ -156,6 +157,7 @@
         <entry key="app/src/main/res/layout/item_session.xml" value="0.3572916666666667" />
         <entry key="app/src/main/res/layout/item_session_time.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/item_study_subject.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/item_sub_package_category.xml" value="0.34322916666666664" />
         <entry key="app/src/main/res/layout/item_subject.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/item_teacher.xml" value="0.5" />
         <entry key="app/src/main/res/layout/item_teacher_group.xml" value="0.35625" />

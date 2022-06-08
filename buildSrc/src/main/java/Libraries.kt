@@ -42,7 +42,7 @@ object Libraries {
   const val retrofitConverter = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
   const val gson = "com.google.code.gson:gson:${Versions.gson}"
   const val interceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.interceptor}"
-  const val chuckLogging = "com.readystatesoftware.chuck:library:${Versions.chuckLogging}"
+  const val chuckLogging = "com.github.chuckerteam.chucker:library:${Versions.chuckLogging}"
 
   // UI
   const val materialDesign = "com.google.android.material:material:${Versions.materialDesign}"

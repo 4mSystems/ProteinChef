@@ -129,15 +129,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), HomeEventListener {
 
   private fun checkIfLocationEnabled() {
     showLoading() // for user to see Loader
-    try {
-      if (locationManager.isLocationEnabled(requireContext())) {
-        getLocationNow()
-      } else {
+//      if (locationManager.isLocationEnabled(requireContext())) {
+//        getLocationNow()
+//      } else {
         viewModel.getHomeData(0.0, 0.0)
-      }
-    } catch (e: Exception) {
-      viewModel.getHomeData(0.0, 0.0)
-    }
+//      }
 
   }
 

@@ -30,7 +30,7 @@ object Versions {
   const val retrofit = "2.9.0"
   const val gson = "2.8.8"
   const val interceptor = "4.8.1"
-  const val chuckLogging = "1.1.0"
+  const val chuckLogging = "3.5.2"
 
   // UI
   const val materialDesign = "1.7.0-alpha01"
