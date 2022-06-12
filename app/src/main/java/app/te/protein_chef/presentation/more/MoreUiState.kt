@@ -33,8 +33,8 @@ class MoreUiState {
       list.add(
         MoreItem(
           context.getString(R.string.support),
-          MoreFragmentDirections.actionMoreFragmentToPrivacyFragment(),
-          2
+          MoreFragmentDirections.actionMoreFragmentToWebViewFragment(),
+          R.id.webViewFragment
         )
       )
 

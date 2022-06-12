@@ -90,5 +90,7 @@ object Libraries {
   //smartteist
   const val smartteist = "com.github.smarteist:autoimageslider:${Versions.smarteist}"
 
+  //
+  const val AdvancedWebView = "com.github.delight-im:Android-AdvancedWebView:${Versions.AdvancedWebView}"
 
 }

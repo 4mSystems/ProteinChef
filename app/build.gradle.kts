@@ -49,8 +49,8 @@ android {
   buildTypes {
     getByName("debug") {
       manifestPlaceholders["appName"] = "@string/app_name_debug"
-      manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher_debug"
-      manifestPlaceholders["appRoundIcon"] = "@mipmap/ic_launcher_debug_round"
+      manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher_release"
+      manifestPlaceholders["appRoundIcon"] = "@mipmap/ic_launcher_release_round"
       buildConfigField("String", "API_BASE_URL", Config.Environments.debugBaseUrl)
       buildConfigField("String", "ROOM_DB", Config.Environments.roomDb)
     }
@@ -69,6 +69,7 @@ android {
 
       isMinifyEnabled = true
       isShrinkResources = true
+      isDebuggable = true
       manifestPlaceholders["appName"] = "@string/app_name"
       manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher_release"
       manifestPlaceholders["appRoundIcon"] = "@mipmap/ic_launcher_release_round"
@@ -170,6 +171,7 @@ dependencies {
   implementation(Libraries.alerter)
   implementation(Libraries.coil)
   implementation(Libraries.splash_screen)
+  implementation(Libraries.AdvancedWebView)
 
   // Map
   implementation(Libraries.map)

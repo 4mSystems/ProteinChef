@@ -1,23 +1,20 @@
 package app.te.protein_chef.presentation.shared.web_view
 
 import android.annotation.SuppressLint
-import android.graphics.Color
-import android.webkit.WebChromeClient
-import android.webkit.WebView
-import android.webkit.WebViewClient
+import android.content.Intent
+import android.graphics.Bitmap
+import android.view.View
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import app.te.protein_chef.R
-import app.te.protein_chef.presentation.base.BaseFragment
 import app.te.protein_chef.databinding.FragmentWebViewBinding
+import app.te.protein_chef.presentation.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
+import im.delight.android.webview.AdvancedWebView
 
 @AndroidEntryPoint
-class WebViewFragment : BaseFragment<FragmentWebViewBinding>() {
+class WebViewFragment : BaseFragment<FragmentWebViewBinding>(), AdvancedWebView.Listener {
 
   private val viewModel: WebViewViewModel by viewModels()
-
-  private var htmlContent: String? = null
 
   override
   fun getLayoutId() = R.layout.fragment_web_view
@@ -29,45 +26,60 @@ class WebViewFragment : BaseFragment<FragmentWebViewBinding>() {
 
   override
   fun getFragmentArguments() {
+
   }
 
   override
   fun setUpViews() {
+    binding.webview.setListener(requireActivity(), this)
+    binding.webview.setMixedContentAllowed(false)
+    binding.webview.setDesktopMode(true)
+    binding.webview.loadUrl("https://tawk.to/chat/6293d7adb0d10b6f3e74a316/1g48o507k")
 
-    setUpWebView()
-
-    displayHtmlContent()
   }
 
-  @SuppressLint("SetJavaScriptEnabled")
-  private fun setUpWebView() {
-    binding.webView.apply {
-      setBackgroundColor(Color.TRANSPARENT)
-      webChromeClient = WebChromeClient()
-      webViewClient = object : WebViewClient() {
-        override
-        fun onPageFinished(view: WebView, url: String) {
-          view.loadUrl("javascript:document.body.style.setProperty(\"color\", \"#000000\");")
-          hideLoading()
-        }
-      }
-      settings.javaScriptEnabled = true
-    }
+  override fun onPageStarted(url: String?, favicon: Bitmap?) {
+    binding.webview.visibility = View.VISIBLE
+
   }
 
-  private fun displayHtmlContent() {
-    if (!htmlContent.isNullOrEmpty()) {
-      setContent(htmlContent!!)
-    }
+  override fun onPageFinished(url: String?) {
+    binding.webProgress.visibility = View.GONE
   }
 
-  private fun setContent(content: String) {
-    binding.webView.loadData(
-      content, "text/html", "utf-8"
-    )
+  override fun onPageError(errorCode: Int, description: String?, failingUrl: String?) {}
+
+  override fun onDownloadRequested(
+    url: String?,
+    suggestedFilename: String?,
+    mimeType: String?,
+    contentLength: Long,
+    contentDisposition: String?,
+    userAgent: String?
+  ) {
   }
 
-  private fun backToPreviousScreen() {
-    findNavController().popBackStack()
+  override fun onExternalPageRequest(url: String?) {}
+
+  override fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?) {
+    super.onActivityResult(requestCode, resultCode, intent)
+    binding.webview.onActivityResult(requestCode, resultCode, intent)
+  }
+
+  @SuppressLint("NewApi")
+  override fun onResume() {
+    super.onResume()
+    binding.webview.onResume()
+  }
+
+  @SuppressLint("NewApi")
+  override fun onPause() {
+    binding.webview.onPause()
+    super.onPause()
+  }
+
+  override fun onDestroy() {
+    binding.webview.onDestroy()
+    super.onDestroy()
   }
 }

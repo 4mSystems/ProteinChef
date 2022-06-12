@@ -63,3 +63,6 @@
       private java.lang.Object value_;
       private int valueCase_;
  }
+
+ -keep class * extends android.webkit.WebChromeClient { *; }
+ -dontwarn im.delight.android.webview.**

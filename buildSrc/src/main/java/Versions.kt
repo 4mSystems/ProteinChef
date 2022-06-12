@@ -70,4 +70,5 @@ object Versions {
 
   //smarteist
   const val smarteist = "1.4.0"
+  const val AdvancedWebView = "v3.2.1"
 }

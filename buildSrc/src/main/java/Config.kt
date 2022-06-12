@@ -46,7 +46,7 @@ object Config {
     const val roomDb = "\"protein_db\""
     const val server_client_id =
       "\"654641907466-q9fljq7lumaci6cf0nilsp3d03m23osq.apps.googleusercontent.com\""
-    const val debugBaseUrl = "\"https://protein-chef.net/api/\""
+    const val debugBaseUrl = "\"http://protein-chef.net/api/\""
     const val releaseBaseUrl = "\"http://protein-chef.net/api/\""
   }
 }

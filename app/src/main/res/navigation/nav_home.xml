@@ -107,6 +107,13 @@
       app:exitAnim="@anim/anim_slide_out_left"
       app:popEnterAnim="@anim/anim_slide_in_left"
       app:popExitAnim="@anim/anim_slide_out_right" />
+    <action
+      android:id="@+id/action_moreFragment_to_webViewFragment"
+      app:destination="@id/webViewFragment"
+      app:enterAnim="@anim/anim_slide_in_right"
+      app:exitAnim="@anim/anim_slide_out_left"
+      app:popEnterAnim="@anim/anim_slide_in_left"
+      app:popExitAnim="@anim/anim_slide_out_right" />
   </fragment>
   <fragment
     android:id="@+id/aboutFragment"
@@ -117,7 +124,8 @@
   <fragment
     android:id="@+id/contact_fragment"
     android:name="app.te.protein_chef.presentation.contactUs.ContactUsFragment"
-    android:label="@string/contact_us">
+    android:label="@string/contact_us"
+    tools:layout="@layout/fragment_contact_us">
     <argument
       android:name="type"
       android:defaultValue="contact_us"
@@ -509,6 +517,11 @@
       app:argType="integer" />
 
   </fragment>
+  <fragment
+    android:id="@+id/webViewFragment"
+    android:name="app.te.protein_chef.presentation.shared.web_view.WebViewFragment"
+    android:label="@string/support"
+    tools:layout="@layout/fragment_web_view" />
 
 
 </navigation>
