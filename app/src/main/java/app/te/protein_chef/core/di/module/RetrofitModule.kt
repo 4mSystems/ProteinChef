@@ -20,6 +20,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.*
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -51,7 +52,7 @@ object RetrofitModule {
         chain.request().newBuilder()
           .addHeader("Authorization", "Bearer $userToken")
           .addHeader("Accept", "application/json")
-          .addHeader("lang", "ar")
+          .addHeader("lang", Locale.getDefault().language)
           .build()
       )
     }
