@@ -6,6 +6,7 @@ import app.te.protein_chef.BuildConfig
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import app.te.protein_chef.data.local.preferences.AppPreferences
+import app.te.protein_chef.data.remote.Keys
 import com.chuckerteam.chucker.api.ChuckerCollector
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import dagger.Module
@@ -111,6 +112,6 @@ object RetrofitModule {
   fun provideRetrofit(gson: Gson, okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
     .client(okHttpClient)
     .addConverterFactory(GsonConverterFactory.create(gson))
-    .baseUrl(BuildConfig.API_BASE_URL)
+    .baseUrl(if (BuildConfig.DEBUG) Keys.debugBaseUrl() else Keys.releaseBaseUrl())
     .build()
 }

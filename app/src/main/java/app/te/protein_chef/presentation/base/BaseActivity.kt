@@ -1,8 +1,12 @@
 package app.te.protein_chef.presentation.base
 
 import android.content.Context
+import android.content.pm.ActivityInfo
+import android.content.pm.ApplicationInfo
+import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.os.Bundle
+import android.util.Log
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -13,7 +17,7 @@ import app.te.protein_chef.presentation.base.extensions.adjustFontScale
 import com.zeugmasolutions.localehelper.LocaleHelper
 import com.zeugmasolutions.localehelper.LocaleHelperActivityDelegate
 import com.zeugmasolutions.localehelper.LocaleHelperActivityDelegateImpl
-import java.util.Locale
+import java.util.*
 
 abstract class BaseActivity<VB : ViewDataBinding> : AppCompatActivity() {
   private val localeDelegate: LocaleHelperActivityDelegate = LocaleHelperActivityDelegateImpl()
@@ -46,6 +50,7 @@ abstract class BaseActivity<VB : ViewDataBinding> : AppCompatActivity() {
   override
   fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
+    appInfo()
     adjustFontScale()
     initViewBinding()
     setContentView(binding.root)
@@ -55,6 +60,26 @@ abstract class BaseActivity<VB : ViewDataBinding> : AppCompatActivity() {
       setUpNavigationDrawer()
     }
     setUpViews()
+
+  }
+
+  fun appInfo() {
+    val ai: ApplicationInfo =
+      packageManager.getApplicationInfo(this.packageName, PackageManager.GET_META_DATA)
+    try {
+//      val ai: ActivityInfo =
+//        packageManager.getActivityInfo(this.componentName, PackageManager.GET_META_DATA)
+      val bundle = ai.metaData
+      if (bundle != null) {
+        val apiKey = bundle.getString("com.google.android.geo.API_KEY")
+        Log.e(this.javaClass.simpleName, "apiKey = $apiKey")
+
+      }
+    } catch (e: PackageManager.NameNotFoundException) {
+
+    } catch (e: NullPointerException) {
+
+    }
   }
 
   override

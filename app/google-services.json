@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "654641907466",
+    "project_id": "protien-chef",
+    "storage_bucket": "protien-chef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:654641907466:android:a3e75034ffa964ae6ddcf3",
+        "android_client_info": {
+          "package_name": "app.te.protein_chef"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "654641907466-5svmpllvse1au0u5a0rpq9jqbmrer0i9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.te.protein_chef",
+            "certificate_hash": "f5f2138766dc16f5b43910122f3635287ca15bce"
+          }
+        },
+        {
+          "client_id": "654641907466-j7bho4f5q64cip48lp5bvq6nbej17e7t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnQROUDj5XWFJH9vf0S6I6eg1tHb4nZpw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "654641907466-j7bho4f5q64cip48lp5bvq6nbej17e7t.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "654641907466-5gg38n847b430ebp0q0fs1s6n2fag3vk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.tes.Protein-Chef"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

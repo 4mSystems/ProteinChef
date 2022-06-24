@@ -19,6 +19,7 @@
     android:requestLegacyExternalStorage="true"
     android:roundIcon="${appRoundIcon}"
     android:supportsRtl="true"
+    android:usesCleartextTraffic="false"
     android:theme="@style/Theme.AppTheme"
     tools:replace="android:allowBackup"
     tools:targetApi="n">

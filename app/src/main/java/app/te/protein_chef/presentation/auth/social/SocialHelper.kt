@@ -7,8 +7,7 @@ import android.content.IntentSender
 import android.util.Log
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.IntentSenderRequest
-import app.te.protein_chef.BuildConfig
-import app.te.protein_chef.domain.auth.entity.request.RegisterRequest
+import app.te.protein_chef.data.remote.Keys
 import app.te.protein_chef.domain.profile.entity.UpdateProfileRequest
 import app.te.protein_chef.presentation.base.utils.showNoApiErrorAlert
 import com.facebook.AccessToken
@@ -45,7 +44,7 @@ class SocialHelper {
         BeginSignInRequest.GoogleIdTokenRequestOptions.builder()
           .setSupported(true)
           // Your server's client ID, not your Android client ID.
-          .setServerClientId(BuildConfig.SERVER_CLIENT_ID)
+          .setServerClientId(Keys.serverClientId())
           // Show all accounts on the device.
           .setFilterByAuthorizedAccounts(false)
           .build()
@@ -57,7 +56,7 @@ class SocialHelper {
         BeginSignInRequest.GoogleIdTokenRequestOptions.builder()
           .setSupported(true)
           // Your server's client ID, not your Android client ID.
-          .setServerClientId(BuildConfig.SERVER_CLIENT_ID)
+          .setServerClientId(Keys.serverClientId())
           // Show all accounts on the device.
           .setFilterByAuthorizedAccounts(false)
           .build()

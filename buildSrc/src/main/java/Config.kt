@@ -5,8 +5,9 @@ object Config {
     const val minSdkVersion = 23
     const val versionCode = 1
     const val versionCodeTest = 103
-    const val versionName = "1"
+    const val versionName = "24-06-2022"
     const val testRunner = "androidx.test.runner.AndroidJUnitRunner"
+    const val android_ndk_build_path="src/main/jni/Android.mk"
   }
 
   object Dependencies {

@@ -1,3 +1,4 @@
+import Config.Modules.data
 import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 import com.google.protobuf.gradle.*
 
@@ -38,7 +39,7 @@ android {
     applicationId = Config.AppConfig.appId
     minSdk = Config.AppConfig.minSdkVersion
     targetSdk = Config.AppConfig.compileSdkVersion
-    versionCode = Config.AppConfig.versionCodeTest
+    versionCode = Config.AppConfig.versionCode
     versionName = Config.AppConfig.versionName
     vectorDrawables.useSupportLibrary = true
     multiDexEnabled = true
@@ -51,7 +52,6 @@ android {
       manifestPlaceholders["appName"] = "@string/app_name_debug"
       manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher_release"
       manifestPlaceholders["appRoundIcon"] = "@mipmap/ic_launcher_release_round"
-      buildConfigField("String", "API_BASE_URL", Config.Environments.debugBaseUrl)
       buildConfigField("String", "ROOM_DB", Config.Environments.roomDb)
     }
 
@@ -69,17 +69,15 @@ android {
 
       isMinifyEnabled = true
       isShrinkResources = true
-      isDebuggable = true
       manifestPlaceholders["appName"] = "@string/app_name"
       manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher_release"
       manifestPlaceholders["appRoundIcon"] = "@mipmap/ic_launcher_release_round"
-
-      buildConfigField("String", "API_BASE_URL", Config.Environments.releaseBaseUrl)
       buildConfigField("String", "ROOM_DB", Config.Environments.roomDb)
     }
     buildTypes.all {
       proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
-      buildConfigField("String", "SERVER_CLIENT_ID", Config.Environments.server_client_id)
+
+//      buildConfigField("String", "MAPS_API_KEY", KeysToSave.mapKey())
     }
   }
 
@@ -104,6 +102,16 @@ android {
   }
   buildFeatures {
     viewBinding = true
+  }
+  externalNativeBuild {
+//    ndkBuild {
+//      path = file(Config.AppConfig.android_ndk_build_path) //path of Android.mk file
+//
+//    }
+//
+    cmake {
+      path = file("CMakeLists.txt")
+    }
   }
 }
 
@@ -190,3 +198,4 @@ dependencies {
   implementation(project(Config.Modules.prettyPopUp))
 
 }
+
